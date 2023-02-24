@@ -1,0 +1,79 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="breadcrumb-section breadcrumb-bg" >
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Marhbe bik</p>
+						<h1>Register</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    <section class="login spad" style="background-image: url('front-office/assets/img/logininterface.jpg');" style="background-size:cover;">
+            <div class="container" style="background-color: transparent;">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="login__form">
+                            <h3>Register</h3>
+                            {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
+                                {{ form_label(registrationForm.email, '', {'label_attr': {'class': 'sr-only'}}) }} 
+                                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control','placeholder': 'Email'}}) }}<br>
+                                {% if form_errors(registrationForm.email) %}
+                                    <div class="alert alert-danger">{{ form_errors(registrationForm.email) }}</div><br>
+                                {% endif %}
+                                {{ form_label(registrationForm.nom, 'Nom', {'label_attr': {'class': 'sr-only'}}) }}
+                                {{ form_widget(registrationForm.nom, {'attr': {'class': 'form-control','placeholder': 'Nom'}}) }}<br>
+                                {% if form_errors(registrationForm.nom) %}
+                                    <div class="alert alert-danger">{{ form_errors(registrationForm.nom) }}</div><br>
+                                {% endif %}
+                                {{ form_label(registrationForm.prenom, 'Prenom', {'label_attr': {'class': 'sr-only'}}) }}
+                                {{ form_widget(registrationForm.prenom, {'attr': {'class': 'form-control','placeholder': 'Prenom'}}) }}<br>
+                                {% if form_errors(registrationForm.prenom) %}
+                                    <div class="alert alert-danger">{{ form_errors(registrationForm.prenom) }}</div><br>
+                                {% endif %}
+                                <h3>{{ form_row(registrationForm.isCoach) }}</h3><br>
+                                    <div id="coach-fields" style="display: none;">
+                                        {{ form_label(registrationForm.Certificates, 'Coaching certification', {'label_attr': {'style': 'color: white; font-size: 18px;'}}) }}
+                                        {{ form_widget(registrationForm.Certificates, {'attr': {'class': 'form-control','placeholder': 'Coaching certification'}}) }}<br>
+                                        {% if form_errors(registrationForm.Certificates) %}
+                                            <div class="alert alert-danger">{{ form_errors(registrationForm.Certificates) }}</div><br>
+                                        {% endif %}
+                                        {{ form_label(registrationForm.specialite, 'Coaching specialite', {'label_attr': {'class': 'sr-only'}}) }}
+                                        {{ form_widget(registrationForm.specialite, {'attr': {'class': 'form-control','placeholder': 'Coaching specialite'}}) }}<br>
+                                        {% if form_errors(registrationForm.specialite) %}
+                                            <div class="alert alert-danger">{{ form_errors(registrationForm.specialite) }}</div><br>
+                                        {% endif %}
+                                        {{ form_label(registrationForm.experiance, 'Coaching experiance', {'label_attr': {'class': 'sr-only'}}) }}
+                                        {{ form_widget(registrationForm.experiance, {'attr': {'class': 'form-control','placeholder': 'Coaching experiance'}}) }}<br>
+                                        {% if form_errors(registrationForm.experiance) %}
+                                            <div class="alert alert-danger">{{ form_errors(registrationForm.experiance) }}</div><br>
+                                        {% endif %}
+                                        {{ form_label(registrationForm.description, 'Coaching description', {'label_attr': {'class': 'sr-only'}}) }}
+                                        {{ form_widget(registrationForm.description, {'attr': {'class': 'form-control','placeholder': 'Coaching description'}}) }}<br>
+                                        {% if form_errors(registrationForm.description) %}
+                                            <div class="alert alert-danger">{{ form_errors(registrationForm.description) }}</div><br>
+                                        {% endif %}
+                                    </div>
+                                {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'sr-only'}}) }}
+                                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control','placeholder': 'Password'}}) }}<br>
+                                {% if form_errors(registrationForm.plainPassword) %}
+                                    <div class="alert alert-danger">{{ form_errors(registrationForm.plainPassword) }}</div><br>
+                                {% endif %}
+                                {#{ form_row(registrationForm.agreeTerms) }#}
+
+                                <button type="submit" class="site-btn">Register</button>
+                            {{ form_end(registrationForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    
+{% endblock %}

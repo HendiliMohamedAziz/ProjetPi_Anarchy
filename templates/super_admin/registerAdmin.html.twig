@@ -1,0 +1,36 @@
+{% extends 'base-back.html.twig' %}
+
+{% block PageTitle %}
+    Interface Admin Coachs       
+{% endblock %}
+{% block body %}
+    {{ form_start(registrationAdminForm, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_label(registrationAdminForm.email, '', {'label_attr': {'class': ''}}) }} 
+        {{ form_widget(registrationAdminForm.email, {'attr': {'class': 'form-control','placeholder': 'Email'}}) }}<br>
+        {% if form_errors(registrationAdminForm.email) %}
+            <div class="alert alert-danger">{{ form_errors(registrationAdminForm.email) }}</div><br>
+        {% endif %}
+        {{ form_label(registrationAdminForm.nom, 'Nom', {'label_attr': {'class': ''}}) }}
+        {{ form_widget(registrationAdminForm.nom, {'attr': {'class': 'form-control','placeholder': 'Nom'}}) }}<br>
+        {% if form_errors(registrationAdminForm.nom) %}
+            <div class="alert alert-danger">{{ form_errors(registrationAdminForm.nom) }}</div><br>
+        {% endif %}
+        {{ form_label(registrationAdminForm.prenom, 'Prenom', {'label_attr': {'class': ''}}) }}
+        {{ form_widget(registrationAdminForm.prenom, {'attr': {'class': 'form-control','placeholder': 'Prenom'}}) }}<br>
+        {% if form_errors(registrationAdminForm.prenom) %}
+            <div class="alert alert-danger">{{ form_errors(registrationAdminForm.prenom) }}</div><br>
+        {% endif %}
+        {{ form_label(registrationAdminForm.roles, 'Prenom', {'label_attr': {'class': ''}}) }}
+        {{ form_widget(registrationAdminForm.roles, {'attr': {'class': 'form-control','placeholder': 'Prenom'}}) }}<br>
+        {% if form_errors(registrationAdminForm.roles) %}
+            <div class="alert alert-danger">{{ form_errors(registrationAdminForm.prenom) }}</div><br>
+        {% endif %}
+        {{ form_label(registrationAdminForm.plainPassword, 'Password', {'label_attr': {'class': ''}}) }}
+        {{ form_widget(registrationAdminForm.plainPassword, {'attr': {'class': 'form-control','placeholder': 'Password'}}) }}<br>
+        {% if form_errors(registrationAdminForm.plainPassword) %}
+            <div class="alert alert-danger">{{ form_errors(registrationAdminForm.plainPassword) }}</div><br>
+        {% endif %}
+
+        <button type="submit" class="site-btn">Register</button>
+    {{ form_end(registrationAdminForm) }}
+{% endblock %}

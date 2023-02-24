@@ -6,10 +6,14 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -18,6 +22,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Assert\Email(message:"email '{{ value }}' n'est pas valide")]
+    #[Assert\NotBlank(message:"Champ vide")]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -30,9 +36,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Regex(pattern:"/^[A-Za-z\s]+$/", message: "The family name '{{ value }}' contains invalid characters. Only letters and spaces are allowed.")]
+    #[Assert\NotBlank(message:"Champ vide")]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Regex(pattern:"/^[A-Za-z\s]+$/", message: "The name '{{ value }}' contains invalid characters. Only letters and spaces are allowed.")]
+    #[Assert\NotBlank(message:"Champ vide")]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -46,6 +56,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToMany(mappedBy: 'id_user', targetEntity: Participation::class)]
     private Collection $participations;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Certificates = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $specialite = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $experiance = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\Column(nullable: false)]
+    private ?bool $isCoach = null;
+
+    #[ORM\Column]
+    private ?bool $approved = null;
 
     
     public function __construct()
@@ -261,6 +289,78 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $participation->setIdUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCertificates(): ?string
+    {
+        return $this->Certificates;
+    }
+
+    public function setCertificates(?string $Certificates): self
+    {
+        $this->Certificates = $Certificates;
+
+        return $this;
+    }
+
+    public function getSpecialite(): ?string
+    {
+        return $this->specialite;
+    }
+
+    public function setSpecialite(?string $specialite): self
+    {
+        $this->specialite = $specialite;
+
+        return $this;
+    }
+
+    public function getExperiance(): ?string
+    {
+        return $this->experiance;
+    }
+
+    public function setExperiance(?string $experiance): self
+    {
+        $this->experiance = $experiance;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getIsCoach(): ?bool
+    {
+        return $this->isCoach;
+    }
+
+    public function setIsCoach(bool $isCoach): self
+    {
+        $this->isCoach = $isCoach;
+
+        return $this;
+    }
+
+    public function isApproved(): ?bool
+    {
+        return $this->approved;
+    }
+
+    public function setApproved(bool $approved): self
+    {
+        $this->approved = $approved;
 
         return $this;
     }

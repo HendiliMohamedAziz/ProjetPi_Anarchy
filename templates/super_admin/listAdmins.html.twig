@@ -1,0 +1,52 @@
+{% extends 'base-back.html.twig' %}
+
+{% block PageTitle %}
+    Interface Super Admin        
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+{% endblock %}
+        
+{% block body %}
+    
+    <h1>List of Admins</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 5%">ID</th>
+                <th style="width: 15%">Email</th>
+                <th style="width: 10%">Name</th>
+                <th style="width: 15%">Role</th>
+                <th style="width: 15%">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for admin in admins %}
+                <tr>
+                    <td>{{ admin.id }}</td>
+                    <td>{{ admin.email }}</td>
+                    <td>{{ admin.nom }} {{ admin.prenom }}</td>
+                    <td>{{ admin.roles[0] }}</td>
+                    <td>
+                        {#<a href="{{ path('admin_coach_approve', { 'id': coach.id }) }}">Approve</a>#}
+                        <a href= "{{ path('remove_admins',{'id':admin.id}) }}"><i class="fas fa-trash text-danger"></i></a>&nbsp;&nbsp;&nbsp;
+                        <a href= "{{ path('edit_admins',{'id':admin.id}) }}"><i class="fas fa-edit text-danger"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
