@@ -53,6 +53,7 @@ security:
         - { path: ^/test, roles: [ROLE_COACH, ROLE_CLIENT] }
         - { path: ^/super/admin, roles: [ROLE_SUPER_ADMIN] }
         - { path: ^/admin/coaches, roles: [ROLE_ADMIN_COACH] }
+        - { path: ^/admin/clubOwner, roles: [ROLE_ADMIN_CLUBOWNER] }
 
 
 when@test:

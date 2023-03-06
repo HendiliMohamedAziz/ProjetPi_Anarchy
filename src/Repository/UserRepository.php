@@ -96,4 +96,12 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getQuery()
             ->getResult();
     }
+
+    public function findClubOwner(){
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.roles LIKE :roles')
+            ->setParameter('roles', '%ROLE_CLUBOWNER%')
+            ->getQuery()
+            ->getResult();
+    }
 }

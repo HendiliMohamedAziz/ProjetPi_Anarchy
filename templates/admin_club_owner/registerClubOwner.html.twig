@@ -1,0 +1,31 @@
+{% extends 'base-back.html.twig' %}
+
+{% block PageTitle %}
+    Interface Add Club Owner       
+{% endblock %}
+{% block body %}
+    {{ form_start(registrationClubOwnerForm, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_label(registrationClubOwnerForm.email, '', {'label_attr': {'class': ''}}) }} 
+        {{ form_widget(registrationClubOwnerForm.email, {'attr': {'class': 'form-control','placeholder': 'Email'}}) }}<br>
+        {% if form_errors(registrationClubOwnerForm.email) %}
+            <div class="alert alert-danger">{{ form_errors(registrationClubOwnerForm.email) }}</div><br>
+        {% endif %}
+        {{ form_label(registrationClubOwnerForm.nom, 'Nom', {'label_attr': {'class': ''}}) }}
+        {{ form_widget(registrationClubOwnerForm.nom, {'attr': {'class': 'form-control','placeholder': 'Nom'}}) }}<br>
+        {% if form_errors(registrationClubOwnerForm.nom) %}
+            <div class="alert alert-danger">{{ form_errors(registrationClubOwnerForm.nom) }}</div><br>
+        {% endif %}
+        {{ form_label(registrationClubOwnerForm.prenom, 'Prenom', {'label_attr': {'class': ''}}) }}
+        {{ form_widget(registrationClubOwnerForm.prenom, {'attr': {'class': 'form-control','placeholder': 'Prenom'}}) }}<br>
+        {% if form_errors(registrationClubOwnerForm.prenom) %}
+            <div class="alert alert-danger">{{ form_errors(registrationClubOwnerForm.prenom) }}</div><br>
+        {% endif %}
+        {{ form_label(registrationClubOwnerForm.plainPassword, 'Password', {'label_attr': {'class': ''}}) }}
+        {{ form_widget(registrationClubOwnerForm.plainPassword, {'attr': {'class': 'form-control','placeholder': 'Password'}}) }}<br>
+        {% if form_errors(registrationClubOwnerForm.plainPassword) %}
+            <div class="alert alert-danger">{{ form_errors(registrationClubOwnerForm.plainPassword) }}</div><br>
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    {{ form_end(registrationClubOwnerForm) }}
+{% endblock %}

@@ -58,6 +58,12 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
         if (in_array('ROLE_ADMIN_COACH', $user->getRoles())) {
             return new RedirectResponse($this->urlGenerator->generate('app_admin_coachs'));
         }
+        if (in_array('ROLE_ADMIN_CLUBOWNER', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_admin_ListClubOwner'));
+        }
+        if (in_array('ROLE_COACH_UNAPPROVED', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_coach'));
+        }
 
         return new RedirectResponse($this->urlGenerator->generate('app_test'));
         // For example:

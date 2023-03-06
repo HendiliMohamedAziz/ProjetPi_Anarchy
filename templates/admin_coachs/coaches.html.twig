@@ -46,7 +46,9 @@
                     <td>{{ coach.experiance }}</td>
                     <td>{{ coach.description }}</td>
                     <td>
+                    {% if not coach.approved %}
                         <a href="{{ path('admin_coach_approve', { 'id': coach.id }) }}">Approve</a>
+                    {% endif %}
                         <a href= "{{ path('remove_coach',{'id':coach.id}) }}"><i class="fas fa-trash text-danger"></i></a>
                     </td>
                 </tr>
