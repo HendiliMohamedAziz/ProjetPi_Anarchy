@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="FTJcoD7" resname="List Coaches">
+        <source>List Coaches</source>
+        <target>Liste des entraineurs</target>
+      </trans-unit>
+      <trans-unit id="ry.AJvG" resname="Reserve now">
+        <source>Reserve now</source>
+        <target>Réserver</target>
+      </trans-unit>
+      <trans-unit id="K1w9JnI" resname="Contact">
+        <source>Contact</source>
+        <target>Contacter</target>
+      </trans-unit>
+      <trans-unit id="gPPSukl" resname="Contact the coach">
+        <source>Contact the coach</source>
+        <target>Contacter l'entraineur</target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Maison</target>
+      </trans-unit>
+      <trans-unit id="Tvyg0Qx" resname="About">
+        <source>About</source>
+        <target>À propos</target>
+      </trans-unit>
+      <trans-unit id="uT6sSVp" resname="Coaches">
+        <source>Coaches</source>
+        <target>Entraineurs</target>
+      </trans-unit>
+      <trans-unit id="mDSKkDY" resname="Clubs">
+        <source>Clubs</source>
+        <target>Clubs</target>
+      </trans-unit>
+      <trans-unit id="aZUJvQ4" resname="Our Clubs">
+        <source>Our Clubs</source>
+        <target>Nos Clubs</target>
+      </trans-unit>
+      <trans-unit id="TKQdsCg" resname="Claim">
+        <source>Claim</source>
+        <target>Réclamation</target>
+      </trans-unit>
+      <trans-unit id="0Aqua3_" resname="Shop">
+        <source>Shop</source>
+        <target>Boutique</target>
+      </trans-unit>
+      <trans-unit id="QIEjIvm" resname="Get your training session online with your favorite coach">
+        <source>Get your training session online with your favorite coach</source>
+        <target>Réserver votre séance d'entraînement en ligne avec votre coach préféré</target>
+      </trans-unit>
+      <trans-unit id="pqS_7ox" resname="Rserve">
+        <source>Rserve</source>
+        <target>Réserver</target>
+      </trans-unit>
+      <trans-unit id="kJy4ESf" resname="Book">
+        <source>Book</source>
+        <target>Réserver</target>
+      </trans-unit>
+      <trans-unit id="ouer2EY" resname="like(s)">
+        <source>like(s)</source>
+        <target>J'aime(s)</target>
+      </trans-unit>
+      <trans-unit id="TG_HMGF" resname="To Book">
+        <source>To Book</source>
+        <target>__To Book</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
