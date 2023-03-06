@@ -43,29 +43,25 @@
 		<div class="modal-header">{% trans %}Contact the coach{% endtrans %}</div>
 		<div class="divider">
 
-			{{ form_start(form) }}<div class="modal-content">
-				{{ form_label(form.title) }}
-				{{ form_label(form.email) }}
-				{{ form_label(form.message) }}
-			</div>
+			{{ form_start(form) }}
+
 			{{ form_end(form) }}
+
 
 			<script>
 				window.onload = () => {
 document.querySelector("#reservation_contact_title").value = "{{ c.getNom()|raw }}{{ c.getPrenom()|raw }}";
 }
 			</script>
-
 		</div>
-
 	{% endfor %}
 {% endblock %}
 {% block javascripts %}
-	<script>
+	<script script>
 		let caroulix = new Caroulix('#carousel');
 let modal = new Modal('#modal-contact');
 	</script>
 	<script src="{{ asset('ckeditor5/ckeditor.js') }}"></script>
 	<script src="{{ asset('js/ckeditor.js') }}"></script>
-
 {% endblock %}
+{% block footer %}{% endblock %}

@@ -58,19 +58,19 @@ class SeanceController extends AbstractController
     public function listCoach(UserRepository $repository,Request $request,TransportInterface $mailer,ManagerRegistry $doctrine)
     {
         $coach = $repository->findAll();
-        
+        $user=new User();
         $form = $this->createForm(ReservationContactType::class);
         $contact = $form->handleRequest($request);
     
         
         if($form->isSubmitted() && $form->isValid()){
-            $user=$this->getDoctrine()->getRepository(User::class)->find(2);
-     
-            $emailUser=$user->getEmail();
+           $useremail=$form->get('email')->getData();
+            
+           $user->setEmail($useremail);
             
             $email= (new TemplatedEmail())
             ->from($contact->get('email')->getData())
-            ->to($emailUser)
+            ->to($user->getEmail())
             ->subject('Contact au sujet du séance de coaching')
             ->htmlTemplate('emails/contact_coach.html.twig')
             ->context([
@@ -78,7 +78,7 @@ class SeanceController extends AbstractController
                 'mail'=> $contact->get('email')->getData(),
                 'message'=> $contact->get('message')->getData()
             ]);
-           
+          
             $mailer->Send($email);
             $this->addFlash('message', 'Votre e-mail a bien été envoyé');
             return $this->redirectToRoute('list_coach');
