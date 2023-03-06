@@ -1,0 +1,91 @@
+{% extends 'base-back.html.twig' %}
+
+{% block PageTitle %}
+	List Commande
+{% endblock %}
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico &display=swap');
+        .action-button {
+            padding: 2px;
+            margin-left: 80%;
+            border-radius: 10px;
+            font-family: 'Pacifico', cursive;
+            font-size: 17px;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #F1C40F;
+            border-bottom: 5px solid #F1C40F;
+
+            transition: all 0.1s;
+            -webkit-transition: all 0.1s;
+        }
+        .action-button:active {
+            transform: translate(0px, 5px);
+            -webkit-transform: translate(0px, 5px);
+
+        }
+    </style>
+{% endblock %}
+{% block body %}
+
+<table border="1" cellpadding="10">
+  <tr>
+    <th style="background-color: #808080; color: white;">Id</th>
+    <th style="background-color: #808080; color: white;">Montant</th>
+    <th style="background-color: #808080; color: white;">Date </th>
+    <th style="background-color: #808080; color: white;">ConfirmeParAdmin </th>
+    <th style="background-color: #808080; color: white;">NomClient</th>
+    <th style="background-color: #808080; color: white;">Action </th>
+    <th style="background-color: #808080; color: white;">SeeMore</th>
+
+
+
+</tr>
+<tr>
+{% for l in  tabcommande %}
+
+<td>  {{ l.id }} </td>
+<td> {{ l.montant }}DT </td>
+<td>{{ l.date |date('d-m-Y ') }}</td>
+{% if l.confirmeadmin == 1  %}
+<td> ConfirméParAdmin </td>
+{% else %}
+  <td> NonConfirméParAdmin </td>
+{% endif %}
+<td>  {{ l.idAddress.nom }} </td>
+
+<td>
+<a href="{{ path('update',{'id':l.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i> </a> 
+    <a   data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Voulez-vous vraiment supprimer cette séance ?
+                                </div>
+                                <div class="modal-footer">
+                                    <a style="color: #D68910;" href="{{ path('list_commande', { id: l.id()}) }}">Annuler</a>
+                                    <a style="color: #D68910;" href="{{ path('remove',{'id':l.id}) }}">Supprimer</a>
+
+                                </div>
+                            </div>
+                        </div>
+</td>
+
+<td><a href="{{ path('FindPanier',{'id':l.id}) }}">SeeMore</a> 
+</tr>
+</td>
+{% endfor %}
+<td><a href="{{ path('users_data_download') }}" class="btn btn-primary ">Generer PDF</a></td>
+
+</table>
+
+{% endblock %}
+ 

@@ -1,0 +1,102 @@
+{% extends 'base-front.html.twig' %}
+{% block body  %} 	
+<div class="breadcrumb-section breadcrumb-bg" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>Join Bour la forme to make your life easier</p>
+                        <h1><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <div class="container">  
+        <div class="row justify-content-center">  
+            <div class="col-11 col-sm-9 col-md-7  
+                col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">  
+                <div class="px-0 pt-4 pb-0 mt-3 mb-3">  
+                    <form id="form">  
+                    <ul id="progressbar">  
+                    <li class="active" id="step1">  
+                    <strong> Review Order </strong>  
+                    </li>  
+                    <li id="step2"> <strong> Adress </strong> </li>  
+                    <li id="step3"> <strong> Payment </strong> </li>  
+                    <li id="step4"> <strong> Place Order </strong> </li>  
+                        </ul>  
+                    </form>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+<!-- cart -->
+	<div class="cart-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-12">
+                {% if items|length == 0 %}
+                    <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                   
+                        <div class="col">
+                            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                            <h4>Votre panier est vide!</h4>
+                            <h4>Parcourez nos catégories et découvrez nos meilleures offres! </h4>
+                          <a href="{{ path('product_list')}}" class="boxed-btn">Start Shopping</a>
+
+                     </div>
+                   
+                    </div>
+             </div>
+             {% else %}
+					<div class="cart-table-wrap">
+						<table class="cart-table">
+							<thead class="cart-table-head">
+								<tr class="table-head-row">
+									<th class="product-remove"></th>
+									<th class="product-image">Product Image</th>
+									<th class="product-name">Name</th>
+									<th class="product-price">Price</th>
+									<th class="product-quantity">Quantity</th>
+								</tr>
+							</thead>
+							{% for item in items %}
+								<tr class="table-body-row">
+									<td class="product-remove"><a href="{{ path('panier_remove',{'id' : item.Article.id} ) }}"><i class="far fa-window-close"></i></a></td>
+									<td class="product-image"><img src="{{item.Article.image}}" alt=""></td>
+									<td class="product-name">{{item.Article.nom}}</td>
+									<td class="product-price">{{item.Article.prix}} Dt</td>
+									<td class="product-quantity"><a href="{{path("remove1_panier", {id: item.Article.id})}}" <i class="fa fa-minus-circle" aria-hidden="true"><a class="border">{{item.quantity}}</a><a href="{{path("panier_add", {id: item.Article.id})}}" <i class="fa fa-plus-circle" aria-hidden="true"></i></a></i></a> </td>
+                                       
+								</tr>
+                                {% endfor %}
+
+						</table>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="total-section">
+						<table class="total-table">
+							<thead class="total-table-head">
+								<tr class="table-total-row">
+									<th>Total : </th>
+									<td>{{total}}DT</td>
+                                </tr>
+
+						<div class="cart-buttons">
+							<td><a href="{{ path('product_list')}}" class="boxed-btn">Update Cart</a></td>
+                            <br>
+							<td> <a href="{{ path('add2') }}" class="boxed-btn black">Check Out</a></td>
+						</div>
+                         </table>
+					</div>
+                             {% endif %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end cart -->
+{% endblock %}
