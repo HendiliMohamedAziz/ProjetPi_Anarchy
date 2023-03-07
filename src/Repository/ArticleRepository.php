@@ -5,7 +5,7 @@ namespace App\Repository;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
+use Doctrine\ORM\Tools\Pagination\Paginator;
 /**
  * @extends ServiceEntityRepository<Article>
  *
@@ -38,6 +38,72 @@ class ArticleRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function findProductsPaginated(int $page, int $limit = 6 ,$filter =null ,$value): array
+    {
+        $limit = abs($limit);
+
+        $result = [];
+
+
+        
+        $query = $this->getEntityManager()->createQueryBuilder()
+        ->select('b')
+        ->from('App\Entity\Article', 'b') 
+        ->andWhere('b.etat = :val')
+        ->setParameter('val', $value);
+
+        $query = $this->getEntityManager()->createQueryBuilder()
+            ->select('a')
+            ->from('App\Entity\Article', 'a') ;
+
+            if($filter !=null){
+                $query->andWhere('a.nom LIKE :val OR a.description LIKE :val OR a.prix LIKE :val OR a.etat LIKE :val')
+                ->setParameter('val',  '%'.$filter.'%');
+            }
+
+         
+
+
+
+            $query->setMaxResults($limit)
+            ->setFirstResult(($page * $limit) - $limit);
+
+        $paginator = new Paginator($query);
+        $data = $paginator->getQuery()->getResult();
+        
+        //On vérifie qu'on a des données
+        if(empty($data)){
+            return $result;
+        }
+
+        //On calcule le nombre de pages
+        $pages = ceil($paginator->count() / $limit);
+
+        // On remplit le tableau
+        $result['data'] = $data;
+        $result['pages'] = $pages;
+        $result['page'] = $page;
+        $result['limit'] = $limit;
+
+        return $result;
+    }
+
+ 
+   
+      /**
+      * @return Article[] Returns an array of Article objects
+     */
+
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.etat = :val')
+            ->setParameter('val', $value)
+            ->orderBy('a.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    /**
 //     * @return Article[] Returns an array of Article objects
@@ -63,4 +129,21 @@ class ArticleRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    // aded for filtring 
+   /**
+    * @return Article[] Returns an array of Article objects
+    */
+   public function findByAnyField($value): array
+   {
+       return $this->createQueryBuilder('a')
+           ->andWhere('a.nom LIKE :val OR a.description LIKE :val OR a.prix LIKE :val OR a.etat LIKE :val')
+           ->setParameter('val',  '%'.$value.'%')
+           ->orderBy('a.id', 'ASC')
+           ->setMaxResults(10)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+
 }

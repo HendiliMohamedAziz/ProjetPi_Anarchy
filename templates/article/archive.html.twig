@@ -1,0 +1,17 @@
+
+{% extends 'template.html.twig' %}
+
+{% block body %}
+<a href="{{ path('list_article') }}"class="btn btn-primary ">liste des articles</a><br>
+{% for l in  tabarticle %}
+    <td><img src="{{ asset('uploads/articles/' ~ l.image ) }}" alt="" width="200" height="200"></td>
+    id: {{ l.id }}
+    name: {{ l.nom }}
+    description: {{ l.description }}
+     prix: {{ l.prix }}
+  
+         <a href="{{ path('desarchiver',{'id':l.id}) }}"class="btn btn-primary ">Desarchiver</a>
+
+<br>
+    {% endfor %}
+    {% endblock %}

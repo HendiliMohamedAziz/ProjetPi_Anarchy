@@ -1,0 +1,115 @@
+{% extends 'base-front.html.twig' %}
+
+
+{% block body %}
+<div class="breadcrumb-section breadcrumb-bg" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>le produit selectionné</p>
+                        <h1>{{tabarticle.nom}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<br>
+
+
+
+<a href="{{ path('list_article2') }}" class="cart-btn">retour liste des articles</a><br>
+
+<div class="single-product mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="single-product-img">
+					  <img src="{{ asset('uploads/articles/' ~ tabarticle.image ) }}"><br><br>
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="single-product-content">
+						 <h4>Nom: {{tabarticle.nom}}</h4><br>
+						<p class="single-product-pricing">{{tabarticle.prix}}dt</p>
+					   <h4>Description: {{tabarticle.description}}</h4>
+						<div class="single-product-form">
+							<form action="index.html">
+								<input type="number" placeholder="0">
+							</form>
+							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+							
+						</div>
+						<h4>Share:</h4>
+						<ul class="product-share">
+							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href=""><i class="fab fa-twitter"></i></a></li>
+							<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+   <div class="checkout-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="checkout-accordion-wrap">
+						<div class="accordion" id="accordionExample">
+						  <div class="card single-accordion">
+						    <div class="card-header" id="headingOne">
+						      <h5 class="mb-0">
+ <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						          commenter
+						        </button>
+						      </h5>
+						    </div>
+
+
+ <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+						      <div class="card-body">
+						        <div class="billing-address-form">
+ 
+						   
+         {{ form_start(form,{attr:{novalidate:'novalidate'}})}}
+                    <div class="form-group">
+                      <label>    auteur</label>
+                      
+                    {{ form_widget(form.auteur , {'attr': {'class': 'form-control' , 'placeholder' : 'contenu'}} ) }}
+                         {{ form_errors(form.auteur  ) }}
+                        <label>    Comment</label>
+                        {{ form_widget(form.contenu , {'attr': {'class': 'form-control' , 'placeholder' : 'contenu'}} ) }}
+                         {{ form_errors(form.contenu  ) }}
+                    </div>
+                    {{ form_widget(form.submit , {'attr': {'class': 'btn btn-info'}} ) }}
+
+                {{ form_end(form) }}
+               </div>
+						      </div>
+						    </div>
+						  </div>
+   
+<br><br><br>
+<div class="row product-lists">
+{% for c in tabcommentaires %}
+
+<div class="col-lg-4 col-md-6 text-center strawberry">
+					<div class="single-product-item">
+						<div class="product-image">
+    
+    <td>Date de publication:{{ c.date|date  }}</td>  <br>              
+    <td>auteur: {{ c.auteur }}</td><br>
+   <td>Commentaire: {{ c.contenu }}</td>
+                        
+  </div>
+    </div>
+  </div>              
+ {% endfor %}
+
+   {% endblock %}
+
+

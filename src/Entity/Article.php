@@ -6,25 +6,35 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
+
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+ 
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+ 
+        
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
+    
     private ?string $image = null;
 
     #[ORM\Column]
+    
+
+  
+
     private ?int $prix = null;
 
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Commentaire::class)]
@@ -35,6 +45,9 @@ class Article
 
     #[ORM\ManyToMany(targetEntity: Panier::class, mappedBy: 'idArticle')]
     private Collection $paniers;
+
+    #[ORM\Column(length: 255)]
+    private ?string $etat = null;
 
     public function __construct()
     {
@@ -176,6 +189,18 @@ class Article
         if ($this->paniers->removeElement($panier)) {
             $panier->removeIdArticle($this);
         }
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
 
         return $this;
     }
