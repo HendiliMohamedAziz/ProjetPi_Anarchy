@@ -9,9 +9,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
 use App\Entity\Commentaire;
+use App\Entity\User;
 use App\Form\CommentaireType;
 use App\Form\ArticleType;
-
+use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentaireRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -191,17 +192,17 @@ public function Article2(ArticleRepository $articleRepository,ManagerRegistry $d
     $commentaire=new Commentaire();
     $form= $this->createForm(CommentaireType::class,$commentaire);
     $form->handleRequest($request);
-
-
-    if($form->isSubmitted() && $form->isValid()){
+    $user= $this->getUser();
+    $nom=$user->getNom();
+  
+    if($form->isSubmitted() ){
         $commentaire->setDate(new \DateTime());
+        $commentaire->setAuteur($nom);
+        
         $commentaire->setArticle($article);
+       
         $this->removeBadWords($commentaire);
-
-
-
-
-
+       
         $em= $doctrine->getManager();
         $em->persist($commentaire);
         $em->flush();
