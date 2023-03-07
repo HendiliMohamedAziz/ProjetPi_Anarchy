@@ -46,11 +46,7 @@ class ArticleRepository extends ServiceEntityRepository
 
 
         
-        $query = $this->getEntityManager()->createQueryBuilder()
-        ->select('b')
-        ->from('App\Entity\Article', 'b') 
-        ->andWhere('b.etat = :val')
-        ->setParameter('val', $value);
+     
 
         $query = $this->getEntityManager()->createQueryBuilder()
             ->select('a')

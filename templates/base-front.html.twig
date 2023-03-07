@@ -14,31 +14,28 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
 	<!-- fontawesome -->
-	<link rel="stylesheet" href="front-office/assets/css/all.min.css">
+
+	<link rel="stylesheet" href="{{asset('front-office/assets/css/all.min.css')}}">
 	<!-- bootstrap -->
-	<link rel="stylesheet" href="front-office/assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{asset('front-office/assets/bootstrap/css/bootstrap.min.css')}}">
 	<!-- owl carousel -->
-	<link rel="stylesheet" href="front-office/assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="{{asset('front-office/assets/css/owl.carousel.css')}}">
 	<!-- magnific popup -->
-	<link rel="stylesheet" href="front-office/assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="{{asset('front-office/assets/css/magnific-popup.css')}}">
 	<!-- animate css -->
-	<link rel="stylesheet" href="front-office/assets/css/animate.css">
+	<link rel="stylesheet" href="{{asset('front-office/assets/css/animate.css')}}">
 	<!-- mean menu css -->
-	<link rel="stylesheet" href="front-office/assets/css/meanmenu.min.css">
+	<link rel="stylesheet" href="{{asset('front-office/assets/css/meanmenu.min.css')}}">
 	<!-- main style -->
-	<link rel="stylesheet" href="front-office/assets/css/main.css">
+	<link rel="stylesheet" href="{{asset('front-office/assets/css/main.css')}}">
 	<!-- responsive -->
-	<link rel="stylesheet" href="front-office/assets/css/responsive.css">
+	<link rel="stylesheet" href="{{asset('front-office/assets/css/responsive.css')}}">
 
 </head>
 <body>
 	{% block header %}
 	<!--PreLoader-->
-    <div class="loader">
-        <div class="loader-inner">
-            <div class="circle"></div>
-        </div>
-    </div>
+   
     <!--PreLoader Ends-->
 	
 	<!-- header -->
@@ -49,33 +46,28 @@
 					<div class="main-menu-wrap">
 						<!-- logo -->
 						<div class="site-logo">
-								<img src="front-office/assets/img/logoo.png" alt="" width="150" height="150">
+
+								<img src="{{ asset('front-office/assets/img/logoo.png') }}" alt="" width="150" height="150">
 						</div>
 						<!-- logo -->
 
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="{{ path('app_test')}}">Home</a></li>
-								<li><a href="{{ path('about_us')}}">About</a></li>
+								<li class="current-list-item"><a href="#">Home</a></li>
+								<li><a href="#">About</a></li>
 								<li><a href="#">Coachs</a></li>
 								<li><a href="#">Clubs</a>
 									<ul class="sub-menu">
 										<li><a href="#">mes clubs</a></li>
 									</ul>
 								</li>
-								<li><a>Reclamation</a>
-									<ul class="sub-menu">
-										<li><a href="#">reclamation coach</a></li>
-										<li><a href="#">reclamation club</a></li>
-										<li><a href="#">reclamation produit</a></li>
-									</ul>
-								</li>
+								<li><a href="#">Reclamation</a></li>
 								<li><a href="#">Shop</a></li>
 								<li>
 									<div class="header-icons">
 										<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
-										<a class="mobile-hide search-bar-icon" href="{{ path('app_login')}}"><i class="fas fa-user"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-user"></i></a>
 									</div>
 								</li>
 							</ul>
@@ -214,7 +206,8 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img src="front-office/assets/img/products/product-img-1.jpg" alt=""></a>
+							<a href="single-product.html">
+							<img src="front-office/assets/img/products/product-img-1.jpg" alt=""></a>
 						</div>
 						<h3>Strawberry</h3>
 						<p class="product-price"><span>Per Kg</span> 85$ </p>
@@ -245,6 +238,7 @@
 		</div>
 	</div>
 	<!-- end product section -->
+	<!-- end product section -->
 
 	<!-- cart banner section -->
 	<section class="cart-banner pt-100 pb-100">
@@ -260,7 +254,8 @@
                                 </span>
                             </div>
                         </div>
-                    	<img src="front-office/assets/img/a.jpg" alt="">
+						
+                    	<img src="{{ asset('front-office/assets/img/a.jpg') }}" alt="">
                     </div>
                 </div>
                 <!--Content Column-->
@@ -285,7 +280,8 @@
 					<div class="testimonial-sliders">
 						<div class="single-testimonial-slider">
 							<div class="client-avater">
-								<img src="front-office/assets/img/avaters/avatar1.png" alt="">
+								
+								<img src="{{ asset('front-office/assets/img/avaters/avatar1.png') }}" alt="">
 							</div>
 							<div class="client-meta">
 								<h3>Saira Hakim <span>Local shop owner</span></h3>
@@ -299,7 +295,8 @@
 						</div>
 						<div class="single-testimonial-slider">
 							<div class="client-avater">
-								<img src="front-office/assets/img/avaters/avatar2.png" alt="">
+							
+								<img src="{{ asset('front-office/assets/img/avaters/avatar2.png') }}" alt="">
 							</div>
 							<div class="client-meta">
 								<h3>David Niph <span>Local shop owner</span></h3>
@@ -313,7 +310,8 @@
 						</div>
 						<div class="single-testimonial-slider">
 							<div class="client-avater">
-								<img src="front-office/assets/img/avaters/avatar3.png" alt="">
+							
+								<img src="{{ asset('front-office/assets/img/avaters/avatar3.png') }}" alt="">
 							</div>
 							<div class="client-meta">
 								<h3>Jacob Sikim <span>Local shop owner</span></h3>
@@ -429,28 +427,93 @@
 			</div>
 		</div>
 	</div>
+	<!-- latest news -->
+	<div class="latest-news pt-150 pb-150">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">	
+						<h3><span class="orange-text">Our</span> News</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+							</p>
+							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
+							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+							</p>
+							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
+							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+							</p>
+							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
+							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<a href="news.html" class="boxed-btn">More News</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- end latest news -->
 
 	<!-- logo carousel -->
 	<div class="logo-carousel-section">
 		<div class="container">
-			<div class="row">
+		<div class="row">
 				<div class="col-lg-12">
 					<div class="logo-carousel-inner">
 						<div class="single-logo-item">
-							<img src="front-office/assets/img/company-logos/1.png" alt="">
+							<img src="{{ asset('front-office/assets/img/company-logos/1.png') }}" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="front-office/assets/img/company-logos/2.png" alt="">
+							<img src="{{ asset('front-office/assets/img/company-logos/2.png') }}" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="front-office/assets/img/company-logos/3.png" alt="">
+							<img src="{{ asset('front-office/assets/img/company-logos/3.png') }}" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="front-office/assets/img/company-logos/4.png" alt="">
+							<img src="{{ asset('front-office/assets/img/company-logos/4.png') }}" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="front-office/assets/img/company-logos/5.png" alt="">
+						 
+							<img src="{{ asset('front-office/assets/img/company-logos/5.png') }}" alt="">
 						</div>
 					</div>
 				</div>
@@ -488,7 +551,7 @@
 						<p>Join now and register</p>
 						<div class="col-lg-6">
 							<div class="login__register">
-								<a href="{{ path('app_register')}}" class="primary-btn">Register Now</a>
+								<a href="#" class="primary-btn">Register Now</a>
 							</div>
 						</div>
 					</div>
@@ -499,27 +562,27 @@
 	<!-- end footer -->
 	
 	{% endblock %}
-    <script src="{{ asset('front-office/assets/js/registration.js') }}"></script>
 	<!-- jquery -->
-	<script src="front-office/assets/js/jquery-1.11.3.min.js"></script>
+{% block javascript %}	{% endblock %}
+	<script src="{{ asset('front-office/assets/js/jquery-1.11.3.min.js') }}"></script>
 	<!-- bootstrap -->
-	<script src="front-office/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{{ asset('front-office/assets/bootstrap/js/bootstrap.min.js') }}"></script>
 	<!-- count down -->
-	<script src="front-office/assets/js/jquery.countdown.js"></script>
+	<script src="{{ asset('front-office/assets/js/jquery.countdown.js') }}"></script>
 	<!-- isotope -->
-	<script src="front-office/assets/js/jquery.isotope-3.0.6.min.js"></script>
+	<script src="{{ asset('front-office/assets/js/jquery.isotope-3.0.6.min.js') }}"></script>
 	<!-- waypoints -->
-	<script src="front-office/assets/js/waypoints.js"></script>
+	<script src="{{ asset('front-office/assets/js/waypoints.js') }}"></script>
 	<!-- owl carousel -->
-	<script src="front-office/assets/js/owl.carousel.min.js"></script>
+	<script src="{{ asset('front-office/assets/js/owl.carousel.min.js') }}"></script>
 	<!-- magnific popup -->
-	<script src="front-office/assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="{{ asset('front-office/assets/js/jquery.magnific-popup.min.js') }}"></script>
 	<!-- mean menu -->
-	<script src="front-office/assets/js/jquery.meanmenu.min.js"></script>
+	<script src="{{ asset('front-office/assets/js/jquery.meanmenu.min.js') }}"></script>
 	<!-- sticker js -->
-	<script src="front-office/assets/js/sticker.js"></script>
+	<script src="{{ asset('front-office/assets/js/sticker.js') }}"></script>
 	<!-- main js -->
-	<script src="front-office/assets/js/main.js"></script>
-	
+	<script src="{{ asset('front-office/assets/js/main.js') }}"></script>
+
+
 </body>
-</html>
