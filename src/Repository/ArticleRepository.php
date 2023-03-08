@@ -45,8 +45,7 @@ class ArticleRepository extends ServiceEntityRepository
         $result = [];
 
 
-        
-     
+
 
         $query = $this->getEntityManager()->createQueryBuilder()
             ->select('a')
@@ -57,13 +56,9 @@ class ArticleRepository extends ServiceEntityRepository
                 ->setParameter('val',  '%'.$filter.'%');
             }
 
-         
-
-
-
             $query->setMaxResults($limit)
             ->setFirstResult(($page * $limit) - $limit);
-
+           
         $paginator = new Paginator($query);
         $data = $paginator->getQuery()->getResult();
         
