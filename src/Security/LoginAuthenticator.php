@@ -64,6 +64,18 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
         if (in_array('ROLE_COACH_UNAPPROVED', $user->getRoles())) {
             return new RedirectResponse($this->urlGenerator->generate('app_coach'));
         }
+        if (in_array('ROLE_ADMIN_COACH_banned', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_coach'));
+        }
+        if (in_array('ROLE_ADMIN_CLUBOWNER_banned', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_coach'));
+        }
+        if (in_array('ROLE_ADMIN_RECLAMATION_banned', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_coach'));
+        }
+        if (in_array('ROLE_ADMIN_PRDOUIT_banned', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_coach'));
+        }
 
         return new RedirectResponse($this->urlGenerator->generate('app_test'));
         // For example:
