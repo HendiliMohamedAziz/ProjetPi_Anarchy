@@ -26,12 +26,8 @@ class LikesController extends AbstractController
         $likes = $user->getLikes();
 
         //Pour lui incrémenter un like à chaque clique
-        if($likes ==0){
-            $plusDeLikes = $likes + 1;
-        }
-        else {
-            $plusDeLikes =0;
-        }
+       $plusDeLikes= $likes + 1;
+      
         
 
         //Je mets à jour mon champ la table User
