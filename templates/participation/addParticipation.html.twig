@@ -1,0 +1,33 @@
+
+{% extends 'base-front.html.twig'%}
+{% block body %}
+
+<div class="breadcrumb-section breadcrumb-bg" >
+    <div class="container">
+        <div class="row">
+             <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Join Bour la forme to make your life easier</p>
+                    <h1>Participer</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="body">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="container shadow p-3 mb-5 bg-white rounded mx-auto">
+            
+                <h3><center><mark>Ajouter Participation</center></mark></h3>
+                {{ form_start(formParticipation) }}
+                {{ form_row(formParticipation.id_club) }}
+                {{ form_row(formParticipation.DateDebut) }}
+                {{ form_row(formParticipation.DateFin)  }}
+                <div> le prix de l'abonnement est : {{prix}} </div>
+                {{ form_end(formParticipation) }}
+
+        </div>      
+    </div>
+</div>
+{% endblock %}

@@ -26,7 +26,7 @@ class CreateAdminsType extends AbstractType
                 'choices' => [
                     'Admin coach' => 'ROLE_ADMIN_COACH',
                     'Admin produit' => 'ROLE_ADMIN_PRDOUIT',
-                    'Admin club owners' => 'ROLE_ADMIN_CLUB_OWNER',
+                    'Admin club owners' => 'ROLE_ADMIN_CLUBOWNER',
                     'Admin reclamation' => 'ROLE_ADMIN_RECLAMATION',
                 ],
                 'placeholder' => 'Choose a role',
@@ -47,8 +47,7 @@ class CreateAdminsType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

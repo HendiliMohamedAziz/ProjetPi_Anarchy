@@ -64,6 +64,9 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
         if (in_array('ROLE_COACH_UNAPPROVED', $user->getRoles())) {
             return new RedirectResponse($this->urlGenerator->generate('app_coach'));
         }
+        if (in_array('ROLE_CLUBOWNER', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('list_club'));
+        }
 
         return new RedirectResponse($this->urlGenerator->generate('app_test'));
         // For example:
@@ -75,6 +78,4 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
-
-    
 }

@@ -1,0 +1,105 @@
+
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Mes Clubs{% endblock %}
+{#
+{% block css %}
+<div class="bg-image" style="background-image: src="{{asset('uploads/brochures/gym3.jpg')}}""></div>
+{% endblock %}#}
+{% block body %}
+
+
+
+<div class="breadcrumb-section breadcrumb-bg" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>Join Bour la forme to make your life easier</p>
+                        <h1>Mes Clubs</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="container mt-5">
+    
+    <div class="table-responsive">
+        <table class="table table-striped  table-hover">
+            <thead>
+                    <tr>
+                        <th><mark> Nom Club</mark></th>
+                        <th><mark>Date début participation</mark></th>
+                        <th><mark>Date Fin participation</mark></th>
+                        <th><mark>Actions</mark></th>
+                      
+                    </tr>
+            </thead>
+            <tbody>
+                {% for i in  tabParticipation %}
+
+                    <tr>
+                        <td>{{i.getIdClub()}} </td>
+                            
+                        <td class="font-weight-bold">{{i.DateDebut|date('d/m/Y')}} </td>
+                        <td class="font-weight-bold">{{i.DateFin|date('d/m/Y ')}}   </td>
+                        <td>
+                            <a href= "{{ path('remove_participation',{'id':i.id}) }}"><i class="fas fa-trash text-danger"></i></a>
+                            <a href= "{{ path('update_participation',{'id':i.id}) }}"><i class="fas fa-edit text-primary"></i></a> 
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+   
+
+
+{#
+ <table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Club Name</th>
+      <th>Description</th>
+      <th>Date Début Participation</th>
+      <th>Date Fin Participation</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="{{ asset('uploads/brochures/' ~ .image)}}"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{club.nom}}</p>
+            
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{club.typeActivite}}</p>
+        <p class="text-muted mb-0">{{club.Description}}</p>
+      </td>
+      <td>
+        <span class="badge badge-success rounded-pill d-inline">{{participation.DateDebut}}</span>
+      </td>
+      <td>{{participation.DateFin}}</td>
+      <td>
+        <a href= "{{ path('remove_participation',{'id':i.id}) }}"><i class="fas fa-trash text-danger"></i></a>
+        <a href= "{{ path('update_participation',{'id':i.id}) }}"><i class="fas fa-edit text-primary"></i></a> 
+      </td>
+    </tr>
+    
+   
+  </tbody>
+</table>
+{% endblock %}#}
