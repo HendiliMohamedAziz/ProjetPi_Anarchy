@@ -59,24 +59,7 @@
 
 <td>
 <a href="{{ path('update',{'id':l.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i> </a> 
-    <a   data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fa fa-trash" aria-hidden="true"></i></a>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Voulez-vous vraiment supprimer cette séance ?
-                                </div>
-                                <div class="modal-footer">
-                                    <a style="color: #D68910;" href="{{ path('list_commande', { id: l.id()}) }}">Annuler</a>
-                                    <a style="color: #D68910;" href="{{ path('remove',{'id':l.id}) }}">Supprimer</a>
-
-                                </div>
-                            </div>
-                        </div>
+ <a href="{{ path('remove',{'id':l.id}) }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
 </td>
 
 <td><a href="{{ path('FindPanier',{'id':l.id}) }}">SeeMore</a> 
