@@ -24,7 +24,7 @@
                         <form method="post">
                             {% if app.user %}
                                 <div class="mb-3">
-                                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                                    <div style="color: white; font-size: 16px">You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}" style="color: #ffe200;">Logout</a></div>
                                 </div>
                             {% endif %}
                             <div class="input__item">
