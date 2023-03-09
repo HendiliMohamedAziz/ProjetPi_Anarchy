@@ -10,7 +10,7 @@ use App\Repository\ArticleRepository;
 
 class ListFavorisController extends AbstractController
 {
-    #[Route('/list_favoris', name: 'app_list_favoris')]
+    #[Route('/client/list_favoris', name: 'app_list_favoris')]
     public function index(SessionInterface $session , ArticleRepository $ArticleRepository)
     {
         $list = $session->get('list', []); 
@@ -27,7 +27,7 @@ class ListFavorisController extends AbstractController
 
         ]);
     }
-    #[Route('/list/add/{id} ', name: 'list_add')]
+    #[Route('/client/list/add/{id} ', name: 'list_add')]
 
     public function add($id, SessionInterface $session) {
 
@@ -41,7 +41,7 @@ class ListFavorisController extends AbstractController
 
         return $this->redirectToRoute("app_list_favoris");
     }
-    #[Route('/list/remove/{id} ', name: 'list_remove')]
+    #[Route('/client/list/remove/{id} ', name: 'list_remove')]
 
     public function remove($id, SessionInterface $session) {
      $list = $session->get('list', []); 

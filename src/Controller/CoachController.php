@@ -8,9 +8,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CoachController extends AbstractController
 {
-    #[Route('/coach', name: 'app_coach')]
+    #[Route('/unapproved', name: 'app_coach')]
     public function index(): Response
     {
         return $this->render('coach/coachUnapproved.htm.twig');
     }
+
+    #[Route('/banned', name: 'app_adminBanned')]
+    public function ban(): Response
+    {
+        return $this->render('coach/AdminBanned.htm.twig');
+    }
+
+
 }

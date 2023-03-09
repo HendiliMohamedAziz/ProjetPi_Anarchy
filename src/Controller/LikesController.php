@@ -16,7 +16,7 @@ class LikesController extends AbstractController
     public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator){
         $this->entityManager = $entityManager;
     }
-    #[Route('/likes/{id}', name: 'app_likes')]
+    #[Route('/client/likes/{id}', name: 'app_likes')]
     public function index($id, ManagerRegistry $doctrine): Response
     {
         //Je vais chercher le User qui m'interesse

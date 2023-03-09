@@ -3,6 +3,10 @@
 {% block PageTitle %}
     Interface Add Admin       
 {% endblock %}
+
+{% block sidenav %} 
+{% endblock %}
+
 {% block body %}
     {{ form_start(registrationAdminForm, {'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_label(registrationAdminForm.email, '', {'label_attr': {'class': ''}}) }} 

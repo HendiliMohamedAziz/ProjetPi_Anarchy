@@ -21,7 +21,7 @@ use DateTime;
 class CheckoutController extends AbstractController
 {
     /**
-     * @Route("/checkout", name="checkout")
+     * @Route("/client/checkout", name="checkout")
      */
     public function index(): Response
     {
@@ -31,7 +31,7 @@ class CheckoutController extends AbstractController
         ]);
     }
         /**
-     * @Route("/checkout2", name="checkout2")
+     * @Route("/client/checkout2", name="checkout2")
      */
     public function index2(SessionInterface $session , ArticleRepository $ArticleRepository): Response
     {
@@ -57,20 +57,20 @@ class CheckoutController extends AbstractController
                 ]);
         }    
             /**
-     * @Route("/checkout3", name="checkout3")
+     * @Route("/client/checkout3", name="checkout3")
      */
     public function index3(): Response
     {
         return $this->render('checkout/placeOrder.html.twig');
     }
                 /**
-     * @Route("/checkout4", name="checkout4")
+     * @Route("/client/checkout4", name="checkout4")
      */
     public function index4(): Response
     {
         return $this->render('checkout/fail.html.twig');
     }
-    #[Route('/addForm', name: 'add2')]
+    #[Route('/addFormBA', name: 'addBA')]
     public function addForm(ManagerRegistry $doctrine,Request $request)
     {
         $BillingAddress= new BillingAddress();
@@ -84,7 +84,7 @@ class CheckoutController extends AbstractController
          }
         return $this->renderForm("checkout/add.html.twig",array("formBillingAddress"=>$form));
     }
-    #[Route('/PlaceOrder', name: 'placeOrder')]
+    #[Route('/client/PlaceOrder', name: 'placeOrder')]
     public function PlaceOrder(SessionInterface $session , ArticleRepository $ArticleRepository,ManagerRegistry $doctrine,Request $request):response
     {
                 

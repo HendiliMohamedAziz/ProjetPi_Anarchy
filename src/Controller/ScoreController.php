@@ -21,7 +21,7 @@ class ScoreController extends AbstractController
         ]);
     }
 
-    #[Route('/noter/coach/{id}', name: 'noter_coach')]
+    #[Route('/client/noter/coach/{id}', name: 'noter_coach')]
     public function ajout_score_coach($id,Request $request,ScoreRepository $rp,UserRepository $urp): Response
     {
         $score=new score();
@@ -50,7 +50,7 @@ class ScoreController extends AbstractController
 
         
        
-        #[Route('/afficher_note', name: 'afficher_note')]
+        #[Route('/admin/reclamation/afficher_note', name: 'afficher_note')]
         public function afficher_score(ScoreRepository $repository,UserRepository $urp): Response
         {
             $m=0;

@@ -50,12 +50,16 @@ security:
     # - { path: ^/admin, roles: ROLE_ADMIN }
     # - { path: ^/profile, roles: ROLE_USER }
     #- { path: ^/login$, roles: ROLE_COACH_UNAPPROVED }
-    - { path: ^/test, roles: [ROLE_COACH, ROLE_CLIENT] }
-    - { path: ^/client, roles: [ROLE_CLIENT] }
-    - { path: ^/club/owner, roles: [ROLE_CLUBOWNER] }
-    - { path: ^/super/admin, roles: [ROLE_SUPER_ADMIN] }
-    - { path: ^/admin/coaches, roles: [ROLE_ADMIN_COACH] }
-    - { path: ^/admin/clubOwner, roles: [ROLE_ADMIN_CLUBOWNER] }
+    - { path: ^/test, roles: ROLE_CLIENT }
+    - { path: ^/client, roles: ROLE_CLIENT }
+    - { path: ^/coach, roles: ROLE_COACH }
+    - { path: ^/club/owner, roles: ROLE_CLUBOWNER }
+    - { path: ^/super/admin, roles: ROLE_SUPER_ADMIN }
+    - { path: ^/admin/coaches, roles: ROLE_ADMIN_COACH }
+    - { path: ^/admin/clubOwner, roles: ROLE_ADMIN_CLUBOWNER }
+    - { path: ^/admin/produit, roles: ROLE_ADMIN_PRODUIT }
+    - { path: ^/admin/reclamation, roles: ROLE_ADMIN_RECLAMATION }
+
 
 when@test:
   security:

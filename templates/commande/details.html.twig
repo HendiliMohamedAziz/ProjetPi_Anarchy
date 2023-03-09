@@ -1,5 +1,5 @@
 
-{% extends 'base-back.html.twig' %}
+{% extends 'AdminVente.html.twig' %}
 
 {% block PageTitle %}
 	List Commande
@@ -46,7 +46,7 @@
 							{% for item in items %}
 								<tr class="table-body-row">
 									<td class="product-name">{{item.0.idPanier.id}}</td>
-									<td class="product-image"><img src="{{item.image}}" alt="" width="250" height="200"></td>
+    <td><img src="{{ asset('uploads/articles/' ~ item.image ) }}" alt="" width="200" height="200"></td>
 									<td class="product-name">{{item.nom}}</td>
 									<td class="product-price">{{item.prix}} Dt</td>
 									<td class="product-name">{{item.0.Quantity}}</td>
