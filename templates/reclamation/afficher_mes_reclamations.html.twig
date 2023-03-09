@@ -1,0 +1,62 @@
+{% extends 'base-front.html.twig' %}
+{% block title %} {% endblock %}
+
+{% block body %}
+
+
+<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Get 24/7 Support</p>
+						<h1>Mes reclamations</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+	<div class="cart-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-12">
+					<div class="cart-table-wrap">
+						<table class="cart-table">
+							<thead class="cart-table-head">
+								<tr class="table-head-row">
+									<th class="product-remove"></th>
+									<th class="product-image">Id reclamation</th>
+									<th class="product-name">Message</th>
+									<th class="product-price">Reponse</th>
+									<th class="product-quantity">Etat</th>
+									<th class="product-total">Type reclamation</th>
+									<th class="product-total">Delete</th>
+									<th class="product-total">Update</th>
+								</tr>
+							</thead>
+							 {% for r in rec %}
+                                    <tr>
+                                   <td>         </td>
+                                    <td>{{r.user.nom}}</td>
+                                    <td>{{r.message}}</td>
+                                   <td>{{r.reponse}}</td>
+                                    <td>{{r.etat}}</td>
+                                    <td>{{r.type}}</td>
+                                    
+<td>  <a  href=" {{ path('delete_reclamation',{'id':r.id}) }} "  class="btn btn-raised btn-primary btn-round waves-effect"> Delete
+</a>
+
+{% if r.etat=="non traité" %}
+ <td><a href="{{ path('update_reclamation',{'id':r.id}) }}" class="btn btn-raised btn-primary btn-round waves-effect"> Update</a> </td>
+ {% endif %}
+
+                            </td>
+
+                                    </tr>
+                                    {% endfor %}
+						</table>
+					</div>
+				</div>
+                {% endblock %}

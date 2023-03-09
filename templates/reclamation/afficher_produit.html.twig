@@ -1,0 +1,29 @@
+{% extends 'base-front.html.twig' %}
+
+
+{% block body %}
+<div class="breadcrumb-section breadcrumb-bg" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>Join Bour la forme to make your life easier</p>
+                        <h1>Liste des produits</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+                            {% for c in produit %}
+							<div class="testimonila_inner">
+								<div class="testing_img"><img src="images/img-10.png"></div>
+								<h2 class="helina_text">{{c.nom}} </h2>
+                                <a class="subscribe_bt"  href="{{ path ('reclamer_produit',{'id':c.id}) }}"><i class="zmdi zmdi-edit"></i>   Réclamer</a>
+							</div>
+                            {% endfor %}
+						</div>
+						
+						
+					</div>
+
+{% endblock %}

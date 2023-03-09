@@ -1,0 +1,33 @@
+{% extends "base-front.html.twig" %}
+
+{% block body %}
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Get 24/7 Support</p>
+						<h1>Contact us</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- contact form -->
+	<div class="contact-from-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mb-5 mb-lg-0">
+					<div class="form-title">
+						<h2>you would like to rate a coach</h2>
+						<p>This field is for you</p>
+					</div>
+{{form_start(f)}}
+
+<button type="submit"<i class="btn btn-raised btn-primary btn-round waves-effect"></i>envoyer</button>
+{{form_end(f)}}
+
+{% endblock %}

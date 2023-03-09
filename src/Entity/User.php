@@ -75,6 +75,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $approved = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?float $moyenne = null;
+
     
     public function __construct()
     {
@@ -361,6 +364,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setApproved(bool $approved): self
     {
         $this->approved = $approved;
+
+        return $this;
+    }
+
+    public function getMoyenne(): ?float
+    {
+        return $this->moyenne;
+    }
+
+    public function setMoyenne(?float $moyenne): self
+    {
+        $this->moyenne = $moyenne;
 
         return $this;
     }
