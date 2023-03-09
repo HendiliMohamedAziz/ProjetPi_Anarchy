@@ -195,7 +195,6 @@ public function Article2(ArticleRepository $articleRepository,ManagerRegistry $d
     $token = $this->get('security.token_storage')->getToken();
     $user = $token->getUser();
     $nom=$user->getNom();
-    dd($user);
     if($form->isSubmitted() ){
         $commentaire->setDate(new \DateTime());
         $commentaire->setAuteur($nom);

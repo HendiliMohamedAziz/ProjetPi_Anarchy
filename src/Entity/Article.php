@@ -6,7 +6,7 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
@@ -15,26 +15,34 @@ class Article
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+     /**
+     * @Groups({"panier_list"})
+     */
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+     /**
+     * @Groups({"panier_list"})
+     */
  
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
- 
-        
+     /**
+     * @Groups({"panier_list"})
+     */
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
-    
+     /**
+     * @Groups({"panier_list"})
+     */
     private ?string $image = null;
 
     #[ORM\Column]
-    
-
-  
-
+     /**
+     * @Groups({"panier_list"})
+     */
     private ?int $prix = null;
 
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Commentaire::class)]
@@ -43,9 +51,8 @@ class Article
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'idArticle')]
     private Collection $users;
 
-    #[ORM\ManyToMany(targetEntity: Panier::class, mappedBy: 'idArticle')]
-    private Collection $paniers;
-
+    #[ORM\OneToMany(mappedBy: 'idArticle', targetEntity: PanierArticle::class)]
+    private Collection $panierArticles;
     #[ORM\Column(length: 255)]
     private ?string $etat = null;
 
@@ -53,7 +60,8 @@ class Article
     {
         $this->commentaires = new ArrayCollection();
         $this->users = new ArrayCollection();
-        $this->paniers = new ArrayCollection();
+        $this->panierArticles = new ArrayCollection();
+ 
     }
 
     public function getId(): ?int
@@ -167,27 +175,30 @@ class Article
     }
 
     /**
-     * @return Collection<int, Panier>
+     * @return Collection<int, PanierArticle>
      */
-    public function getPaniers(): Collection
+    public function getPanierArticles(): Collection
     {
-        return $this->paniers;
+        return $this->panierArticles;
     }
 
-    public function addPanier(Panier $panier): self
+    public function addPanierArticle(PanierArticle $panierArticle): self
     {
-        if (!$this->paniers->contains($panier)) {
-            $this->paniers->add($panier);
-            $panier->addIdArticle($this);
+        if (!$this->panierArticles->contains($panierArticle)) {
+            $this->panierArticles->add($panierArticle);
+            $panierArticle->setIdArticle($this);
         }
 
         return $this;
     }
 
-    public function removePanier(Panier $panier): self
+    public function removePanierArticle(PanierArticle $panierArticle): self
     {
-        if ($this->paniers->removeElement($panier)) {
-            $panier->removeIdArticle($this);
+        if ($this->panierArticles->removeElement($panierArticle)) {
+            // set the owning side to null (unless already changed)
+            if ($panierArticle->getIdArticle() === $this) {
+                $panierArticle->setIdArticle(null);
+            }
         }
 
         return $this;

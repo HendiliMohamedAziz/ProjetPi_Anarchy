@@ -34,10 +34,10 @@
 						<p class="single-product-pricing">{{tabarticle.prix}}dt</p>
 					   <h4>Description: {{tabarticle.description}}</h4>
 						<div class="single-product-form">
-							<form action="index.html">
-								<input type="number" placeholder="0">
-							</form>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+
+							<a href="{{ path('panier_add',{'id':tabarticle.id}) }}" class="cart-btn"> <i class="fas fa-shopping-cart"></i>AjouterPanier</a>
+							<a href="{{ path('list_add',{'id':tabarticle.id}) }}" class="cart-btn"><i class="fa fa-heart"></i>AjouterList</a>
+
 							
 						</div>
 						<h4>Share:</h4>
