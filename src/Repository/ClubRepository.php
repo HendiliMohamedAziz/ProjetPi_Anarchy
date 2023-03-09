@@ -21,7 +21,7 @@ class ClubRepository extends ServiceEntityRepository
         parent::__construct($registry, Club::class);
     }
 
-    public function save(Club $entity, bool $flush = false): void
+    public function add(Club $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -39,28 +39,47 @@ class ClubRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Club[] Returns an array of Club objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return Club[] Returns an array of Club objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('c')
+    //            ->andWhere('c.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('c.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
 
-//    public function findOneBySomeField($value): ?Club
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    public function findOneBySomeField($value): ?Club
+    //    {
+    //        return $this->createQueryBuilder('c')
+    //            ->andWhere('c.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
+
+    public function findByIdClubowner($clubOwnerId)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->andWhere('c.id_clubOwner = :clubOwnerId')
+            ->setParameter('clubOwnerId', $clubOwnerId);
+        $query = $qb->getQuery();
+        $results = $query->getResult();
+        return $results;
+    }
+    public function findPrixClubById($id)
+    {
+        return $this->createQueryBuilder('c')
+            ->select('c.Prix')
+            ->where('c.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

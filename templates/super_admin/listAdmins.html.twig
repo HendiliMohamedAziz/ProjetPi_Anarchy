@@ -17,6 +17,9 @@
         }
     </style>
 {% endblock %}
+
+{% block sidenav %} 
+{% endblock %}
         
 {% block body %}
     
@@ -43,6 +46,12 @@
                         {#<a href="{{ path('admin_coach_approve', { 'id': coach.id }) }}">Approve</a>#}
                         <a href= "{{ path('remove_admins',{'id':admin.id}) }}"><i class="fas fa-trash text-danger"></i></a>&nbsp;&nbsp;&nbsp;
                         <a href= "{{ path('edit_admins',{'id':admin.id}) }}"><i class="fas fa-edit text-danger"></i></a>
+                        {% if admin.approved == true %}
+                            <a href="{{ path('admin_ban', { 'id': admin.id }) }}">ban</a>
+                        {% endif %}
+                        {% if admin.approved == false %}
+                            <a href="{{ path('admin_unban', { 'id': admin.id }) }}">unban</a>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}

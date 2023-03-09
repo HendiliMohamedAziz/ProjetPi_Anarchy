@@ -57,6 +57,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'id_user', targetEntity: Participation::class)]
     private Collection $participations;
 
+    #[ORM\OneToMany(mappedBy: 'id_clubOwner', targetEntity: Club::class)]
+    private Collection $clubs;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Certificates = null;
 
@@ -72,8 +75,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: false)]
     private ?bool $isCoach = null;
 
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $likes = null;
+
     #[ORM\Column]
     private ?bool $approved = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $moyenne = null;
 
     
     public function __construct()
@@ -262,6 +271,31 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    public function addLike(User $like): self
+    {
+      
+            $this->likes[] = $like;
+    
+
+        return $this;
+    }
+    public function __toString(): string
+    {
+        return $this->getId(). " ".$this->getNom(). "" .$this->getPrenom();
+    }
+    public function getLikes(): ?string
+    {
+        return $this->likes;
+    }
+
+    public function setLikes(?string $likes): self
+    {
+        $this->likes = $likes;
+
+        return $this;
+    }
+   
+
 
     /**
      * @return Collection<int, Participation>
@@ -292,6 +326,37 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Club>
+     */
+    public function getClubs(): Collection
+    {
+        return $this->clubs;
+    }
+
+    public function addClub(Club $club): self
+    {
+        if (!$this->clubs->contains($club)) {
+            $this->clubs->add($club);
+            $club->setIdClubOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClub(Club $club): self
+    {
+        if ($this->clubs->removeElement($club)) {
+            // set the owning side to null (unless already changed)
+            if ($club->getIdClubOwner() === $this) {
+                $club->setIdClubOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
 
     public function getCertificates(): ?string
     {
@@ -361,6 +426,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setApproved(bool $approved): self
     {
         $this->approved = $approved;
+
+        return $this;
+    }
+
+    public function getMoyenne(): ?float
+    {
+        return $this->moyenne;
+    }
+
+    public function setMoyenne(?float $moyenne): self
+    {
+        $this->moyenne = $moyenne;
 
         return $this;
     }

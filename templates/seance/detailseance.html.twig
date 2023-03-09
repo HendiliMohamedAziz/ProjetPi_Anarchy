@@ -1,0 +1,9 @@
+{% extends 'base-back.html.twig' %}
+{% block sidenav %}{% endblock %}
+{% block body %}
+	<div class="alert alert-success">
+		{{ seance.getId()}}
+		{{ seance.getDescription()}}
+
+	</div>
+{% endblock %}

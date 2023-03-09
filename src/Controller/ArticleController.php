@@ -27,7 +27,7 @@ use Dompdf\Options;
 
 class ArticleController extends AbstractController
 {
-    #[Route('/article', name: 'app_article')]
+    #[Route('/admin/produit/article', name: 'app_article')]
     public function index(): Response
     {
         return $this->render('article/index.html.twig', [
@@ -37,7 +37,7 @@ class ArticleController extends AbstractController
  //liste des articles
  
 
-    #[Route('/listarticle', name: 'list_article')]
+    #[Route('/admin/produit/listarticle', name: 'list_article')]
     public function listarticle(articleRepository $repository,Request $request) : Response
     {
         $articles= $repository->findByExampleField("desarchive");
@@ -48,7 +48,7 @@ class ArticleController extends AbstractController
 
 
 
-    #[Route('/listarchive', name: 'list_archive')]
+    #[Route('/admin/produit/listarchive', name: 'list_archive')]
     public function listarchive(articleRepository $repository,Request $request) : Response
     {
        $articles= $repository->findByExampleField("supprimer");
@@ -142,7 +142,7 @@ class ArticleController extends AbstractController
   
  //see more
 
-    #[Route('/article/{id}', name:'articledetail')]
+    #[Route('/admin/produit/article/{id}', name:'articledetail')]
 
     public function Article(ArticleRepository $articleRepository,ManagerRegistry $doctrine,CommentaireRepository $commentaireRepository,$id,Request $request){
       
@@ -153,7 +153,7 @@ class ArticleController extends AbstractController
     }
 
  //supprimer un commentaire
-    #[Route('/removecommentaire/{id}', name: 'removecommentaire')]
+    #[Route('/admin/produit/removecommentaire/{id}', name: 'removecommentaire')]
 
     public function removecommentaire(ManagerRegistry $doctrine,$id,CommentaireRepository $repository,ArticleRepository $articleRepository)
     {
@@ -183,7 +183,7 @@ function removeBadWords($comment) {
     return $comment;
 }
 
-#[Route('/article2/{id}', name:'articledetail2')]
+#[Route('/client/article2/{id}', name:'articledetail2')]
 public function Article2(ArticleRepository $articleRepository,ManagerRegistry $doctrine,CommentaireRepository $commentaireRepository,$id,Request $request){
   
     $article= $articleRepository->find($id);
@@ -212,7 +212,7 @@ public function Article2(ArticleRepository $articleRepository,ManagerRegistry $d
         array('tabarticle'=>$article,'tabcommentaires'=>$commentaires,'form'=>$form->createView())); 
 }
 
-#[Route('/desarchive/{id}', name:'desarchiver')]
+#[Route('/client/desarchive/{id}', name:'desarchiver')]
 
 public function desarchive($id)
 {
@@ -229,7 +229,7 @@ public function desarchive($id)
 
 
  //liste des articles
-#[Route('/listarticle2', name: 'list_article2')]
+#[Route('/client/listarticle2', name: 'list_article2')]
 public function listarticle2(articleRepository $repository,Request $request)
 {
 
@@ -253,7 +253,7 @@ public function listarticle2(articleRepository $repository,Request $request)
 }
 
 
-#[Route('/article/data/download', name: 'users_data_download')]
+#[Route('/client/article/data/download', name: 'users_data_download')]
 
 public function usersDataDownload(ArticleRepository $article)
 {
@@ -297,7 +297,7 @@ public function usersDataDownload(ArticleRepository $article)
 
     return new Response() ;
 }
-#[Route('/searcharticle', name: 'seracharticle')]
+#[Route('/client/searcharticle', name: 'seracharticle')]
 public function searchArticle(ArticleRepository $repository,Request $request){
     $articles= $repository->search($request->get('val'));
     if(!$articles) {

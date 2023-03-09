@@ -1,0 +1,41 @@
+
+{% extends 'base-back.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('public/back-office/css/bootstrap.min.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1><center><mark>Ajouter un club</center></mark></h1>
+        <div class="container shadow p-3 mb-5 bg-white rounded mx-auto">
+            {{ form_start(formClub,{'attr': {'novalidate': 'novalidate'}}) }}
+            
+            {{ form_label(formClub.nom, 'Nom du club', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(formClub.nom, {'attr': {'class': 'form-control', 'placeholder': 'Entrez le nom du club'}}) }}
+            {{form_errors(formClub.nom)}} 
+        
+            {{ form_label(formClub.telephone, 'Téléphone', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(formClub.telephone, {'attr': {'class': 'form-control', 'placeholder': 'Entrez le numéro de télephone du club'}}) }}
+            {{ form_errors(formClub.telephone) }}
+            {{ form_label(formClub.Description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(formClub.Description, {'attr': {'class': 'form-control', 'placeholder': 'Entrez une description du club'}}) }}
+            {{ form_label(formClub.type_activite, 'Type d\'activité', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(formClub.type_activite, {'attr': {'class': 'form-select', 'placeholder': 'Entrez le type d\activité du club'}}) }}
+            {{ form_errors(formClub.type_activite, {'attr': {'class': 'form-error'}}) }}
+            {{ form_label(formClub.Prix,'prix abonnement club', {'label_attr': {'class': 'form-label'}})}}
+
+            {{ form_row(formClub.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Entrez la localisation du club'}}) }}
+            {{ form_row(formClub.latitude, {'type': 'number'}) }}
+           
+            {{ form_row(formClub.longitude, {'type': 'number'}) }}
+            <br>
+            {{ form_row(formClub.image, {'attr': {'class': 'form-control-file'}}) }}
+            <br>
+            
+            {{ form_end(formClub) }}
+            <br>
+        </div>
+
+
+{% endblock %}
+

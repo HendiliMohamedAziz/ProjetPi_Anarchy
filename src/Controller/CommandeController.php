@@ -32,7 +32,7 @@ class CommandeController extends AbstractController
             'controller_name' => 'CommandeController',
         ]);
     }
-    #[Route('/listcommande', name: 'list_commande')]
+    #[Route('/admin/produit/listcommande', name: 'list_commande')]
     public function listCommande(CommandeRepository $repository)
     {
         $commande= $repository->findAll();
@@ -108,7 +108,7 @@ class CommandeController extends AbstractController
         return new Response() ;
     }
 
-    #[Route('/FindPanier/{id}', name: 'FindPanier')]
+    #[Route('/admin/produit/FindPanier/{id}', name: 'FindPanier')]
     public function FindPanier(ManagerRegistry $doctrine,$id,CommandeRepository $repository,PanierArticleRepository $repository1,ArticleRepository $repository2)
     {
  // Récupérer la commande correspondante à l'ID donné

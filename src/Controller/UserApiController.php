@@ -80,7 +80,7 @@ class UserApiController extends AbstractController
         }
     }
 
-    #[Route('/api/editProfile', name: 'api_editProfile')]
+    /*#[Route('/api/editProfile', name: 'api_editProfile')]
     public function editProfile(Request $request, UserPasswordEncoderInterface $passwordEncoder){
         $id = $request->get("id");
         $email = $request->query->get("email");
@@ -121,7 +121,7 @@ class UserApiController extends AbstractController
         }catch(\Exception $ex){
             return new Response("fail".$ex->getMessage());
         }
-    }
+    }*/
 
 
     #[Route('/api/getPasswordByEmail', name: 'api_password')]

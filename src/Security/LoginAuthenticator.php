@@ -64,6 +64,30 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
         if (in_array('ROLE_COACH_UNAPPROVED', $user->getRoles())) {
             return new RedirectResponse($this->urlGenerator->generate('app_coach'));
         }
+        if (in_array('ROLE_CLUBOWNER', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('list_club'));
+        }
+        if (in_array('ROLE_COACH', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('add_seance'));
+        }
+        if (in_array('ROLE_ADMIN_PRODUIT', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('list_article'));
+        }
+        if (in_array('ROLE_ADMIN_RECLAMATION', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('afficher_reclamation'));
+        }
+        if (in_array('ROLE_ADMIN_COACH_banned', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_adminBanned'));
+        }
+        if (in_array('ROLE_ADMIN_CLUBOWNER_banned', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_adminBanned'));
+        }
+        if (in_array('ROLE_ADMIN_RECLAMATION_banned', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_adminBanned'));
+        }
+        if (in_array('ROLE_ADMIN_PRDOUIT_banned', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_adminBanned'));
+        }
 
         return new RedirectResponse($this->urlGenerator->generate('app_test'));
         // For example:
@@ -75,6 +99,4 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
-
-    
 }

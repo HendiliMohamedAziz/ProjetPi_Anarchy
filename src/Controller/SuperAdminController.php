@@ -86,4 +86,57 @@ class SuperAdminController extends AbstractController
             'registrationAdminForm' => $form->createView(),
         ]);
     }
+
+    #[Route('/super/admin/admins/{id}/banAdmin', name: 'admin_ban')]
+    public function banAdmin(Request $request, UserRepository $userRepository, int $id)
+    {
+        $admin = $userRepository->find($id);
+        $admin->setApproved(false);
+        if (in_array('ROLE_ADMIN_COACH', $admin->getRoles())) {
+            $admin->setRoles(['ROLE_ADMIN_COACH_banned']);
+        }
+        if (in_array('ROLE_ADMIN_CLUBOWNER', $admin->getRoles())) {
+            $admin->setRoles(['ROLE_ADMIN_CLUBOWNER_banned']);
+        }
+        if (in_array('ROLE_ADMIN_RECLAMATION', $admin->getRoles())) {
+            $admin->setRoles(['ROLE_ADMIN_RECLAMATION_banned']);
+        }
+        if (in_array('ROLE_ADMIN_PRDOUIT', $admin->getRoles())) {
+            $admin->setRoles(['ROLE_ADMIN_PRDOUIT_banned']);
+        }
+        
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($admin);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'admin banned!');
+
+        return $this->redirectToRoute('app_list_admin');
+    }
+    #[Route('/super/admin/admins/{id}/unbanAdmin', name: 'admin_unban')]
+    public function unbanAdmin(Request $request, UserRepository $userRepository, int $id)
+    {
+        $admin = $userRepository->find($id);
+        $admin->setApproved(true);
+        if (in_array('ROLE_ADMIN_COACH_banned', $admin->getRoles())) {
+            $admin->setRoles(['ROLE_ADMIN_COACH']);
+        }
+        if (in_array('ROLE_ADMIN_CLUBOWNER_banned', $admin->getRoles())) {
+            $admin->setRoles(['ROLE_ADMIN_CLUBOWNER']);
+        }
+        if (in_array('ROLE_ADMIN_RECLAMATION_banned', $admin->getRoles())) {
+            $admin->setRoles(['ROLE_ADMIN_RECLAMATION']);
+        }
+        if (in_array('ROLE_ADMIN_PRDOUIT_banned', $admin->getRoles())) {
+            $admin->setRoles(['ROLE_ADMIN_PRDOUIT']);
+        }
+        
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($admin);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'admin unbanned!');
+
+        return $this->redirectToRoute('app_list_admin');
+    }
 }

@@ -1,0 +1,99 @@
+{% extends 'base-back.html.twig' %}
+{% block sidenav %}{% endblock %}
+{% block stylesheets %}
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Pacifico &display=swap');
+		.blockquote-custom {
+			position: relative;
+			font-size: 1.1rem;
+		}
+
+		.blockquote-custom-icon {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: -25px;
+			left: 50px;
+
+		}
+	</style>
+
+{% endblock %}
+
+{% block body %}
+	<div class="A">
+		<section class="py-5">
+			<div
+				class="container">
+				<!-- FOR DEMO PURPOSE -->
+				<div class="row">
+					<div class="col-lg-6 mx-auto">
+						<header class="text-center pb-5">
+							<h1 class="h2" style="color:#E67E22 ">Ajouter une séance</h1>
+						</header>
+					</div>
+				</div>
+				<!-- END -->
+
+
+				<div class="row">
+					<div
+						class="col-lg-6 mx-auto">
+
+						<!-- CUSTOM BLOCKQUOTE -->
+						<blockquote class="blockquote blockquote-custom bg-white p-5 shadow rounded">
+							<div class="blockquote-custom-icon bg-info shadow-sm">
+								<i class="fa fa-quote-left text-white"></i>
+							</div>
+							<p class="mb-0 mt-2 font-italic">{{ form_start(formSeance,{'attr': {'novalidate': 'novalidate'}}
+								) }}
+								<table style="color:#E67E22 ">
+									<tr>
+										<td>{{ form_label(formSeance.titre ,"Séance de :") }}</td>
+
+										<td>{{ form_widget(formSeance.titre) }}</td>
+
+										<td>{{ form_errors(formSeance.titre) }}</td>
+									</tr>
+									<tr>
+										<td>{{ form_label(formSeance.nbr_seance ,"Numéro du séance") }}</td>
+
+										<td>{{ form_widget(formSeance.nbr_seance) }}</td>
+
+										<td>{{ form_errors(formSeance.nbr_seance) }}</td>
+									</tr>
+
+									<tr>
+										<td>{{ form_label(formSeance.description,"Description de la séance") }}</td>
+										<td>{{ form_widget(formSeance.description) }}</td>
+										<td>{{ form_errors(formSeance.description) }}</td>
+									</tr>
+									<tr>
+										<td>{{ form_label(formSeance.nbr_grp ,"Nombre maximum du group") }}</td>
+
+										<td>{{ form_widget(formSeance.nbr_grp) }}</td>
+
+										<td>{{ form_errors(formSeance.nbr_grp) }}</td>
+									</tr>
+
+								</table>
+								{{ form_end(formSeance) }}
+
+
+							</p>
+						</blockquote>
+						<!-- END -->
+
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}
