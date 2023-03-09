@@ -1,0 +1,52 @@
+{% extends 'base-front.html.twig' %}
+{% block body %}
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Billing Address</p>
+						<h1>You Must Fill Out This Form To Go To The Next Step</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+      <div class="container">  
+        <div class="row justify-content-center">  
+            <div class="col-11 col-sm-9 col-md-7  
+                col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">  
+                <div class="px-0 pt-4 pb-0 mt-3 mb-3">  
+                    <form id="form">  
+                    <ul id="progressbar">  
+                    <li class="active" id="step1">  
+                    <strong> Review Order </strong>  
+                    <li class="active" id="step2">  
+                    <strong> Adress </strong>  
+                    </li>  
+                    </li>  
+                    <li id="step3"> <strong> Payment </strong> </li>  
+                    <li id="step4"> <strong> Place Order </strong> </li>  
+                        </ul>  
+                    </form>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+
+<h2>Billing Address</h2>
+ 						      <div class="card-body"style="margin-left:10%;">
+                        
+  {{ form_start(formBillingAddress, {'attr': { 'novalidate': 'novalidate'} }) }}
+            {{form_row(formBillingAddress)}}
+
+    {{ form_end(formBillingAddress) }}
+                                    </div>
+
+  {% endblock %}
+
+
+
+
+
+      

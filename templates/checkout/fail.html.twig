@@ -1,0 +1,23 @@
+{% extends 'base-front.html.twig' %}
+
+
+{% block body %}
+<div class="breadcrumb-section breadcrumb-bg" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p> Votre paiement a été rejeté !</p>
+                        <h1><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></h1>
+                    </div>
+                <h4> Vous avez essayé de payer votre commande et nous vous en remercions.
+                                Votre paiement n'a pas été accepté. Votre commande n'a pas été confirmée.
+                                Nous vous invitons à vérifier la validation de votre carte bancaire, et à vous connecter sur notre site et renouveller votre commande.</h4>
+
+            <a href="{{ path('list_article2')}}" class="boxed-btn">Start Shopping</a>
+            <br>
+                </div>
+            </div>
+        </div>
+ 
+{% endblock %}
