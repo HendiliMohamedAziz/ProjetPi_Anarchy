@@ -1,0 +1,110 @@
+
+ {% extends "base-back.html.twig" %} 
+{% block title %} {% endblock %}
+{% block body %}
+<div id="layoutSidenav">
+    <div id="layoutSidenav_content">
+                <main>
+                
+                <div class="col-lg-8" >
+                
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Tables</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="afficher_reclamation.html.twig">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Tables</li>
+                        </ol>
+                </div>
+                        <div class="col-lg-4" >
+                     <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">filter</i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{path('afficher_reclamationt')}}">traité</a></li>
+                        <li><a class="dropdown-item" href="{{path('afficher_reclamationnt')}}">non traité</a></li>
+                        <li><a class="dropdown-item" href="{{path('afficher_reclamation')}}">show all</a></li>
+
+                     
+                    </ul>
+                </li>
+                </div>
+                
+                            <div class="card-body">
+                                <table id="datatablesSimple" border="1">
+                                    <thead>
+                                        <tr>
+                                            <th>Id-client</th>
+                                              <th>reclamation sur</th>
+                                            <th>Message</th>
+                                             <th>Date reclamation</th>
+                                            <th>etat</th>
+                                            <th>Type</th>
+                                          <th>Delete</th>
+                                           <th>Traiter</th>
+
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                  
+                                    {% for r in rec %}
+                                    <tr>
+                                    <td>{{r.user.nom}}</td>
+                                    {% if r.type == "reclamation_coach" %}
+
+                                    <td>{{r.coach.nom}}</td>
+                                  
+                                    {% endif %}
+                                    {% if r.type == "reclamation_club" %}
+
+                                    <td>{{r.club.nom}}</td>
+                                  
+                                    {% endif %}
+                                    {% if r.type == "reclamation_produit" %}
+
+                                    <td>{{r.article.nom}}</td>
+                                  
+                                    {% endif %}
+                                   
+                                    
+                                    <td>{{r.message}}</td>
+                                   <td>{{r.datereclamation|date('d-m-Y')}}</td>
+                                    <td>{{r.etat}}</td>
+                                    <td>{{r.type}}</td>
+
+   
+
+<td>  <a  href=" {{ path('delete_reclamation_back',{'id':r.id}) }} "  class="btn btn-raised btn-primary btn-round waves-effect"> Delete
+</a>
+
+{% if r.etat=="non traité" %}
+
+<td>  <a  href=" {{ path('traiter_reclamation',{'id':r.id}) }} "  class="btn btn-raised btn-primary btn-round waves-effect"> Traiter
+</a>
+{% endif %}  
+
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+ 
+
+{% endblock %}
