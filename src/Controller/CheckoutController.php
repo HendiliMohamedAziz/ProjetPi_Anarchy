@@ -70,7 +70,7 @@ class CheckoutController extends AbstractController
     {
         return $this->render('checkout/fail.html.twig');
     }
-    #[Route('/addForm', name: 'add2')]
+    #[Route('/addForm', name: 'addBA')]
     public function addForm(ManagerRegistry $doctrine,Request $request)
     {
         $BillingAddress= new BillingAddress();

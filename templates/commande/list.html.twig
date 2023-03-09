@@ -1,4 +1,4 @@
-{% extends 'base-back.html.twig' %}
+{% extends 'AdminVente.html.twig' %}
 
 {% block PageTitle %}
 	List Commande
@@ -58,15 +58,15 @@
 <td>  {{ l.idAddress.nom }} </td>
 
 <td>
-<a href="{{ path('update',{'id':l.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i> </a> 
- <a href="{{ path('remove',{'id':l.id}) }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+<a href="{{ path('updateCommande',{'id':l.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i> </a> 
+ <a href="{{ path('removeCommande',{'id':l.id}) }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
 </td>
 
 <td><a href="{{ path('FindPanier',{'id':l.id}) }}">SeeMore</a> 
 </tr>
 </td>
 {% endfor %}
-<td><a href="{{ path('users_data_download') }}" class="btn btn-primary ">Generer PDF</a></td>
+<td><a href="{{ path('users_data_download1') }}" class="btn btn-primary ">Generer PDF</a></td>
 
 </table>
 

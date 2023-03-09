@@ -38,7 +38,7 @@ class CommandeController extends AbstractController
         $commande= $repository->findAll();
        return $this->render("commande/list.html.twig",array("tabcommande"=>$commande));
     }
-    #[Route('/updateForm/{id}', name: 'update')]
+    #[Route('/updateFormCommande/{id}', name: 'updateCommande')]
     public function  updateForm($id,CommandeRepository $repository,ManagerRegistry $doctrine,Request $request)
     {
         $commande= $repository->find($id);
@@ -53,7 +53,7 @@ class CommandeController extends AbstractController
     }
 
 
-    #[Route('/removeForm/{id}', name: 'remove')]
+    #[Route('/removeFormCommande/{id}', name: 'removeCommande')]
     public function removeCommande(ManagerRegistry $doctrine,$id,CommandeRepository $repository)
     {
         $commande= $repository->find($id);
@@ -63,7 +63,7 @@ class CommandeController extends AbstractController
         return  $this->redirectToRoute("list_commande");
     }
 
-    #[Route('/commande/data/download', name: 'users_data_download')]
+    #[Route('/commande/data/download1', name: 'users_data_download1')]
 
     public function usersDataDownload(CommandeRepository $commande)
     {
