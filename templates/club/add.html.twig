@@ -1,5 +1,41 @@
 
 {% extends 'base-back.html.twig' %}
+
+
+{% block sidenav %} 
+    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon">
+                        <i class="fas fa-columns"></i>
+                 </div>
+                Clubs
+                <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                </div>
+        </a>
+        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{path('add_club')}}">Ajouter un Club</a>
+                         <a class="nav-link" href="{{path('list_club')}}">Liste des clubs</a>
+                </nav>
+        </div>
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon">
+                        <i class="fas fa-columns"></i>
+                 </div>
+                Participations
+                <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                </div>
+        </a>
+        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{path('particip_adherants')}}"> Liste des Adhérants</a>
+                        
+                </nav>
+        </div>
+
+
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('public/back-office/css/bootstrap.min.css') }}">
