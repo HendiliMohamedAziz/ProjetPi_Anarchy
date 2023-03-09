@@ -20,14 +20,21 @@ class Reservation
     #[ORM\ManyToOne(inversedBy: 'reservations')]
     private ?User $idUser = null;
 
+
+    
     #[ORM\ManyToOne(inversedBy: 'id_R')]
+    #[ORM\JoinColumn(onDelete: "CASCADE")]
     private ?Seance $seance = null;
+
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
+
+    
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
@@ -63,4 +70,7 @@ class Reservation
 
         return $this;
     }
+
+   
+    
 }

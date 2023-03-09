@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Repository;
-
+use App\Entity\User;
 use App\Entity\Reservation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -37,7 +37,27 @@ class ReservationRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+
+       
     }
+    public function allReservations()
+    {
+        return $this->createQueryBuilder('c')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    //----------------- j'ai ajouté une fonction qui affiche les user qui  ont un role de coach-----------
+    public function findCoaches()
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.roles LIKE :role')
+            ->setParameter('role', '%["ROLE_COACH"]%')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+  
 
 //    /**
 //     * @return Reservation[] Returns an array of Reservation objects

@@ -1,0 +1,95 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}details du club{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="assets/css/all.min.css">
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+{% endblock %}
+
+{% block body %}
+    <div class="breadcrumb-section breadcrumb-bg" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="breadcrumb-text">
+                            <p>Join Bour la forme to make your life easier</p>
+                            <h1>Page Détails</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+    
+
+
+	<!-- details club -->
+	<div class="single-product mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					
+							<div id="map" style='width: 100%; height: 500px;'>
+							<script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+							<style>
+								.mapboxgl-marker {
+									pointer-events: none; /* make the marker element untouchable */
+								}
+							</style>
+							<script>
+								mapboxgl.accessToken = 'pk.eyJ1Ijoib2JiYSIsImEiOiJjbGV6bnAxYm8wMHhqM3hwYTJjdDJzbDE3In0.Q4PmphqzTG9pJBXsNLz-Jw';
+								var map = new mapboxgl.Map({
+									container: 'map',
+									style: 'mapbox://styles/mapbox/streets-v11',
+									center: [{{ longitude }}, {{ latitude }}], // set the center of the map to the club's coordinates
+									zoom: 14
+								});
+								var marker = new mapboxgl.Marker({
+									anchor: 'bottom' // set the marker anchor to the bottom center
+								})
+								.setLngLat([{{ longitude }}, {{ latitude }}])
+								.addTo(map);
+
+								map.on('load', function() {
+									map.setCenter([{{ longitude }}, {{ latitude }}]); // set map center to marker position
+								});
+							</script>
+						</div>
+
+
+
+						
+				</div>
+				<div class="col-md-7">
+					<div class="single-product-content">
+						<h3>{{ club.nom }}</h3>
+						<p class="single-product-pricing"><span>Télephone:   {{club.telephone}}</span></p>
+						<p>Description:  {{club.Description}}</p>
+						<p>Prix: {{club.Prix}}</p>
+						<p><strong>Categories: </strong>{{ club.typeActivite }}</p>
+
+						<div class="single-product-form">
+						
+							<a href="{{ path('add_participation', {'id': club.id}) }}" class="cart-btn"><i class='fas fa-dumbbell' style='font-size:24px'></i></i>Participer</a>
+						
+						</div>
+						<h4>Share:</h4>
+						<ul class="product-share">
+							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href=""><i class="fab fa-twitter"></i></a></li>
+							<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+    
+
+
+
+{% endblock %}

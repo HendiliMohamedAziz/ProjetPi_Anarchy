@@ -1,0 +1,68 @@
+{% extends "base-front.html.twig" %}
+{% block body %}
+	<!-- Axentix CSS minified version -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.2.1/dist/axentix.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/axentix@2.2.1/dist/axentix.min.js"></script>
+	<div class="breadcrumb-section breadcrumb-bg"></div>
+	<!-- Axentix JS minified version -->
+
+	{% for c in tabcoach %}
+		<h2 style="margin-left:40%; color:#1A5276;">{% trans %}List Coaches{% endtrans %}</h2>
+		<div class="row product-lists">
+			<div class="col-lg-4 col-md-6 text-center strawberry">
+				<div class="single-product-item">
+					<div class="product-image">
+						<img src="{{ c.getImage() }}" alt="" width="170" height="170"></a>
+				</div>
+				<p>{% trans %}Get your training session online with your favorite coach{% endtrans %}</p>
+				<h5 style="color:#1A5276;">{{c.getNom() }}
+					{{c.getPrenom()}}
+					<a href="likes/{{c.id}}" class="text-danger">&#10084;</a>
+					{% if c.Likes is not empty %}
+						{{c.Likes}}
+						{% trans %}
+						like(s)
+						{% endtrans %}
+					{% else %}
+						0 like
+					{% endif %}
+				</h5>
+
+
+				<a style="width:30%;" type="button" class="btn btn-secondary" href=" {{ path('add_reservation',{'id':c.id} ) }}">{% trans %}To Book{% endtrans %}
+				</a>
+				<button style="width:30%;" type="button" class="btn btn-secondary" data-target="modal-contact">{% trans %}Contact{% endtrans %}
+
+				</button>
+
+			</div>
+		</div>
+
+	</div>
+
+	<div style="margin-top:10%; height:60%" class="modal shadow-1 white modal-falling" id="modal-contact" data-ax="modal">
+		<div class="modal-header">{% trans %}Contact the coach{% endtrans %}</div>
+		<div class="divider">
+
+			{{ form_start(form) }}
+
+			{{ form_end(form) }}
+
+
+			<script>
+				window.onload = () => {
+document.querySelector("#reservation_contact_title").value = "{{ c.getNom()|raw }}{{ c.getPrenom()|raw }}";
+}
+			</script>
+		</div>
+	{% endfor %}
+{% endblock %}
+{% block javascripts %}
+	<script script>
+		let caroulix = new Caroulix('#carousel');
+let modal = new Modal('#modal-contact');
+	</script>
+	<script src="{{ asset('ckeditor5/ckeditor.js') }}"></script>
+	<script src="{{ asset('js/ckeditor.js') }}"></script>
+{% endblock %}
+{% block footer %}{% endblock %}

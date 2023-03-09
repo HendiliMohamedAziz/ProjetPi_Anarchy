@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SeanceRepository::class)]
 class Seance
@@ -17,20 +18,40 @@ class Seance
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\Length(min:1,max:2,maxMessage:"Votre champ doit contenir au minimum 1 chiffre et au maximum 2 chiffres.")]
+
+    #[Assert\Positive]
+    #[Assert\NotBlank(message:"Veuillez entre le nombre du groupe")]
     private ?int $nbr_grp = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\ExpressionLanguageSyntax(message:"Votre champ  contient des caractères spéciaux.")]
     private ?string $description = null;
 
+
+    #[Assert\Length(min:1,max:2,maxMessage:"Votre champ doit contenir au minimum 1 chiffre et au maximum 2 chiffres.")]
+    #[Assert\Positive]
     #[ORM\Column]
+    
     private ?int $nbr_seance = null;
 
     #[ORM\OneToMany(mappedBy: 'seance', targetEntity: Reservation::class)]
     private Collection $id_R;
 
+    #[ORM\ManyToOne(inversedBy: 'coach')]
+    #[ORM\JoinColumn(onDelete: "CASCADE")]
+    private ?User $user = null;
+
+    #[ORM\Column(length: 7, nullable: true)]
+    private ?string $color = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $titre = null;
+
     public function __construct()
     {
         $this->id_R = new ArrayCollection();
+        $this->nbr_grp=0;
     }
 
     public function getId(): ?int
@@ -103,4 +124,46 @@ class Seance
 
         return $this;
     }
+    public function __toString(): string
+    {
+        return $this->getId();    
+    }
+   
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(?string $color): self
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(?string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+
 }
