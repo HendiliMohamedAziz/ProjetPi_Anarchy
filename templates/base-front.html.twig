@@ -16,166 +16,160 @@
 
 
 		<!-- google font -->
-		        <meta charset="utf-8">    
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
-    <link href=  
-'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>  
-    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'>  
-    </script>  
-    <script src=  
-'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'>  
-    </script>  
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<style>  
-  
-#form {  
-    text-align: center;  
-    position: relative;  
-    margin-top: 20px  
-}  
-#form fieldset {  
-    background: white;  
-    border: 0 none;  
-    border-radius: 0.5rem;  
-    box-sizing: border-box;  
-    width: 100%;  
-    margin: 0;  
-    padding-bottom: 20px;  
-    position: relative  
-}  
-.finish {  
-    text-align: center  
-}  
-#form fieldset:not(:first-of-type) {  
-    display: none  
-}  
-#form .pre-step {  
-    width: 100px;  
-    font-weight: bold;  
-    color: white;  
-    border: 0 none;  
-    border-radius: 0px;  
-    cursor: pointer;  
-    padding: 10px 5px;  
-    margin: 10px 5px 10px 0px;  
-    float: right  
-}  
-.next-step {  
-    width: 100px;  
-    font-weight: bold;  
-    color: white;  
-    border: 0 none;  
-    border-radius: 0px;  
-    cursor: pointer;  
-    padding: 10px 5px;  
-    margin: 10px 5px 10px 0px;  
-    float: right  
-}  
-.form, .pre-step {  
-    background: #616161;  
-}  
-.form, .next-step {  
-    background: red;  
-}  
-#form .pre-step:hover  
-{  
-    background-color: #000000  
-}  
-#form .pre-step:focus {  
-    background-color: #000000  
-}  
-#form .next-step:hover  
-{  
-    background-color: #fbdf00
-}  
-#form .next-step:focus {  
-    background-color: #fbdf00
-}  
-.text {  
-    color: red;  
-    font-weight: normal  
-}  
-#progressbar {  
-    margin-bottom: 30px;  
-    overflow: hidden;  
-    color: lightgrey  
-}  
-#progressbar .active {  
-    color: #fbdf00
-}  
-#progressbar li {  
-    list-style-type: none;  
-    font-size: 15px;  
-    width: 25%;  
-    float: left;  
-    position: relative;  
-    font-weight: 400  
-}  
-#progressbar #step1:before {  
-    content: "1"  
-}  
-#progressbar #step2:before {  
-    content: "2"  
-}  
-#progressbar #step3:before {  
-    content: "3"  
-}  
-#progressbar #step4:before {  
-    content: "4"  
-}  
-#progressbar li:before {  
-    width: 50px;  
-    height: 50px;  
-    line-height: 45px;  
-    display: block;  
-    font-size: 20px;  
-    color: #ffffff;  
-    background: lightgray;  
-    border-radius: 50%;  
-    margin: 0 auto 10px auto;  
-    padding: 2px  
-}  
-#progressbar li:after {  
-    content: '';  
-    width: 100%;  
-    height: 2px;  
-    background: lightgray;  
-    position: absolute;  
-    left: 0;  
-    top: 25px;  
-    z-index: -1  
-}  
-#progressbar li.active:before  
-{  
-    background: #fbdf00
-}  
-#progressbar li.active:after {  
-    background: #fbdf00 
-}  
-#progressbar li.active:after {  
-    background: #fbdf00 
-}  
-h2 {  
-text-transform: uppercase;  
-   font-weight: normal;  
-text-align: center;  
- margin: 10;  
-   padding: 10  
-color: red;  
-}  
-.progress {  
-    height: 20px  
-}  
-.pbar {  
-    background-color: #fbdf00 
-}  
-</style>  
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+		<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<style>
+
+			#form {
+				text-align: center;
+				position: relative;
+				margin-top: 20px
+			}
+			#form fieldset {
+				background: white;
+				border: 0 none;
+				border-radius: 0.5rem;
+				box-sizing: border-box;
+				width: 100%;
+				margin: 0;
+				padding-bottom: 20px;
+				position: relative
+			}
+			.finish {
+				text-align: center
+			}
+			#form fieldset:not(:first-of-type) {
+				display: none
+			}
+			#form .pre-step {
+				width: 100px;
+				font-weight: bold;
+				color: white;
+				border: 0 none;
+				border-radius: 0;
+				cursor: pointer;
+				padding: 10px 5px;
+				margin: 10px 5px 10px 0;
+				float: right
+			}
+			.next-step {
+				width: 100px;
+				font-weight: bold;
+				color: white;
+				border: 0 none;
+				border-radius: 0;
+				cursor: pointer;
+				padding: 10px 5px;
+				margin: 10px 5px 10px 0;
+				float: right
+			}
+			.form,
+			.pre-step {
+				background: #616161;
+			}
+			.form,
+			.next-step {
+				background: red;
+			}
+			#form .pre-step:hover {
+				background-color: #000000
+			}
+			#form .pre-step:focus {
+				background-color: #000000
+			}
+			#form .next-step:hover {
+				background-color: #fbdf00
+			}
+			#form .next-step:focus {
+				background-color: #fbdf00
+			}
+			.text {
+				color: red;
+				font-weight: normal
+			}
+			#progressbar {
+				margin-bottom: 30px;
+				overflow: hidden;
+				color: lightgrey
+			}
+			#progressbar .active {
+				color: #fbdf00
+			}
+			#progressbar li {
+				list-style-type: none;
+				font-size: 15px;
+				width: 25%;
+				float: left;
+				position: relative;
+				font-weight: 400
+			}
+			#progressbar #step1:before {
+				content: "1"
+			}
+			#progressbar #step2:before {
+				content: "2"
+			}
+			#progressbar #step3:before {
+				content: "3"
+			}
+			#progressbar #step4:before {
+				content: "4"
+			}
+			#progressbar li:before {
+				width: 50px;
+				height: 50px;
+				line-height: 45px;
+				display: block;
+				font-size: 20px;
+				color: #ffffff;
+				background: lightgray;
+				border-radius: 50%;
+				margin: 0 auto 10px;
+				padding: 2px
+			}
+			#progressbar li:after {
+				content: '';
+				width: 100%;
+				height: 2px;
+				background: lightgray;
+				position: absolute;
+				left: 0;
+				top: 25px;
+				z-index: -1
+			}
+			#progressbar li.active:before {
+				background: #fbdf00
+			}
+			#progressbar li.active:after {
+				background: #fbdf00
+			}
+			#progressbar li.active:after {
+				background: #fbdf00
+			}
+			h2 {
+				text-transform: uppercase;
+				font-weight: normal;
+				text-align: center;
+				margin: 10;
+				padding: 10 color: red;
+			}
+			.progress {
+				height: 20px
+			}
+			.pbar {
+				background-color: #fbdf00
+			}
+		</style>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 		<link
 		href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
 		<!-- fontawesome -->
-	
-	<link
+
+		<link
 		rel="stylesheet" href="{{asset('front-office/assets/css/all.min.css')}}">
 		<!-- bootstrap -->
 		<link
@@ -218,7 +212,7 @@ color: red;
 								class="main-menu-wrap">
 								<!-- logo -->
 								<div class="site-logo">
-									<img src="front-office/assets/img/logoo.png" alt="" width="150" height="150">
+									<img src="{{ asset('front-office/assets/img/logoo.png')}}" alt="" width="150" height="150">
 								</div>
 								<!-- logo -->
 
@@ -236,7 +230,7 @@ color: red;
 											<a href="{{ path('list_coach')}} ">{% trans %}Coaches{% endtrans %}</a>
 										</li>
 										<li>
-											<a href="#">{% trans %}Clubs{% endtrans %}</a>
+											<a href="{{ path('club_index')}}">{% trans %}Clubs{% endtrans %}</a>
 											<ul class="sub-menu">
 												<li>
 													<a href="#">{% trans %}Our Clubs{% endtrans %}</a>
@@ -408,7 +402,7 @@ color: red;
 							<div class="single-product-item">
 								<div class="product-image">
 									<a href="single-product.html">
-							<img src="front-office/assets/img/products/product-img-1.jpg" alt=""></a>
+										<img src="{{ asset('front-office/assets/img/products/product-img-1.jpg')}}" alt=""></a>
 								</div>
 								<h3>Strawberry</h3>
 								<p class="product-price">
@@ -454,11 +448,10 @@ color: red;
 				</div>
 			</div>
 			<!-- end product section -->
-	<!-- end product section -->
+			<!-- end product section -->
 
 			<!-- cart banner section -->
-			<section class="cart-banner pt-100 pb-100">
-				<div class="container">
+				<section class="cart-banner pt-100 pb-100"> <div class="container">
 					<div
 						class="row clearfix">
 						<!--Image Column-->
@@ -473,7 +466,7 @@ color: red;
 										</span>
 									</div>
 								</div>
-						
+
 								<img src="{{ asset('front-office/assets/img/a.jpg') }}" alt="">
 							</div>
 						</div>
@@ -522,8 +515,8 @@ color: red;
 							<div class="testimonial-sliders">
 								<div class="single-testimonial-slider">
 									<div class="client-avater">
-										
-								<img src="{{ asset('front-office/assets/img/avaters/avatar1.png') }}" alt="">
+
+										<img src="{{ asset('front-office/assets/img/avaters/avatar1.png') }}" alt="">
 									</div>
 									<div class="client-meta">
 										<h3>Saira Hakim
@@ -539,8 +532,8 @@ color: red;
 								</div>
 								<div class="single-testimonial-slider">
 									<div class="client-avater">
-									
-								<img src="{{ asset('front-office/assets/img/avaters/avatar2.png') }}" alt="">
+
+										<img src="{{ asset('front-office/assets/img/avaters/avatar2.png') }}" alt="">
 									</div>
 									<div class="client-meta">
 										<h3>David Niph
@@ -556,8 +549,8 @@ color: red;
 								</div>
 								<div class="single-testimonial-slider">
 									<div class="client-avater">
-									
-								<img src="{{ asset('front-office/assets/img/avaters/avatar3.png') }}" alt="">
+
+										<img src="{{ asset('front-office/assets/img/avaters/avatar3.png') }}" alt="">
 									</div>
 									<div class="client-meta">
 										<h3>Jacob Sikim
@@ -721,75 +714,107 @@ color: red;
 				</div>
 			</div>
 			<!-- latest news -->
-	<div class="latest-news pt-150 pb-150">
-		<div class="container">
+			<div class="latest-news pt-150 pb-150">
+				<div class="container">
 
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="section-title">	
-						<h3><span class="orange-text">Our</span> News</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+					<div class="row">
+						<div class="col-lg-8 offset-lg-2 text-center">
+							<div class="section-title">
+								<h3>
+									<span class="orange-text">Our</span>
+									News</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
 
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="single-latest-news">
+								<a href="single-news.html">
+									<div class="latest-news-bg news-bg-1"></div>
+								</a>
+								<div class="news-text-box">
+									<h3>
+										<a href="single-news.html">You will vainly look for fruit on it in autumn.</a>
+									</h3>
+									<p class="blog-meta">
+										<span class="author">
+											<i class="fas fa-user"></i>
+											Admin</span>
+										<span class="date">
+											<i class="fas fa-calendar"></i>
+											27 December, 2019</span>
+									</p>
+									<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
+									<a href="single-news.html" class="read-more-btn">read more
+										<i class="fas fa-angle-right"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-latest-news">
+								<a href="single-news.html">
+									<div class="latest-news-bg news-bg-2"></div>
+								</a>
+								<div class="news-text-box">
+									<h3>
+										<a href="single-news.html">A man's worth has its season, like tomato.</a>
+									</h3>
+									<p class="blog-meta">
+										<span class="author">
+											<i class="fas fa-user"></i>
+											Admin</span>
+										<span class="date">
+											<i class="fas fa-calendar"></i>
+											27 December, 2019</span>
+									</p>
+									<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
+									<a href="single-news.html" class="read-more-btn">read more
+										<i class="fas fa-angle-right"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+							<div class="single-latest-news">
+								<a href="single-news.html">
+									<div class="latest-news-bg news-bg-3"></div>
+								</a>
+								<div class="news-text-box">
+									<h3>
+										<a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a>
+									</h3>
+									<p class="blog-meta">
+										<span class="author">
+											<i class="fas fa-user"></i>
+											Admin</span>
+										<span class="date">
+											<i class="fas fa-calendar"></i>
+											27 December, 2019</span>
+									</p>
+									<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
+									<a href="single-news.html" class="read-more-btn">read more
+										<i class="fas fa-angle-right"></i>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<a href="news.html" class="boxed-btn">More News</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<a href="news.html" class="boxed-btn">More News</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end latest news -->
+			<!-- end latest news -->
 
 			<!-- logo carousel -->
 			<div class="logo-carousel-section">
 				<div class="container">
-				<div class="row">
+					<div class="row">
 						<div class="col-lg-12">
 							<div class="logo-carousel-inner">
 								<div class="single-logo-item">
@@ -805,8 +830,8 @@ color: red;
 									<img src="{{ asset('front-office/assets/img/company-logos/4.png') }}" alt="">
 								</div>
 								<div class="single-logo-item">
-								 
-							<img src="{{ asset('front-office/assets/img/company-logos/5.png') }}" alt="">
+
+									<img src="{{ asset('front-office/assets/img/company-logos/5.png') }}" alt="">
 								</div>
 							</div>
 						</div>
@@ -857,25 +882,25 @@ color: red;
 		{% endblock %}
 		<script src="{{ asset('front-office/assets/js/registration.js') }}"></script>
 		<!-- jquery -->
-		<script src="front-office/assets/js/jquery-1.11.3.min.js"></script>
+		<script src="{{ asset('front-office/assets/js/jquery-1.11.3.min.js') }}"></script>
 		<!-- bootstrap -->
-		<script src="front-office/assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="{{ asset('front-office/assets/bootstrap/js/bootstrap.min.js') }}"></script>
 		<!-- count down -->
-		<script src="front-office/assets/js/jquery.countdown.js"></script>
+		<script src="{{ asset('front-office/assets/js/jquery.countdown.js') }}"></script>
 		<!-- isotope -->
-		<script src="front-office/assets/js/jquery.isotope-3.0.6.min.js"></script>
+		<script src="{{ asset('front-office/assets/js/jquery.isotope-3.0.6.min.js') }}"></script>
 		<!-- waypoints -->
-		<script src="front-office/assets/js/waypoints.js"></script>
+		<script src="{{ asset('front-office/assets/js/waypoints.js') }}"></script>
 		<!-- owl carousel -->
-		<script src="front-office/assets/js/owl.carousel.min.js"></script>
+		<script src="{{ asset('front-office/assets/js/owl.carousel.min.js') }}"></script>
 		<!-- magnific popup -->
-		<script src="front-office/assets/js/jquery.magnific-popup.min.js"></script>
+		<script src="{{ asset('front-office/assets/js/jquery.magnific-popup.min.js') }}"></script>
 		<!-- mean menu -->
-		<script src="front-office/assets/js/jquery.meanmenu.min.js"></script>
+		<script src="{{ asset('front-office/assets/js/jquery.meanmenu.min.js') }}"></script>
 		<!-- sticker js -->
-		<script src="front-office/assets/js/sticker.js"></script>
+		<script src="{{ asset('front-office/assets/js/sticker.js') }}"></script>
 		<!-- main js -->
-		<script src="front-office/assets/js/main.js"></script>
+		<script src="{{ asset('front-office/assets/js/main.js') }}"></script>
 
 	</body>
 </html>
