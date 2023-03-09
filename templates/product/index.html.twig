@@ -1,0 +1,26 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Prix</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.nom }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.prix }}</td>
+                <td><a href="{{ path('panier_add',{'id':product.id}) }}" >AjouterPanier</a>
+                <td><a href="{{ path('list_add',{'id':product.id}) }}" >AjouterList</a>
+                </td>
+                
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

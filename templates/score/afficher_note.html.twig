@@ -1,0 +1,78 @@
+{% extends "base-back.html.twig" %} 
+{% block title %} {% endblock %}
+{% block body %}
+<div id="layoutSidenav">
+    <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Notes coachs</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="afficher_note.html.twig">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Tables</li>
+                        </ol>
+                      
+                            <div class="card-body">
+                                <table id="datatablesSimple"border="1">
+                                    <thead>
+                                        <tr>
+                                            <th>Note</th>
+                                            <th>Identifiant-client</th>
+                                            <th>Identifiant_coach</th>
+
+                                        </tr>
+                                    </thead>
+                                 
+                                    <tbody>
+                                    {% for s in sco %}
+                                    <tr>
+                                    <td>{{s.note}}</td>
+                                    <td>{{s.user.nom}} {{s.user.prenom}}</td>
+                                    <td>{{s.coach.nom}} {{s.coach.prenom}}</td>
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+
+                <table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Moyenne</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in topcoach %}
+            <tr>
+                <td>{{ c.nom }}</td>
+                <td>{{ c.prenom }}</td>
+                <td>{{ c.moyenne|number_format(2)}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+{% endblock %}

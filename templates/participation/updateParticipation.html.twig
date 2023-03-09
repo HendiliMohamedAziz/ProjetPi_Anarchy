@@ -1,0 +1,30 @@
+{% extends 'base-front.html.twig'%}
+{% block body %}
+
+<div class="breadcrumb-section breadcrumb-bg" >
+    <div class="container">
+        <div class="row">
+             <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Join Bour la forme to make your life easier</p>
+                    <h1>Modifier Votre Participation</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="body">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="container shadow p-3 mb-5 bg-white rounded mx-auto">
+            <div class="container">
+            <h3><mark><center>Editer La Participation<center></mark></h3>
+            {{ form(formParticipation) }}
+            <form action="" method="">
+            </form>
+        </div>      
+    </div>
+    <a href="{{ path('club_index') }}" class="btn btn-primary">Annuler Modifications</a>
+
+</div>
+{% endblock %}

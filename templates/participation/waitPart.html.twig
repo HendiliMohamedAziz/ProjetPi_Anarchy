@@ -1,0 +1,38 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}details du club{% endblock %}
+
+
+{% block body %}
+    <div class="breadcrumb-section breadcrumb-bg" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="breadcrumb-text">
+                            <p>Join Bour la forme to make your life easier</p>
+                            <h1>Attente de confirmation</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+    <div class="single-product mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+
+                        <h4>Veuillez attendre l'acceptation de votre participation</h4>
+                        <p>Vous pouvez consulter la liste de nos clubs disponible pendant votre attente </p>
+                        <a href="{{ path('club_index') }}" class="cart-btn">Consulter</a>
+
+
+                </div>
+            </div>   
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

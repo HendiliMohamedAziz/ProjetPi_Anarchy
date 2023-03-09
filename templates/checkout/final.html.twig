@@ -1,0 +1,21 @@
+{% extends 'base-front.html.twig' %}
+
+
+{% block body %}
+<div class="breadcrumb-section breadcrumb-bg" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>Checkout Done</p>
+                        <h1><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></h1>
+                    </div>
+                <h4> your order has been confirmed</h4>
+
+            <a href="{{ path('list_article2')}}" class="boxed-btn">Start Shopping</a>
+            <br>
+                </div>
+            </div>
+        </div>
+ 
+{% endblock %}
