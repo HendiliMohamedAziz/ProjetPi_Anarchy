@@ -117,7 +117,12 @@
                                     </div>
                                 {% endfor %}
                                 {% block body %}
-                                    Template
+                                    <a href="{{ path('list_article') }}">
+                                              <img src="Produit.png" >
+                                    </a>
+                                <a href="{{ path('list_commande') }}">
+                                            <img src="Commande.png">
+                                    </a>
                                 {% endblock %}
                             </div>
                         </div>

@@ -98,7 +98,7 @@ class CommandeController extends AbstractController
         $dompdf->render();
     
         // On génère un nom de fichier
-        $fichier = 'Liste-produit' .'.pdf';
+        $fichier = 'Liste-commande' .'.pdf';
     
         // On envoie le PDF au navigateur
         $dompdf->stream($fichier, [
