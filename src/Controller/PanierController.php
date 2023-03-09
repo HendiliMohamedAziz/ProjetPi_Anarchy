@@ -12,7 +12,7 @@ use App\Repository\ArticleRepository;
 
 class PanierController extends AbstractController
 {
-    #[Route('/panier', name: 'app_panier')]
+    #[Route('/client/panier', name: 'app_panier')]
     public function index(SessionInterface $session , ArticleRepository $ArticleRepository)
     {
         $panier = $session->get('panier', []); 
@@ -35,7 +35,7 @@ class PanierController extends AbstractController
         ]);
     }
 
-    #[Route('/panier/add/{id} ', name: 'panier_add')]
+    #[Route('/client/panier/add/{id} ', name: 'panier_add')]
 
     public function add($id, SessionInterface $session) {
 
@@ -51,7 +51,7 @@ class PanierController extends AbstractController
 
         return $this->redirectToRoute("app_panier");
     }
-    #[Route('/panier/remove/{id} ', name: 'panier_remove')]
+    #[Route('/client/panier/remove/{id} ', name: 'panier_remove')]
 
     public function remove($id, SessionInterface $session) {
      $panier = $session->get('panier', []); 
@@ -65,7 +65,7 @@ class PanierController extends AbstractController
          return $this->redirectToRoute("app_panier");
     }  
     
-    #[Route('/panier/removeOne/{id}', name: 'remove1_panier')]
+    #[Route('/client/panier/removeOne/{id}', name: 'remove1_panier')]
     public function removeOne($id, SessionInterface $session) {
         $panier = $session->get('panier', []); 
            if (!empty($panier[$id]))

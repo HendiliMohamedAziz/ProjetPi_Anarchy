@@ -17,6 +17,9 @@
         }
     </style>
 {% endblock %}
+
+{% block sidenav %}
+{% endblock %}
         
 {% block body %}
     
@@ -41,7 +44,7 @@
                     <td>{{ coach.id }}</td>
                     <td>{{ coach.email }}</td>
                     <td>{{ coach.nom }} {{ coach.prenom }}</td>
-                    <td><div class="d-flex align-items-center"><img class="rounded-circle" src="{{ asset('uploads/brochures/' ~ coach.Certificates) }}"width="100"><span class="ml-2"></span></div></td>
+                    <td><div class="d-flex align-items-center"><img class="rounded-circle" src="{{ asset('uploads/articles/' ~ coach.Certificates) }}"width="100"><span class="ml-2"></span></div></td>
                     <td>{{ coach.specialite }}</td>
                     <td>{{ coach.experiance }}</td>
                     <td>{{ coach.description }}</td>

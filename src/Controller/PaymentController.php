@@ -12,7 +12,7 @@ use App\Repository\ArticleRepository;
  
 class PaymentController extends AbstractController
 {
-    #[Route('/stripe', name: 'app_stripe')]
+    #[Route('/client/stripe', name: 'app_stripe')]
     public function index(): Response
     {
  
@@ -21,7 +21,7 @@ class PaymentController extends AbstractController
         ]);
     }
  
-    #[Route('/stripe/create-charge', name: 'app_stripe_charge', methods: ['POST'])]
+    #[Route('/client/stripe/create-charge', name: 'app_stripe_charge', methods: ['POST'])]
     public function createCharge(Request $request,SessionInterface $session , ArticleRepository $ArticleRepository)
     {
         $panier = $session->get('panier', []); 

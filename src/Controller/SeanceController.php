@@ -38,7 +38,7 @@ class SeanceController extends AbstractController
     {
         return $this->render('template.html.twig');
     }
-    #[Route('/addseance', name: 'add_seance')]
+    #[Route('/coach/addseance', name: 'add_seance')]
     public function addSeance(ManagerRegistry $doctrine,Request $request)
     {
         $seance= new Seance;
@@ -54,7 +54,7 @@ class SeanceController extends AbstractController
     
 }
 
-#[Route('/listcoach', name: 'list_coach')]
+#[Route('/client/listcoach', name: 'list_coach')]
     public function listCoach(UserRepository $repository,Request $request,TransportInterface $mailer,ManagerRegistry $doctrine)
     {
         $coach = $repository->findAll();
@@ -88,7 +88,7 @@ class SeanceController extends AbstractController
     'form'=>$form->createView()));
     } 
 //---------------ListSeance------------
-    #[Route('/listseance', name: 'list_seance')]
+    #[Route('/coach/listseance', name: 'list_seance')]
     public function listSeance(SeanceRepository $repository,Request $request)
     {
         //on cherche le num de la page dans l'url
@@ -99,7 +99,7 @@ class SeanceController extends AbstractController
         "sortByGrp"=>$sortByGrp,));
     } 
 
-    #[Route('/updateseance/{id}', name: 'update_seance')]
+    #[Route('/coach/updateseance/{id}', name: 'update_seance')]
     public function  updateCoach($id,SeanceRepository $repository,ManagerRegistry $doctrine,Request $request)
     {
         $seance= $repository->find($id);
@@ -115,7 +115,7 @@ class SeanceController extends AbstractController
     }
 
      //-----------------SupprimerSeance--------------
-     #[Route('/removeseance/{id}', name: 'remove_seance')]
+     #[Route('/coach/removeseance/{id}', name: 'remove_seance')]
 
      public function removeCoach(ManagerRegistry $doctrine,$id,SeanceRepository $repository)
      {
@@ -127,7 +127,7 @@ class SeanceController extends AbstractController
      }
 
      //-----------------------AfficherDétailsSeance-----------------------
-    #[Route('/detailseance/{id<\d+>}', name: 'detail_seance')]
+    #[Route('/coach/detailseance/{id<\d+>}', name: 'detail_seance')]
     public function detailcoach($id,  Seance $seance = null): Response {
         if( !$seance) {
             $this->addFlash('error', "La seance d'id $id n'existe pas");
@@ -137,7 +137,7 @@ class SeanceController extends AbstractController
         return $this->render('seance/detailseance.html.twig', ['seance' => $seance]);
     }}
 
-    #[Route('/statistiques', name: 'statistiques_seance')]
+    #[Route('/coach/statistiques', name: 'statistiques_seance')]
     public function statistiques(SeanceRepository $repo){
         
         $seances= $repo->findAll();

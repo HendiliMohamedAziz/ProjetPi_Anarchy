@@ -32,13 +32,13 @@ class CommandeController extends AbstractController
             'controller_name' => 'CommandeController',
         ]);
     }
-    #[Route('/listcommande', name: 'list_commande')]
+    #[Route('/admin/produit/listcommande', name: 'list_commande')]
     public function listCommande(CommandeRepository $repository)
     {
         $commande= $repository->findAll();
        return $this->render("commande/list.html.twig",array("tabcommande"=>$commande));
     }
-    #[Route('/updateForm/{id}', name: 'update')]
+    #[Route('/admin/produit/updateForm/{id}', name: 'update')]
     public function  updateForm($id,CommandeRepository $repository,ManagerRegistry $doctrine,Request $request)
     {
         $commande= $repository->find($id);
@@ -53,7 +53,7 @@ class CommandeController extends AbstractController
     }
 
 
-    #[Route('/removeForm/{id}', name: 'remove')]
+    #[Route('/admin/produit/removeForm/{id}', name: 'remove')]
     public function removeCommande(ManagerRegistry $doctrine,$id,CommandeRepository $repository)
     {
         $commande= $repository->find($id);
@@ -63,7 +63,7 @@ class CommandeController extends AbstractController
         return  $this->redirectToRoute("list_commande");
     }
 
-    #[Route('/commande/data/download', name: 'users_data_download')]
+    #[Route('/admin/produit/commande/data/download', name: 'users_data_download')]
 
     public function usersDataDownload(CommandeRepository $commande)
     {
@@ -108,7 +108,7 @@ class CommandeController extends AbstractController
         return new Response() ;
     }
 
-    #[Route('/FindPanier/{id}', name: 'FindPanier')]
+    #[Route('/admin/produit/FindPanier/{id}', name: 'FindPanier')]
     public function FindPanier(ManagerRegistry $doctrine,$id,CommandeRepository $repository,PanierArticleRepository $repository1,ArticleRepository $repository2)
     {
  // Récupérer la commande correspondante à l'ID donné

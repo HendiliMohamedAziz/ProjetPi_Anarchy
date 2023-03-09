@@ -219,41 +219,41 @@
 
 								<!-- menu start -->
 								<nav class="main-menu">
-
 									<ul>
-										<li class="current-list-item">
-											<a href="{{ path('app_test')}}">{% trans %}Home{% endtrans %}</a>
-										</li>
-										<li>
-											<a href="{{ path('about_us')}}">{% trans %}About{% endtrans %}</a>
-										</li>
-										<li>
-											<a href="{{ path('list_coach')}} ">{% trans %}Coaches{% endtrans %}</a>
-										</li>
-										<li>
-											<a href="{{ path('club_index')}}">{% trans %}Clubs{% endtrans %}</a>
+										<li class="current-list-item"><a href="{{ path('app_test')}}">{% trans %}Home{% endtrans %}</a></li>
+										<li><a href="{{ path('about_us')}}">{% trans %}About{% endtrans %}</a></li>
+										<li><a href="{{ path('list_coach')}}">{% trans %}Coaches{% endtrans %}</a></li>
+										<li><a href="{{ path('club_index')}}">{% trans %}Clubs{% endtrans %}</a>
 											<ul class="sub-menu">
-												<li>
-													<a href="#">{% trans %}Our Clubs{% endtrans %}</a>
-												</li>
+												<li><a href="{{ path('list_participation')}}">{% trans %}My Clubs{% endtrans %}</a></li>
 											</ul>
 										</li>
-										<li>
-											<a href="#">{% trans %}Claim{% endtrans %}</a>
+										<li><a href="#">{% trans %}Reclamation{% endtrans %}</a>
+											<ul class="sub-menu">
+												<li><a href="{{ path('afficher_coach')}}">{% trans %}Reclamer un coach{% endtrans %}</a></li>
+												<li><a href="{{ path('afficher_club')}}">{% trans %}Reclamer un club{% endtrans %}</a></li>
+												<li><a href="{{ path('afficher_produit')}}">{% trans %}Reclamer un produit{% endtrans %}</a></li>
+												<li><a href="{{ path('afficher_mes_reclamations')}}">{% trans %}Mes reclamation{% endtrans %}</a></li>
+												<li><a href="{{ path('afficher_note2')}}">{% trans %}Top coachs{% endtrans %}</a></li>											
+											</ul>
 										</li>
+										<li><a href="#">{% trans %}Shop{% endtrans %}</a></li>
 										<li>
-											<a href="#">{% trans %}Shop{% endtrans %}</a>
-										</li>
-										<li>
-											<a class="shopping-cart" href="#">
-												<i class="fas fa-shopping-cart"></i>
-											</a>
-											<a class="mobile-hide search-bar-icon" href="#">
-												<i class="fas fa-user"></i>
-											</a>
+											{% if app.user %}
+												<div class="header-icons">
+													<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-heart"></i></a>
+													<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
+													<a class="mobile-hide search-bar-icon"><i class="fas fa-user"></i>
+														<ul class="sub-menu" style:"padding: 10px;">
+															<li><h5>Hello, {{ app.user.nom }} {{ app.user.prenom }}</h5></li>
+															<li><a href="{{ path('app_logout')}}">Log-Out</a></li>
+														</ul>
+													</a>
+												</div>
+											{% endif %}
 										</li>
 									</ul>
-									<ul>
+									{#<ul>
 										{% for locale in locales  %}
 											{% if locale != app.request.locale %}
 												<li class="current-list-item">
@@ -263,7 +263,7 @@
 											{% endif %}
 										{% endfor %}
 
-									</ul>
+									</ul>#}
 								</nav>
 								<div class="mobile-menu"></div>
 								<!-- menu end -->
