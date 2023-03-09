@@ -1,0 +1,35 @@
+
+{% extends 'base-front.html.twig' %}
+
+
+{% block body %}
+<div class="breadcrumb-section breadcrumb-bg" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>Join Bour la forme to make your life easier</p>
+                        <h1>Liste des clubs</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="product-section mt-150 mb-150">
+      <div class="container">
+         <div class="row product-lists">
+            {% for s in clubs %}
+               <div class="col-lg-3 col-md-4 text-center berry">
+                  <div class="single-product-item">
+                     <div class="product-image">
+                        <img src="{{ asset('uploads/brochures/' ~ s.image) }}" alt="{{ s.nom }}" height="200" width="200">
+                     </div>
+                     <h3>{{ s.nom }}</h3>
+                     <a href="{{ path('club_show', {'id': s.id}) }}" class="cart-btn">Voir</a>
+                  </div>
+               </div>
+            {% endfor %}
+         </div>
+      </div>
+</div>
+{% endblock %}

@@ -57,6 +57,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'id_user', targetEntity: Participation::class)]
     private Collection $participations;
 
+    #[ORM\OneToMany(mappedBy: 'id_clubOwner', targetEntity: Club::class)]
+    private Collection $clubs;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Certificates = null;
 
@@ -320,6 +323,37 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Club>
+     */
+    public function getClubs(): Collection
+    {
+        return $this->clubs;
+    }
+
+    public function addClub(Club $club): self
+    {
+        if (!$this->clubs->contains($club)) {
+            $this->clubs->add($club);
+            $club->setIdClubOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClub(Club $club): self
+    {
+        if ($this->clubs->removeElement($club)) {
+            // set the owning side to null (unless already changed)
+            if ($club->getIdClubOwner() === $this) {
+                $club->setIdClubOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
 
     public function getCertificates(): ?string
     {
