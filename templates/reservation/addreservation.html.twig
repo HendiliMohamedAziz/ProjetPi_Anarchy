@@ -1,0 +1,25 @@
+{% extends 'base-front.html.twig' %}
+
+
+{% block body %}
+	<!-- breadcrumb-section aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+
+						<h1>{% trans %}Book{% endtrans %}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<div class="card-body" style="margin-left:40%;">
+
+		{{ form(formreservation) }}
+		</div>
+	{% endblock %}
+
