@@ -76,7 +76,7 @@ class ClubController extends AbstractController
                 // Move the file to the directory where brochures are stored
                 try {
                     $image->move(
-                        $this->getParameter('club_directory'),
+                        $this->getParameter('brochures_directory'),
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -97,7 +97,7 @@ class ClubController extends AbstractController
         }
         return $this->renderForm("club/add.html.twig", array("formClub" => $form));
     }
-    
+
     /*#[Route('/show', name: 'club_show')]
     public function show(){
         return $this->render("club/show.html.twig");
@@ -162,7 +162,7 @@ class ClubController extends AbstractController
         ]);
     }
 
-    
+
     ////////////////////////mapbox
     /**
      * Get the geolocation of a club

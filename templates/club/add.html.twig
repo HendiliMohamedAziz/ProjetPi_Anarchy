@@ -22,12 +22,11 @@
             {{ form_label(formClub.type_activite, 'Type d\'activité', {'label_attr': {'class': 'form-label'}}) }}
             {{ form_widget(formClub.type_activite, {'attr': {'class': 'form-select', 'placeholder': 'Entrez le type d\activité du club'}}) }}
             {{ form_errors(formClub.type_activite, {'attr': {'class': 'form-error'}}) }}
-            {{ form_label(formClub.Prix,'prix abonnement club', {'label_attr': {'class': 'form-label'}})}}
 
             {{ form_row(formClub.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Entrez la localisation du club'}}) }}
-            {{ form_row(formClub.latitude, {'type': 'number'}) }}
+            {{ form_row(formClub.latitude, {'attr': {'class': 'form-control', 'placeholder': 'Entrez la latitude de localisation du club'}}) }}
            
-            {{ form_row(formClub.longitude, {'type': 'number'}) }}
+            {{ form_row(formClub.longitude,{'attr': {'class': 'form-control', 'placeholder': 'Entrez la longitude de localisation du club'}}) }}
             <br>
             {{ form_row(formClub.image, {'attr': {'class': 'form-control-file'}}) }}
             <br>
