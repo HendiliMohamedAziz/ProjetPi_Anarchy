@@ -301,7 +301,6 @@ class ReclamationController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted()&& $form->isValid() )
         {
-            $reclamation->setColor("#008000");          
             $reclamation->setEtat(" traité");
             $user=$reclamation->getUser() ;
             $em=$this->getDoctrine()->getManager();
