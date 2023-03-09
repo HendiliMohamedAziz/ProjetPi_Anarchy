@@ -17,9 +17,9 @@
 </div>
                             {% for c in club %}
 							<div class="testimonila_inner">
-								<div class="testing_img"><img src="images/img-10.png"></div>
+				<img src="{{ asset('uploads/articles/' ~ c.image ) }}" alt="" width="170" height="170"></a>
 								<h2 class="helina_text">{{c.nom}}</h2>
-                                <a class="subscribe_bt"  href="{{ path ('reclamer_club',{'id':c.id}) }}"><i class="zmdi zmdi-edit"></i>   Réclamer</a>
+                                <a class="btn btn-raised btn-primary btn-round waves-effect"  href="{{ path ('reclamer_club',{'id':c.id}) }}"><i class="btn btn-raised btn-primary btn-round waves-effect"></i>   Réclamer</a>
 							</div>
                             {% endfor %}
 						</div>

@@ -22,7 +22,7 @@
     {% set y = 0 %}
 
     <div class="testimonila_inner">
-        <div class="testing_img"><img src="images/fiche-stade-rennais-2017-2018-khazri-wahbi.jpg"></div>
+				<img src="{{ asset('uploads/articles/' ~ c.image ) }}" alt="" width="170" height="170"></a>
         <h2 class="helina_text">{{c.nom}} {{c.prenom}}</h2>
         <a class="btn btn-raised btn-primary btn-round waves-effect" href="{{ path ('reclamer_coach',{'id':c.id}) }}"><i class="btn btn-raised btn-primary btn-round waves-effect"></i> Réclamer</a>
         <a class="btn btn-raised btn-primary btn-round waves-effect" href="{{ path ('noter_coach',{'id':c.id}) }}"><i class="btn btn-raised btn-primary btn-round waves-effect"></i> Donner une note</a>

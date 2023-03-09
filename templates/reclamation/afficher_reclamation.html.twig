@@ -2,6 +2,8 @@
  {% extends "base-back.html.twig" %} 
 {% block title %} {% endblock %}
 {% block body %}
+<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js') }}"crossorigin="anonymous"></script>
+
 <div id="layoutSidenav">
     <div id="layoutSidenav_content">
                 <main>
@@ -90,21 +92,110 @@
                             </div>
                         </div>
                     </div>
+                    {% set rect = 0 %}
+                    {% set recco = 0 %}
+                    {% set reccl = 0 %}
+                    {% set recp = 0 %}
+                    {% for r in rec %}
+                    {% if r.etat == " traité" %}
+                    {% set rect = rect + 1 %}
+                    {% endif %}
+                    {% if r.type == "reclamation_coach" %}
+                    {% set recco = recco + 1 %}
+                    {% endif %}
+                    {% if r.type == "reclamation_produit" %}
+                    {% set recp = recp + 1 %}
+                    {% endif %}
+                    {% if r.type == "reclamation_club" %}
+                    {% set reccl = reccl + 1 %}
+                    {% endif %}
+                    {% endfor %}
+
+                   
+                   
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                 <div class="row">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-pie me-1"></i>
+                                        L'etat des reclamations
+                                    </div>
+                                    <div class="card-body"><canvas id="myPieChart1" width="150%" height="50"></canvas></div>
+                                    
+                                  
                             </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
- 
+                            <div class="row">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-pie me-1"></i>
+                                        Reclamation sur
+                                    </div>
+                                    <div class="card-body"><canvas id="myBarChart1" width="150%" height="50"></canvas></div>
+                                    
+                            
+           
+  <script>
+                    Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+                    Chart.defaults.global.defaultFontColor = '#292b2c';
+
+                    // Pie Chart Example
+                    var ctx = document.getElementById("myPieChart1");
+                    var myPieChart = new Chart(ctx, {
+                     type: 'pie',
+                        data: {
+                     labels: ["Non Traité","Traité"],
+                     datasets: [{
+                     data: [{{rec|length - rect}}, {{rect}}],
+                     backgroundColor: ['#dc3545',  '#28a745'],
+    }],
+  },
+});
+                    </script>
+                    <script>
+                    Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+                    Chart.defaults.global.defaultFontColor = '#292b2c';
+
+var ctx = document.getElementById("myBarChart1");
+var myLineChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["Coach", "produit", "club"],
+    datasets: [{
+      label: "Total",
+      backgroundColor: "rgba(2,117,216,1)",
+      borderColor: "rgba(2,117,216,1)",
+      data: [ {{recco}}, {{recp}}, {{reccl}} ],
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 6
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 30,
+          maxTicksLimit: 3
+        },
+        gridLines: {
+          display: true
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+</script>
 
 {% endblock %}
