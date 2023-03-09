@@ -303,13 +303,14 @@ class ReclamationController extends AbstractController
         {
             $reclamation->setEtat(" traité");
             $user=$reclamation->getUser() ;
+            $email = $user->getEmail();
             $em=$this->getDoctrine()->getManager();
             $em->persist($reclamation);
             $em->flush();
             $user=$this->getDoctrine()->getRepository(User::class)->find(2);
             $email= (new TemplatedEmail())
                 ->from("ahmed.sta@esprit.tn")
-                ->to("ahmed.sta@esprit.tn")
+                ->to($email)
                 ->subject('Contact au sujet de la reclamation')
                 ->text("reclamation traitée");
           
