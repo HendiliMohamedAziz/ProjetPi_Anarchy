@@ -58,7 +58,7 @@ class ArticleController extends AbstractController
 
    
  //ajouter acticle
-    #[Route('/addForm1', name: 'addArticle')]
+    #[Route('/admin/produit/addForm1', name: 'addArticle')]
     public function addForm(ManagerRegistry $doctrine , Request $request,SluggerInterface $slugger)
     {
         $article= new article;
@@ -89,7 +89,7 @@ class ArticleController extends AbstractController
          return $this->renderForm("article/add.html.twig",array( "formarticle"=>$form));
     }
     //modifier article
-    #[Route('/updateFormA/{id}', name: 'updateArticle')]
+    #[Route('/admin/produit/update/{id}', name: 'updateArticle')]
     public function  updateForm($id,articleRepository $repository,ManagerRegistry $doctrine,Request $request,SluggerInterface $slugger)
 {
         $article= $repository->find($id);
@@ -123,7 +123,7 @@ class ArticleController extends AbstractController
         return $this->renderForm("article/update.html.twig",array("formarticle"=>$form));
     }
  //supprimer article
-    #[Route('/removeFormArticle/{id}', name:'removeArticle')]
+    #[Route('/admin/produit/remove/{id}', name:'removeArticle')]
 
     public function removearticle($id)
     {

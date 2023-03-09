@@ -11,7 +11,7 @@ class AdminVenteController extends AbstractController
     #[Route('/admin/vente', name: 'app_admin_vente')]
     public function index(): Response
     {
-        return $this->render('AdminVente.html.twig', [
+        return $this->render('admin_vente\vente.html.twig', [
             'controller_name' => 'AdminVenteController',
         ]);
     }

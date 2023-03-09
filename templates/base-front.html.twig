@@ -237,12 +237,12 @@
 												<li><a href="{{ path('afficher_note2')}}">{% trans %}Top coachs{% endtrans %}</a></li>											
 											</ul>
 										</li>
-										<li><a href="#">{% trans %}Shop{% endtrans %}</a></li>
+										<li><a href="{{ path('list_article2') }}">{% trans %}Shop{% endtrans %}</a></li>
 										<li>
 											{% if app.user %}
 												<div class="header-icons">
-													<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-heart"></i></a>
-													<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
+													<a class="mobile-hide search-bar-icon" href="{{path('app_list_favoris')}}"><i class="fas fa-heart"></i></a>
+													<a class="shopping-cart" href="{{path('app_panier')}}"><i class="fas fa-shopping-cart"></i></a>
 													<a class="mobile-hide search-bar-icon"><i class="fas fa-user"></i>
 														<ul class="sub-menu" style:"padding: 10px;">
 															<li><h5>Hello, {{ app.user.nom }} {{ app.user.prenom }}</h5></li>
