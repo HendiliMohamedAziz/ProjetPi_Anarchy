@@ -1,0 +1,52 @@
+{% extends 'base-front.html.twig' %}
+
+
+{% block body %}
+<link rel="stylesheet" href="style.css">
+
+<div class="breadcrumb-section breadcrumb-bg" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>Join Bour la forme to make your life easier</p>
+                        <h1>Liste des coachs</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+                           {% for c in coach %}
+    {% set x = 0 %}
+    {% set y = 0 %}
+
+    <div class="testimonila_inner">
+        <div class="testing_img"><img src="images/fiche-stade-rennais-2017-2018-khazri-wahbi.jpg"></div>
+        <h2 class="helina_text">{{c.nom}} {{c.prenom}}</h2>
+        <a class="btn btn-raised btn-primary btn-round waves-effect" href="{{ path ('reclamer_coach',{'id':c.id}) }}"><i class="btn btn-raised btn-primary btn-round waves-effect"></i> Réclamer</a>
+        <a class="btn btn-raised btn-primary btn-round waves-effect" href="{{ path ('noter_coach',{'id':c.id}) }}"><i class="btn btn-raised btn-primary btn-round waves-effect"></i> Donner une note</a>
+
+
+
+        {% for s in score %}
+            {% if s.coach == c %}
+                {% set x = x + s.note %}
+                {% set y = y + 1 %}
+            {% endif %}
+        {% endfor %}
+
+        {% if y > 0 %}
+            {% set x = x / y %}
+            <h2 class="helina_text">Moyenne des notes: {{x|number_format(2)}}</h2>
+        {% else %}
+            <h2 class="helina_text">Pas encore de notes pour ce coach</h2>
+        {% endif %}
+
+    </div>
+    
+{% endfor %}
+
+					
+
+{% endblock %}

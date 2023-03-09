@@ -12,7 +12,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-
 class AdminClubOwnerController extends AbstractController
 {
     #[Route('/admin/clubOwner/listClubOwner', name: 'app_admin_ListClubOwner')]

@@ -75,8 +75,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: false)]
     private ?bool $isCoach = null;
 
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $likes = null;
+
     #[ORM\Column]
     private ?bool $approved = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $moyenne = null;
 
     
     public function __construct()
@@ -265,6 +271,31 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    public function addLike(User $like): self
+    {
+      
+            $this->likes[] = $like;
+    
+
+        return $this;
+    }
+    public function __toString(): string
+    {
+        return $this->getId(). " ".$this->getNom(). "" .$this->getPrenom();
+    }
+    public function getLikes(): ?string
+    {
+        return $this->likes;
+    }
+
+    public function setLikes(?string $likes): self
+    {
+        $this->likes = $likes;
+
+        return $this;
+    }
+   
+
 
     /**
      * @return Collection<int, Participation>
@@ -395,6 +426,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setApproved(bool $approved): self
     {
         $this->approved = $approved;
+
+        return $this;
+    }
+
+    public function getMoyenne(): ?float
+    {
+        return $this->moyenne;
+    }
+
+    public function setMoyenne(?float $moyenne): self
+    {
+        $this->moyenne = $moyenne;
 
         return $this;
     }
