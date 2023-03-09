@@ -53,6 +53,8 @@ class Article
 
     #[ORM\OneToMany(mappedBy: 'idArticle', targetEntity: PanierArticle::class)]
     private Collection $panierArticles;
+    #[ORM\Column(length: 255)]
+    private ?string $etat = null;
 
     public function __construct()
     {
