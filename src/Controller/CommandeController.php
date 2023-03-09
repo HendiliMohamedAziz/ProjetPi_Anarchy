@@ -25,7 +25,7 @@ use  Dompdf\Dompdf as Dompdf;
 use Dompdf\Options;
 class CommandeController extends AbstractController
 {
-    #[Route('/commande', name: 'app_commande')]
+    #[Route('/admin/produit/commande', name: 'app_commande')]
     public function index(): Response
     {
         return $this->render('commande/list.html.twig', [
@@ -38,7 +38,7 @@ class CommandeController extends AbstractController
         $commande= $repository->findAll();
        return $this->render("commande/list.html.twig",array("tabcommande"=>$commande));
     }
-    #[Route('/admin/produit/updateForm/{id}', name: 'update')]
+    #[Route('/admin/produit/updateFormCommande/{id}', name: 'updateCommande')]
     public function  updateForm($id,CommandeRepository $repository,ManagerRegistry $doctrine,Request $request)
     {
         $commande= $repository->find($id);
@@ -53,7 +53,7 @@ class CommandeController extends AbstractController
     }
 
 
-    #[Route('/admin/produit/removeForm/{id}', name: 'remove')]
+    #[Route('/admin/produit/removeFormCommande/{id}', name: 'removeCommande')]
     public function removeCommande(ManagerRegistry $doctrine,$id,CommandeRepository $repository)
     {
         $commande= $repository->find($id);
@@ -63,7 +63,7 @@ class CommandeController extends AbstractController
         return  $this->redirectToRoute("list_commande");
     }
 
-    #[Route('/admin/produit/commande/data/download', name: 'users_data_download')]
+    #[Route('/admin/produit/commande/data/download1', name: 'users_data_download1')]
 
     public function usersDataDownload(CommandeRepository $commande)
     {
@@ -98,7 +98,7 @@ class CommandeController extends AbstractController
         $dompdf->render();
     
         // On génère un nom de fichier
-        $fichier = 'Liste-produit' .'.pdf';
+        $fichier = 'Liste-commande' .'.pdf';
     
         // On envoie le PDF au navigateur
         $dompdf->stream($fichier, [

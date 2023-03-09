@@ -65,7 +65,7 @@
 							{% for item in items %}
 								<tr class="table-body-row">
 									<td class="product-remove"><a href="{{ path('panier_remove',{'id' : item.Article.id} ) }}"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="{{item.Article.image}}" alt=""></td>
+    <td><img src="{{ asset('uploads/articles/' ~ item.Article.image ) }}" alt="" width="200" height="200"></td>
 									<td class="product-name">{{item.Article.nom}}</td>
 									<td class="product-price">{{item.Article.prix}} Dt</td>
 									<td class="product-quantity"><a href="{{path("remove1_panier", {id: item.Article.id})}}" <i class="fa fa-minus-circle" aria-hidden="true"><a class="border">{{item.quantity}}</a><a href="{{path("panier_add", {id: item.Article.id})}}" <i class="fa fa-plus-circle" aria-hidden="true"></i></a></i></a> </td>
@@ -88,7 +88,7 @@
 						<div class="cart-buttons">
 							<td><a href="{{ path('list_article2')}}" class="boxed-btn">Update Cart</a></td>
                             <br>
-							<td> <a href="{{ path('add2') }}" class="boxed-btn black">Check Out</a></td>
+							<td> <a href="{{ path('addBA') }}" class="boxed-btn black">Check Out</a></td>
 						</div>
                          </table>
 					</div>
