@@ -1,0 +1,32 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Mes clubs{% endblock %}
+<a href="{{ path('club_index') }}">+Ajouter participation</a>
+{% block body %}
+    <h1>Mes clubs</h1>
+
+    {% if clubs is empty %}
+        <p>Vous n'êtes inscrit dans aucun club pour le moment.</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Club</th>
+                    <th>Date de participation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mc in mes_clubs %}
+                    <tr>
+                        <td>{{ mc.name }}</td>
+                        <td><img src="{{ asset('uploads/brochures'~ mc.image) }}" alt="{{ mc.name }}" height="100"></td>
+                        <td>{{ mc.description }}</td>
+                        <td>{{ mc.activityType }}</td>
+                        <td>{{ mc.dateDebut|date('Y-m-d') }}</td>
+                        <td>{{ mc.dateFin|date('Y-m-d') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

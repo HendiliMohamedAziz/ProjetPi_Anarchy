@@ -1,0 +1,30 @@
+{#}
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Mes clubs{% endblock %}
+
+{% block body %}
+  <h1>Mes clubs</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nom du club</th>
+        <th>Type d'activité</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for participation in tabParticipation %}
+        <tr>
+          <td>{{ participation.club.nom }}</td>
+          <td>{{ participation.club.typeActivite }}</td>
+          <td>
+            <a href="{{ path('club_details', {'club_id': participation.club.id}) }}" class="btn btn-info">Voir les détails</a>
+            <a href="{{ path('client_desinscrire', {'participation_id': participation.id}) }}" class="btn btn-danger">Se désinscrire</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
