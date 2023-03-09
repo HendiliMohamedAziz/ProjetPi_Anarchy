@@ -48,7 +48,7 @@
 							{% for item in items %}
 								<tr class="table-body-row">
 									<td class="product-remove"><a href="{{ path('list_remove',{'id' : item.Article.id} ) }}"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="{{item.Article.image}}" alt=""></td>
+    <td><img src="{{ asset('uploads/articles/' ~ item.Article.image ) }}" alt="" width="200" height="200"></td>
 									<td class="product-name">{{item.Article.nom}}</td>
 									<td class="product-price">{{item.Article.prix}} Dt</td>      
                                     <td><a href="{{ path('panier_add',{'id':item.Article.id}) }}"><i class="fas fa-shopping-cart"></i></a>
