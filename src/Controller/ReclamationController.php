@@ -23,7 +23,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ReclamationController extends AbstractController
 {
-    #[Route('/reclamation', name: 'app_reclamation')]
+    #[Route('/client/reclamation', name: 'app_reclamation')]
     public function index(): Response
     {
         return $this->render('test', [
@@ -47,7 +47,7 @@ class ReclamationController extends AbstractController
     }
     
 
-    #[Route('/reclamer/coach/{id}', name: 'reclamer_coach')]
+    #[Route('/client/reclamer/coach/{id}', name: 'reclamer_coach')]
     public function ajout_reclamation_coach($id,Request $request,ReclamationRepository $rp,UserRepository $urp): Response
     {
         $reclamation=new reclamation();
@@ -82,7 +82,7 @@ class ReclamationController extends AbstractController
         ]);
         }
 
-        #[Route('/reclamer/club/{id}', name: 'reclamer_club')]
+        #[Route('/client/reclamer/club/{id}', name: 'reclamer_club')]
     public function ajout_reclamation_club($id,Request $request,ReclamationRepository $rp,UserRepository $urp,ClubRepository $crp): Response
     {
         $reclamation=new reclamation();
@@ -115,7 +115,7 @@ class ReclamationController extends AbstractController
         ]);
         }
 
-        #[Route('/reclamer/produit/{id}', name: 'reclamer_produit')]
+        #[Route('/client/reclamer/produit/{id}', name: 'reclamer_produit')]
     public function ajout_reclamation_produit($id,Request $request,ReclamationRepository $rp,UserRepository $urp,ArticleRepository $arp): Response
     {
         $reclamation=new reclamation();
@@ -149,7 +149,7 @@ class ReclamationController extends AbstractController
 
 
 
-        #[Route('/afficher_coach', name: 'afficher_coach')]
+        #[Route('/client/afficher_coach', name: 'afficher_coach')]
         public function afficher_coach(UserRepository $repository,ScoreRepository $sr): Response
         {
     
@@ -164,7 +164,7 @@ class ReclamationController extends AbstractController
              
             ] );
         }
-        #[Route('/afficher_club', name: 'afficher_club')]
+        #[Route('/client/afficher_club', name: 'afficher_club')]
         public function afficher_club(ClubRepository $repository): Response
         {
     
@@ -177,7 +177,7 @@ class ReclamationController extends AbstractController
              
             ] );
         }
-        #[Route('/afficher_produit', name: 'afficher_produit')]
+        #[Route('/client/afficher_produit', name: 'afficher_produit')]
         public function afficher_produit(ArticleRepository $repository): Response
         {
     
@@ -190,7 +190,7 @@ class ReclamationController extends AbstractController
              
             ] );
         }
-        #[Route('/afficher_reclamation', name: 'afficher_reclamation')]
+        #[Route('/admin/reclamation/afficher_reclamation', name: 'afficher_reclamation')]
         public function afficher_reclamation(ReclamationRepository $repository): Response
         {
     
@@ -204,7 +204,7 @@ class ReclamationController extends AbstractController
             ] );
         }
 
-        #[Route('/afficher_reclamation_nontraite', name: 'afficher_reclamationnt')]
+        #[Route('/admin/reclamation/afficher_reclamation_nontraite', name: 'afficher_reclamationnt')]
         public function afficher_reclamationnt(ReclamationRepository $repository): Response
         {
     
@@ -221,7 +221,7 @@ class ReclamationController extends AbstractController
         }
 
 
-        #[Route('/afficher_reclamation_traite', name: 'afficher_reclamationt')]
+        #[Route('/admin/reclamation/afficher_reclamation_traite', name: 'afficher_reclamationt')]
         public function afficher_reclamationt(ReclamationRepository $repository): Response
         {
     
@@ -236,7 +236,7 @@ class ReclamationController extends AbstractController
             ] );
         }
                         
-        #[Route('/afficher_mes_reclamations', name: 'afficher_mes_reclamations')]
+        #[Route('/client/afficher_mes_reclamations', name: 'afficher_mes_reclamations')]
         public function afficher_mes_reclamations(ReclamationRepository $repository,UserRepository $urp): Response
         {
             $user=$this->getUser();
@@ -252,7 +252,7 @@ class ReclamationController extends AbstractController
 /**
      * @param $id
      * @param ReclamationRepository $rep
-     * @route ("/delete_reclamation/{id}", name="delete_reclamation")
+     * @route ("/client/delete_reclamation/{id}", name="delete_reclamation")
      */
     function Delete($id,ReclamationRepository $rep){
         $reclamation=$rep->find($id);
@@ -262,7 +262,7 @@ class ReclamationController extends AbstractController
         return $this->redirectToRoute('afficher_mes_reclamations');
     }
 
-    #[Route('/update_reclamation/{{id}}', name: 'update_reclamation')]
+    #[Route('/client/update_reclamation/{{id}}', name: 'update_reclamation')]
  
     function Update(ReclamationRepository $repository,$id,Request $request)
     {
@@ -283,7 +283,7 @@ class ReclamationController extends AbstractController
     /**
      * @param $id
      * @param ReclamationRepository $rep
-     * @route ("/delete_reclamation_back/{id}", name="delete_reclamation_back")
+     * @route ("/admin/reclamation/delete_reclamation_back/{id}", name="delete_reclamation_back")
      */
     function Delete1($id,ReclamationRepository $rep){
         $reclamation=$rep->find($id);
@@ -293,7 +293,7 @@ class ReclamationController extends AbstractController
         return $this->redirectToRoute('afficher_reclamation');
     }
 
-    #[Route('traiter_reclamation/{id}', name: 'traiter_reclamation')]
+    #[Route('/admin/reclamation/traiter_reclamation/{id}', name: 'traiter_reclamation')]
     public function traiter_reclamation($id,Request $request,ReclamationRepository $rp, TransportInterface $mailer): Response
     {        
         $reclamation=$rp->find($id);
@@ -415,7 +415,7 @@ public function search(Request $request,EntityRepository $reclamationRepository)
 
 
  
-#[Route('/afficher_note2', name: 'afficher_note2')]
+#[Route('/client/afficher_note2', name: 'afficher_note2')]
 public function afficher_score(ScoreRepository $repository,UserRepository $urp): Response
 {
     $m=0;

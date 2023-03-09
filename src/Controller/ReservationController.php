@@ -27,15 +27,7 @@ class ReservationController extends AbstractController
         ]);
     }
 
-    #[Route('/listcoach', name: 'list_coach')]
-    public function listStudent(Request $request,ReservationRepository $repository)
-    {
-       
-       $coach= $repository->findCoaches();
-       
-       return $this->render('seance/listecoach.html.twig', ['tabcoach' => $coach]); 
-    }
-   #[Route('/addreservation', name: 'add_reservation')]
+   #[Route('/client/addreservation', name: 'add_reservation')]
     public function addReservation(ManagerRegistry $doctrine,Request $request): Response
     {
 

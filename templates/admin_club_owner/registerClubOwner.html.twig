@@ -3,6 +3,10 @@
 {% block PageTitle %}
     Interface Add Club Owner       
 {% endblock %}
+
+{% block sidenav %} 
+{% endblock %}
+
 {% block body %}
     {{ form_start(registrationClubOwnerForm, {'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_label(registrationClubOwnerForm.email, '', {'label_attr': {'class': ''}}) }} 

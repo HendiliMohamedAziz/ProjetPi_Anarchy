@@ -25,7 +25,7 @@ class CreateAdminsType extends AbstractType
                 'multiple' => true,
                 'choices' => [
                     'Admin coach' => 'ROLE_ADMIN_COACH',
-                    'Admin produit' => 'ROLE_ADMIN_PRDOUIT',
+                    'Admin produit' => 'ROLE_ADMIN_PRODUIT',
                     'Admin club owners' => 'ROLE_ADMIN_CLUBOWNER',
                     'Admin reclamation' => 'ROLE_ADMIN_RECLAMATION',
                 ],

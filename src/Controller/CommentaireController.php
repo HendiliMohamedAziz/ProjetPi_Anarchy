@@ -24,7 +24,7 @@ class CommentaireController extends AbstractController
         ]);
     }
 
-    #[Route('/listcommentaire', name: 'list_commentaire')]
+    #[Route('/client/listcommentaire', name: 'list_commentaire')]
     public function listcommentaire(Request $request,commentaireRepository $repository)
     {
         $commentaire= $repository->findAll();
@@ -36,7 +36,7 @@ class CommentaireController extends AbstractController
 
 
 
-    #[Route('/addcommentaire', name: 'add222')]
+    #[Route('/client/addcommentaire', name: 'add222')]
     public function addcommentaire(ManagerRegistry $doctrine,Request $request)
     {
         $commentaire= new commentaire;

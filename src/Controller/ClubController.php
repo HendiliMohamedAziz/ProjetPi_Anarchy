@@ -76,7 +76,7 @@ class ClubController extends AbstractController
                 // Move the file to the directory where brochures are stored
                 try {
                     $image->move(
-                        $this->getParameter('club_directory'),
+                        $this->getParameter('brochures_directory'),
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -154,7 +154,7 @@ class ClubController extends AbstractController
     {
         $token = $this->get('security.token_storage')->getToken();
         $user = $token->getUser();
-        $userId = $user->getUser();
+        $userId = $user->getId();
         $mesClubs = $participationRepository->findMesClubs($userId);
 
         return $this->render('listParticipation.html.twig', [
