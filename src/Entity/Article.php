@@ -6,10 +6,12 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\Groups;use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
+
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -22,6 +24,7 @@ class Article
      /**
      * @Groups({"panier_list"})
      */
+ 
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
@@ -199,9 +202,15 @@ class Article
         return $this;
     }
 
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
 
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
 
-
-
-   
+        return $this;
+    }
 }
