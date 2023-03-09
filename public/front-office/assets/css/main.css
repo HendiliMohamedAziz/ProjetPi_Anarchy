@@ -7,9 +7,7 @@ Author URI: https://imransdesign.com/
 Version: 1.0
 */
 /* -----------------------------------------------------------------------------
-
 # Base - Genral & Typography
-
 ----------------------------------------------------------------------------- */
 html {
   font-size: 14px;
@@ -45,100 +43,130 @@ a:hover {
   text-decoration: none;
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   margin: 0 0 1.25rem 0;
   color: #051922;
 }
 
-h1:last-child, .h1:last-child,
-h2:last-child, .h2:last-child,
-h3:last-child, .h3:last-child,
-h4:last-child, .h4:last-child,
-h5:last-child, .h5:last-child,
-h6:last-child, .h6:last-child {
+h1:last-child,
+.h1:last-child,
+h2:last-child,
+.h2:last-child,
+h3:last-child,
+.h3:last-child,
+h4:last-child,
+.h4:last-child,
+h5:last-child,
+.h5:last-child,
+h6:last-child,
+.h6:last-child {
   margin: 0;
 }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 4rem;
   font-weight: 700;
   line-height: 4rem;
 }
 
 @media only screen and (max-width: 767.96px) {
-  h1, .h1 {
+
+  h1,
+  .h1 {
     font-size: 3rem;
     line-height: 3.25rem;
   }
 }
 
 @media only screen and (max-width: 575.96px) {
-  h1, .h1 {
+
+  h1,
+  .h1 {
     font-size: 2.5rem;
     line-height: 2.75rem;
   }
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 3rem;
   font-weight: 700;
   line-height: 3.25rem;
 }
 
 @media only screen and (max-width: 767.96px) {
-  h2, .h2 {
+
+  h2,
+  .h2 {
     font-size: 2.5rem;
     line-height: 2.75rem;
   }
 }
 
 @media only screen and (max-width: 575.96px) {
-  h2, .h2 {
+
+  h2,
+  .h2 {
     font-size: 2rem;
     line-height: 2.25rem;
   }
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: 2rem;
   font-weight: 700;
   line-height: 2.25rem;
 }
 
 @media only screen and (max-width: 575.96px) {
-  h3, .h3 {
+
+  h3,
+  .h3 {
     font-size: 1.75rem;
     line-height: 2rem;
   }
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.75rem;
 }
 
 @media only screen and (max-width: 575.96px) {
-  h4, .h4 {
+
+  h4,
+  .h4 {
     font-size: 1.25rem;
     line-height: 1.5rem;
   }
 }
 
-h5, .h5 {
+h5,
+.h5 {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5rem;
 }
 
-h6, .h6 {
+h6,
+.h6 {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.5rem;
@@ -159,9 +187,7 @@ p:last-child {
 }
 
 /* -----------------------------------------------------------------------------
-
 # All Common Styles
-
 ----------------------------------------------------------------------------- */
 .loader {
   bottom: 0;
@@ -238,6 +264,7 @@ p:last-child {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   to {
     -webkit-transform: rotate(720deg);
     transform: rotate(720deg);
@@ -249,6 +276,7 @@ p:last-child {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   to {
     -webkit-transform: rotate(720deg);
     transform: rotate(720deg);
@@ -260,6 +288,7 @@ p:last-child {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+
   to {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -271,6 +300,7 @@ p:last-child {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+
   to {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -439,7 +469,9 @@ a.read-more-btn:hover {
   color: #fbdf00;
 }
 
-a.boxed-btn, a.bordered-btn, a.cart-btn {
+a.boxed-btn,
+a.bordered-btn,
+a.cart-btn {
   border-radius: 50px;
 }
 
@@ -510,17 +542,17 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
   width: 100%;
   height: 100%;
   content: "";
-  background-color: #d9d9d9; /*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+  background-color: #d9d9d9;
+  /*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
   z-index: -1;
-  opacity: 1; 
-}   
+  opacity: 1;
+}
 
 /* -----------------------------------------------------------------------------
-
 # Header Styles
-
 ----------------------------------------------------------------------------- */
-ul.navbar-nav li.nav-item a.nav-link, ul.navbar-nav li.nav-item.active a.nav-link {
+ul.navbar-nav li.nav-item a.nav-link,
+ul.navbar-nav li.nav-item.active a.nav-link {
   color: #051922;
 }
 
@@ -531,11 +563,13 @@ ul.navbar-nav li.nav-item a.nav-link, ul.navbar-nav li.nav-item.active a.nav-lin
   padding: 25px 0;
 }
 
-.top-header-area.white ul.navbar-nav li.nav-item a.nav-link, .top-header-area.white ul.navbar-nav li.nav-item.active a.nav-link {
+.top-header-area.white ul.navbar-nav li.nav-item a.nav-link,
+.top-header-area.white ul.navbar-nav li.nav-item.active a.nav-link {
   color: #fff;
 }
 
-ul.navbar-nav li.nav-item a.nav-link, ul.navbar-nav li.nav-item.active a.nav-link {
+ul.navbar-nav li.nav-item a.nav-link,
+ul.navbar-nav li.nav-item.active a.nav-link {
   color: #fff;
   font-weight: 700;
   margin-right: 14px;
@@ -562,7 +596,7 @@ nav.main-menu ul li a {
   padding: 15px;
 }
 
-nav.main-menu ul > li {
+nav.main-menu ul>li {
   position: relative;
 }
 
@@ -596,7 +630,7 @@ nav.main-menu ul ul.sub-menu li a {
   font-size: 13px;
 }
 
-nav.main-menu ul > li:hover ul {
+nav.main-menu ul>li:hover ul {
   opacity: 1;
   visibility: visible;
 }
@@ -605,7 +639,7 @@ nav.main-menu ul li:last-child a {
   display: inline-block;
 }
 
-nav.main-menu > ul li:last-child {
+nav.main-menu>ul li:last-child {
   float: right;
 }
 
@@ -660,7 +694,7 @@ ul.sub-menu li:last-child {
   padding: 8px 8px 6px;
 }
 
-nav.mean-nav > ul > li:first-child > a {
+nav.mean-nav>ul>li:first-child>a {
   border-top: none;
 }
 
@@ -674,7 +708,8 @@ nav.mean-nav > ul > li:first-child > a {
   padding: 6px 0;
 }
 
-.top-header-area.sepherate-header ul li > a, .top-header-area.sepherate-header .header-icons a {
+.top-header-area.sepherate-header ul li>a,
+.top-header-area.sepherate-header .header-icons a {
   color: #acadad;
 }
 
@@ -689,11 +724,11 @@ nav.main-menu ul ul.sub-menu li a {
   font-weight: 600;
 }
 
-nav.main-menu ul li.current-list-item > a {
+nav.main-menu ul li.current-list-item>a {
   color: #fbdf00;
 }
 
-nav.main-menu li:hover > a {
+nav.main-menu li:hover>a {
   color: #fbdf00;
 }
 
@@ -847,9 +882,7 @@ a.mobile-show {
 }
 
 /* -----------------------------------------------------------------------------
-
 # Footer Styles
-
 ----------------------------------------------------------------------------- */
 .single-logo-item img {
   max-width: 180px;
@@ -1003,141 +1036,139 @@ h2.widget-title:after {
 -----------------------*/
 
 .login {
-	padding-top: 130px;
-	padding-bottom: 120px;
+  padding-top: 130px;
+  padding-bottom: 120px;
 }
 
 .login__form {
-	position: relative;
-	padding-left: 145px;
+  position: relative;
+  padding-left: 145px;
 }
 
 .login__form:after {
-	position: absolute;
-	right: -14px;
-	top: -40px;
-	height: 330px;
-	width: 1px;
-	background: rgba(255, 255, 255, 0.2);
-	content: "";
+  position: absolute;
+  right: -14px;
+  top: -40px;
+  height: 330px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  content: "";
 }
 
 .login__form h3 {
-	color: #ffffff;
-	font-weight: 700;
-	font-family: "Oswald", sans-serif;
-	margin-bottom: 30px;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 30px;
 }
 
 .login__form form .input__item {
-	position: relative;
-	width: 370px;
-	margin-bottom: 20px;
+  position: relative;
+  width: 370px;
+  margin-bottom: 20px;
 }
 
 .login__form form .input__item:before {
-	position: absolute;
-	left: 50px;
-	top: 10px;
-	height: 30px;
-	width: 1px;
-	background: #b7b7b7;
-	content: "";
+  position: absolute;
+  left: 50px;
+  top: 10px;
+  height: 30px;
+  width: 1px;
+  background: #b7b7b7;
+  content: "";
 }
 
 .login__form form .input__item input {
-	height: 50px;
-	width: 100%;
-	font-size: 15px;
-	color: #b7b7b7;
-	background: #ffffff;
-	border: none;
-	padding-left: 76px;
+  height: 50px;
+  width: 100%;
+  font-size: 15px;
+  color: #b7b7b7;
+  background: #ffffff;
+  border: none;
+  padding-left: 76px;
 }
 
 .login__form form .input__item input::-webkit-input-placeholder {
-	color: #b7b7b7;
+  color: #b7b7b7;
 }
 
 .login__form form .input__item input::-moz-placeholder {
-	color: #b7b7b7;
+  color: #b7b7b7;
 }
 
 .login__form form .input__item input:-ms-input-placeholder {
-	color: #b7b7b7;
+  color: #b7b7b7;
 }
 
 .login__form form .input__item input::-ms-input-placeholder {
-	color: #b7b7b7;
+  color: #b7b7b7;
 }
 
 .login__form form .input__item input::placeholder {
-	color: #b7b7b7;
+  color: #b7b7b7;
 }
 
 .login__form form .input__item span {
-	color: #b7b7b7;
-	font-size: 20px;
-	position: absolute;
-	left: 15px;
-	top: 13px;
+  color: #b7b7b7;
+  font-size: 20px;
+  position: absolute;
+  left: 15px;
+  top: 13px;
 }
 
 .login__form form button {
-	border-radius: 0;
-	margin-top: 10px;
+  border-radius: 0;
+  margin-top: 10px;
 }
 
 .login__form .forget_pass {
-	font-size: 15px;
-	color: #ffffff;
-	display: inline-block;
-	position: absolute;
-	right: 60px;
-	bottom: 12px;
+  font-size: 15px;
+  color: #ffffff;
+  display: inline-block;
+  position: absolute;
+  right: 60px;
+  bottom: 12px;
 }
 
 .login__register {
-	padding-left: 30px;
+  padding-left: 30px;
 }
 
 .login__register h3 {
-	color: #ffffff;
-	font-weight: 700;
-	font-family: "Oswald", sans-serif;
-	margin-bottom: 30px;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 30px;
 }
 
 .login__register .primary-btn {
-	font-size: 13px;
-	color: #ffffff;
-	background: #ffe200;
-	font-weight: 700;
-	border: none;
-	border-radius: 2px;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	display: inline-block;
-	padding: 12px 30px;
+  font-size: 13px;
+  color: #ffffff;
+  background: #ffe200;
+  font-weight: 700;
+  border: none;
+  border-radius: 2px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 30px;
 }
 
 .site-btn {
-	font-size: 13px;
-	color: #ffffff;
-	background: #ffe200;
-	font-weight: 700;
-	border: none;
-	border-radius: 2px;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	display: inline-block;
-	padding: 12px 30px;
+  font-size: 13px;
+  color: #ffffff;
+  background: #ffe200;
+  font-weight: 700;
+  border: none;
+  border-radius: 2px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 30px;
 }
 
 /* -----------------------------------------------------------------------------
-
 # Hover Styles
-
 ----------------------------------------------------------------------------- */
 a.navbar-brand {
   -webkit-transition: 0.3s;
@@ -1323,7 +1354,8 @@ input[type="submit"]:hover {
   color: #fbdf00;
 }
 
-div.owl-controls, .owl-controls div {
+div.owl-controls,
+.owl-controls div {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -1503,9 +1535,7 @@ a.mobile-show.search-bar-icon:hover {
 }
 
 /* -----------------------------------------------------------------------------
-
 # Hero Styles
-
 ----------------------------------------------------------------------------- */
 .hero-bg {
   background-image: url(../img/hero-bg.jpg);
@@ -1529,7 +1559,8 @@ a.mobile-show.search-bar-icon:hover {
   z-index: 1;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -1669,7 +1700,8 @@ input[type="submit"] {
   opacity: 0.7;
 }
 
-div.owl-controls, .owl-controls div {
+div.owl-controls,
+.owl-controls div {
   height: auto;
   top: 50%;
   color: #fbdf00;
@@ -1693,9 +1725,7 @@ div.owl-controls, .owl-controls div {
 }
 
 /* -----------------------------------------------------------------------------
-
 # List Styles
-
 ----------------------------------------------------------------------------- */
 .list-section {
   background-color: #f5f5f5;
@@ -1732,9 +1762,7 @@ div.owl-controls, .owl-controls div {
 }
 
 /* -----------------------------------------------------------------------------
-
 # News Styles
-
 ----------------------------------------------------------------------------- */
 .news-bg-1 {
   background-image: url(../img/latest-news/news-bg-1.jpg);
@@ -1940,7 +1968,7 @@ span.comment-date {
   margin-bottom: 10px;
 }
 
-.comment-template > p {
+.comment-template>p {
   opacity: 0.7;
   margin-bottom: 30px;
 }
@@ -2000,21 +2028,23 @@ span.comment-date {
   font-size: 15px;
 }
 
-.sidebar-section > div {
+.sidebar-section>div {
   margin-bottom: 60px;
 }
 
-.sidebar-section > div:last-child {
+.sidebar-section>div:last-child {
   margin-bottom: 0;
 }
 
-.recent-posts ul li, .archive-posts ul li {
+.recent-posts ul li,
+.archive-posts ul li {
   position: relative;
   padding-left: 17px;
   margin-bottom: 10px;
 }
 
-.recent-posts ul li:before, .archive-posts ul li:before {
+.recent-posts ul li:before,
+.archive-posts ul li:before {
   position: absolute;
   left: 0;
   top: 2px;
@@ -2037,9 +2067,7 @@ span.comment-date {
 }
 
 /* -----------------------------------------------------------------------------
-
 # Cart Banner Styles
-
 ----------------------------------------------------------------------------- */
 .cart-banner {
   background-color: #f5f5f5;
@@ -2142,9 +2170,7 @@ span.comment-date {
 }
 
 /* -----------------------------------------------------------------------------
-
 # Testimonial Styles
-
 ----------------------------------------------------------------------------- */
 .client-avater {
   margin-bottom: 20px;
@@ -2187,9 +2213,7 @@ p.testimonial-body {
 }
 
 /* -----------------------------------------------------------------------------
-
 # About Styles
-
 ----------------------------------------------------------------------------- */
 a.video-play-btn {
   position: absolute;
@@ -2257,9 +2281,7 @@ a.video-play-btn {
 }
 
 /* -----------------------------------------------------------------------------
-
 # Shop Banner Styles
-
 ----------------------------------------------------------------------------- */
 .shop-banner {
   position: relative;
@@ -2295,9 +2317,7 @@ a.video-play-btn {
 }
 
 /* -----------------------------------------------------------------------------
-
 # About Page Styles
-
 ----------------------------------------------------------------------------- */
 .feature-bg {
   position: relative;
@@ -2391,9 +2411,7 @@ ul.social-link-team li a {
 }
 
 /* -----------------------------------------------------------------------------
-
 # Contact Page Styles
-
 ----------------------------------------------------------------------------- */
 .form-title {
   margin-bottom: 25px;
@@ -2408,7 +2426,9 @@ ul.social-link-team li a {
   line-height: 1.8;
 }
 
-.contact-form form p input[type=text], .contact-form form p input[type=tel], .contact-form form p input[type=email] {
+.contact-form form p input[type=text],
+.contact-form form p input[type=tel],
+.contact-form form p input[type=email] {
   width: 49%;
   padding: 15px;
   border: 1px solid #ddd;
@@ -2515,9 +2535,7 @@ ul.social-link-team li a {
 }
 
 /* -----------------------------------------------------------------------------
-
 # Shop Page Styles
-
 ----------------------------------------------------------------------------- */
 .product-filters {
   margin-bottom: 80px;
@@ -2819,7 +2837,8 @@ tr.total-data td strong {
   resize: none;
 }
 
-.shipping-address-form p, .card-details p {
+.shipping-address-form p,
+.card-details p {
   margin: 0;
 }
 
@@ -2855,7 +2874,7 @@ table.order-details tbody td {
   padding: 15px;
 }
 
-.order-details-wrap > a {
+.order-details-wrap>a {
   margin-top: 30px;
 }
 
@@ -2871,9 +2890,7 @@ table.order-details tbody td {
 }
 
 /* -----------------------------------------------------------------------------
-
 # 404 Page Styles
-
 ----------------------------------------------------------------------------- */
 .error-text i {
   font-size: 90px;
