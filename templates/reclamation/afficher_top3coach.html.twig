@@ -19,21 +19,25 @@
 	</div>
 
 
- {% for c in topcoach %}
 			<div class="row">
+			 {% for c in topcoach %}
+
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item"  >
 						<div class="product-image">
 				<img src="{{ asset('uploads/articles/' ~ c.image ) }}" alt="" width="200" height="200">
 
 						</div>
-                                     <td>{{ c.nom }}</td>
-						<p class="product-price"><span>     <td>{{ c.prenom }}</td></span>   <td>{{ c.moyenne|number_format(2)}}</td></p>
+                         <td>{{ c.nom }}</td>
+						<p class="product-price"><span>    
+						 <td>{{ c.prenom }}</td></span> 
+						   <td>{{ c.moyenne|number_format(2)}}</td></p>
 					</div>
 				</div>
+				                        {% endfor %}
+
                 	</div>
 				
-                        {% endfor %}
 
                         {% endblock %}
 
