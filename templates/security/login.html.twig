@@ -38,6 +38,9 @@
                                 >
                                 <span class="icon_lock"><i class="fas fa-lock"></i></span>
                             </div>
+                            <div class="input__item">
+                                <a href="{{ path('app_email')}}">forget pass</a>
+                            </div>
                             {% if error %}
                                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                             {% endif %}
