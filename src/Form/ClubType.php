@@ -24,10 +24,22 @@ class ClubType extends AbstractType
                 'required' => true,
                 'constraints' => [new NotBlank()]
             ])
-            ->add('Prix')
-            ->add('localisation')
-            ->add('longitude')
-            ->add('latitude')
+            ->add('Prix', TextType::class, [
+                'required' => true,
+                'constraints' => [new NotBlank()]
+            ])
+            ->add('localisation', TextType::class, [
+                'required' => true,
+                'constraints' => [new NotBlank()]
+            ])
+            ->add('longitude', TextType::class, [
+                'required' => true,
+                'constraints' => [new NotBlank()]
+            ])
+            ->add('latitude', TextType::class, [
+                'required' => true,
+                'constraints' => [new NotBlank()]
+            ])
 
             ->add('image', FileType::class, [
                 'label' => 'image (image file)',
@@ -60,10 +72,13 @@ class ClubType extends AbstractType
                 'required' => true,
                 'constraints' => [new NotBlank()]
             ])
-            ->add('Description')
+            ->add('Description', TextType::class, [
+                'required' => true,
+                'constraints' => [new NotBlank()]
+            ])
             ->add("submit", SubmitType::class, [
                 'label' => 'Enregistrer',
-            ]);;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

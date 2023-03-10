@@ -97,7 +97,7 @@ class ClubController extends AbstractController
         }
         return $this->renderForm("club/add.html.twig", array("formClub" => $form));
     }
-    
+
     /*#[Route('/show', name: 'club_show')]
     public function show(){
         return $this->render("club/show.html.twig");
@@ -149,20 +149,9 @@ class ClubController extends AbstractController
             'longitude' => $club->getLongitude(),
         ]);
     }
-    #[Route('/client/showMesClubs', name: 'mes_clubs')]
-    public function showMesClubs(ParticipationRepository $participationRepository)
-    {
-        $token = $this->get('security.token_storage')->getToken();
-        $user = $token->getUser();
-        $userId = $user->getId();
-        $mesClubs = $participationRepository->findMesClubs($userId);
+   
 
-        return $this->render('listParticipation.html.twig', [
-            'mes_clubs' => $mesClubs,
-        ]);
-    }
 
-    
     ////////////////////////mapbox
     /**
      * Get the geolocation of a club

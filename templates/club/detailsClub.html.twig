@@ -32,9 +32,11 @@
 					
 							<div id="map" style='width: 100%; height: 500px;'>
 							<script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+							<link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
 							<style>
 								.mapboxgl-marker {
 									pointer-events: none; /* make the marker element untouchable */
+								
 								}
 							</style>
 							<script>
@@ -45,17 +47,21 @@
 									center: [{{ longitude }}, {{ latitude }}], // set the center of the map to the club's coordinates
 									zoom: 14
 								});
+								
+								
 								var marker = new mapboxgl.Marker({
 									anchor: 'bottom' // set the marker anchor to the bottom center
 								})
 								.setLngLat([{{ longitude }}, {{ latitude }}])
+								.setPopup(new mapboxgl.Popup({ offset: 25 }) // add pop-up
+									.setHTML("<h3>{{club.nom}}</h3>")) // set content of pop-up
 								.addTo(map);
 
 								map.on('load', function() {
 									map.setCenter([{{ longitude }}, {{ latitude }}]); // set map center to marker position
 								});
 							</script>
-						</div>
+							</div>
 
 
 
@@ -68,17 +74,19 @@
 						<p>Description:  {{club.Description}}</p>
 						<p>Prix: {{club.Prix}}</p>
 						<p><strong>Categories: </strong>{{ club.typeActivite }}</p>
-
-						<div class="single-product-form">
 						
-							<a href="{{ path('add_participation', {'id': club.id}) }}" class="cart-btn"><i class='fas fa-dumbbell' style='font-size:24px'></i></i>Participer</a>
+							<div class="single-product-form">
+							
+								<a href="{{ path('add_participation', {'id': club.id}) }}" class="cart-btn"><i class='fas fa-dumbbell' style='font-size:24px'></i></i>Participer</a>
+							
+							</div>
 						
-						</div>
+							
 						<h4>Share:</h4>
 						<ul class="product-share">
-							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href=""><i class="fab fa-twitter"></i></a></li>
-							<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+							<li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="https://www.google.fr"><i class="fab fa-google-plus-g"></i></a></li>
 							
 						</ul>
 					</div>
