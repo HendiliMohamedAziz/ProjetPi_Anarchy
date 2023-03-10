@@ -68,7 +68,7 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($this->urlGenerator->generate('list_club'));
         }
         if (in_array('ROLE_COACH', $user->getRoles())) {
-            return new RedirectResponse($this->urlGenerator->generate('add_seance'));
+            return new RedirectResponse($this->urlGenerator->generate('list_seance'));
         }
         if (in_array('ROLE_ADMIN_PRODUIT', $user->getRoles())) {
             return new RedirectResponse($this->urlGenerator->generate('app_admin_vente'));
