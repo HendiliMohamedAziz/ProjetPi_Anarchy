@@ -287,11 +287,11 @@
 							<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
 								<div class="hero-text">
 									<div class="hero-text-tablecell">
-										<p class="subtitle">Fresh & Organic</p>
-										<h1>Delicious Seasonal Fruits</h1>
+										<p class="subtitle">BOUR LA FORME</p>
+										<h1>First Tunisian Virtuel Sportif Complex</h1>
 										<div class="hero-btns">
-											<a href="shop.html" class="boxed-btn">Fruit Collection</a>
-											<a href="contact.html" class="bordered-btn">Contact Us</a>
+											<a href="{{ path('afficher_coach')}}" class="boxed-btn">Coachs</a>
+											<a href="{{ path('afficher_club')}}" class="bordered-btn">Clubs</a>
 										</div>
 									</div>
 								</div>
@@ -306,11 +306,10 @@
 							<div class="col-lg-10 offset-lg-1 text-center">
 								<div class="hero-text">
 									<div class="hero-text-tablecell">
-										<p class="subtitle">Fresh Everyday</p>
-										<h1>100% Organic Collection</h1>
+										<p class="subtitle">BOUR LA FORME</p>
+										<h1>Eat Sleep, Gym, and Repeat</h1>
 										<div class="hero-btns">
-											<a href="shop.html" class="boxed-btn">Visit Shop</a>
-											<a href="contact.html" class="bordered-btn">Contact Us</a>
+											<a href="{{ path('list_article2') }}" class="boxed-btn">Visit Shop</a>
 										</div>
 									</div>
 								</div>
@@ -325,11 +324,10 @@
 							<div class="col-lg-10 offset-lg-1 text-right">
 								<div class="hero-text">
 									<div class="hero-text-tablecell">
-										<p class="subtitle">Mega Sale Going On!</p>
-										<h1>Get December Discount</h1>
+										<p class="subtitle">BOUR LA FORME</p>
+										<h1>Get The Latest Sports Product</h1>
 										<div class="hero-btns">
-											<a href="shop.html" class="boxed-btn">Visit Shop</a>
-											<a href="contact.html" class="bordered-btn">Contact Us</a>
+											<a href="{{ path('list_article2') }}"  class="boxed-btn">Visit Shop</a>
 										</div>
 									</div>
 								</div>
@@ -352,36 +350,27 @@
 						<div class="col-lg-3 col-md-6">
 							<div class="footer-box about-widget">
 								<h2 class="widget-title">About us</h2>
-								<p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+								<p>sport complex or sportif is a facility that provides a range of sports and fitness-related activities. It typically consists of various indoor and outdoor facilities, such as courts, fields, tracks, and pools. These facilities are designed to accommodate a variety of sports, including basketball, soccer, volleyball, swimming, and more. Sport complexes are often used by individuals, families, and teams for recreational activities, fitness training, and competitive events. They also offer a variety of amenities, such as locker rooms, showers, and equipment rental, to enhance the overall experience. Sport complexes are important for promoting a healthy and active lifestyle, as well as providing opportunities for social interaction and community engagement.</p>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-6">
 							<div class="footer-box get-in-touch">
 								<h2 class="widget-title">Get in Touch</h2>
 								<ul>
-									<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-									<li>support@fruitkha.com</li>
-									<li>+00 111 222 3333</li>
+									<li>Av. Fethi Zouhir, Cebalat</li>
+									<li>BourLAFORME@gmail.com</li>
+									<li>+216 71000111</li>
 								</ul>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-6">
-							<div class="footer-box subscribe">
-								<h2 class="widget-title">Join us</h2>
-								<p>Join now and register</p>
-								<div class="col-lg-6">
-									<div class="login__register">
-										<a href="{{ path('app_register')}}" class="primary-btn">Register Now</a>
-									</div>
-								</div>
-							</div>
-						</div>
+
 					</div>
 				</div>
 			</div>
 			<!-- end footer -->
 
 		{% endblock %}
+		{% block javascript %}	{% endblock %}
 		<script src="{{ asset('front-office/assets/js/registration.js') }}"></script>
 		<!-- jquery -->
 		<script src="{{ asset('front-office/assets/js/jquery-1.11.3.min.js') }}"></script>
