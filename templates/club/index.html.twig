@@ -22,14 +22,20 @@
                <div class="col-lg-3 col-md-4 text-center berry">
                   <div class="single-product-item">
                      <div class="product-image">
-                        <img src="{{ asset('uploads/brochures/' ~ s.image) }}" alt="{{ s.nom }}" height="200" width="200">
+                        <img src="{{ asset('uploads/articles/' ~ s.image) }}" alt="{{ s.nom }}" height="200" width="200">
                      </div>
                      <h3>{{ s.nom }}</h3>
                      <a href="{{ path('club_show', {'id': s.id}) }}" class="cart-btn">Voir</a>
                   </div>
                </div>
             {% endfor %}
+
          </div>
+           
+        
+             
       </div>
+          
 </div>
+
 {% endblock %}

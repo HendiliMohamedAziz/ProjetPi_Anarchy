@@ -50,6 +50,9 @@ class ReclamationController extends AbstractController
     #[Route('/client/reclamer/coach/{id}', name: 'reclamer_coach')]
     public function ajout_reclamation_coach($id,Request $request,ReclamationRepository $rp,UserRepository $urp): Response
     {
+        
+
+
         $reclamation=new reclamation();
         $user=$this->getUser();
         $coach=$urp->find($id);

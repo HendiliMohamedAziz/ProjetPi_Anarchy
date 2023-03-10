@@ -2,6 +2,8 @@
 
 namespace App\Repository;
 
+use App\Entity\Club;
+use App\Entity\User;
 use App\Entity\Participation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -127,19 +129,19 @@ class ParticipationRepository extends ServiceEntityRepository
     }*/
 
     public function findParticipationsByClubOwner($clubOwnerId)
-{
-    $qb = $this->createQueryBuilder('p');
-    $qb->select('p', 'c', 'u')
-       ->join('p.id_club', 'c')
-       ->join('c.id_clubOwner', 'co')
-       ->join('p.id_user', 'u')
-       ->where('co = :clubOwner')
-       ->setParameter('clubOwner', $clubOwnerId)
-       ->andWhere('u.roles LIKE :roles')
-       ->setParameter('roles', '%"ROLE_CLIENT"%');
+    {
+        $qb = $this->createQueryBuilder('p');
+        $qb->select('p', 'c', 'u')
+            ->join('p.id_club', 'c')
+            ->join('c.id_clubOwner', 'co')
+            ->join('p.id_user', 'u')
+            ->where('co = :clubOwner')
+            ->setParameter('clubOwner', $clubOwnerId)
+            ->andWhere('u.roles LIKE :roles')
+            ->setParameter('roles', '%"ROLE_CLIENT"%');
 
-    return $qb->getQuery()->getResult();
-}
+        return $qb->getQuery()->getResult();
+    }
 
 
     /*
@@ -193,7 +195,7 @@ public function findClientsParticipations($clubOwnerId) {
         $results = $query->getResult();
         return $results;
     }*/
-    
+
     public function findByIdClient($clientId)
     {
         $qb = $this->createQueryBuilder('p');
@@ -221,5 +223,20 @@ public function orderByDate(){
         return $this->createQueryBuilder('c')
             ->getQuery()
             ->getResult();
+    }
+
+
+    public function findActiveParticipation(User $user, Club $club): ?Participation
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.id_user = :user')
+            ->andWhere('p.id_club = :club')
+            ->andWhere('p.participated = :participated')
+            ->setParameter('user', $user)
+            ->setParameter('club', $club)
+            ->setParameter('participated', true)
+
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }

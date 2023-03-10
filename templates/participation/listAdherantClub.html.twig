@@ -1,51 +1,39 @@
-{# 
-{% extends 'template.html.twig' %}
 
-{% block body %}
-<h2><center><mark>Liste des Adhérants</mark></center></h2>
-<div class="container mt-5">
-        <div class="table-responsive">
-            <table class="table table-striped  table-hover">
-                <thead>
-                    <tr>
-                        <th >Nom Club</th>
-                        <th>Nom Adhérant</th>
-                        <th>Actions</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for parti in participations %}
-                        <tr>
-                            <td>{{ parti.getIdClub() }}</td>
-                            
-                            <td>{{ parti.getIdUser()}}</td>
-                            <td></td>
-                            {#<td>{{parti.getDateDebut()}}</td>      tekhdemch naarach naaytelha#}
-                            {#
-                            <td>
-                                <a href= "{{ path('remove_participationClient',{'id':parti.id}) }}"><i class="fas fa-trash text-danger"></i></a>
-                                {% if not parti.participated %}
-                                    <a href="{{ path('isParticipated_participationClient', { 'id': parti.id }) }}">participated</a>
-                                {% endif %}
-                            </td>
-                        
-                        
-                        </tr>
-                        {% else %}
-                        <tr>
-                            <td colspan="3">Aucun client trouvé.</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-{% endblock %}
-
-#}
 {% extends 'base-back.html.twig' %}
+{% block sidenav %} 
 
+    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon">
+                        <i class="fas fa-columns"></i>
+                 </div>
+                Clubs
+                <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                </div>
+        </a>
+        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{path('add_club')}}">Ajouter un Club</a>
+                         <a class="nav-link" href="{{path('list_club')}}">Liste des clubs</a>
+                </nav>
+        </div>
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon">
+                        <i class="fas fa-columns"></i>
+                 </div>
+                Participations
+                <div class="sb-sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                </div>
+        </a>
+        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{path('particip_adherants')}}"> Liste des Adhérants</a>
+                        
+                </nav>
+        </div>
+
+{% endblock %}
 {% block body %}
     <h2><center><mark>Liste des Adhérants</mark></center></h2>
     <div class="container mt-5">

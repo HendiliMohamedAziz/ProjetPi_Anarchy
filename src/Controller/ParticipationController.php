@@ -43,6 +43,10 @@ class ParticipationController extends AbstractController
         $token = $this->get('security.token_storage')->getToken();
         $user = $token->getUser();
         $club = $clubRepository->find($id);
+        $existingParticipation = $repository->findActiveParticipation($user, $club);
+        if ($existingParticipation !== null) {
+            return $this->render('club/participated.html.twig');
+        }
         $participation = new Participation();
         $participation->setIdClub($club);
         $participation->setParticipated(false);
@@ -126,6 +130,7 @@ class ParticipationController extends AbstractController
     public function participated(Request $request, ParticipationRepository $participationRepository, int $id)
     {
         $participation = $participationRepository->find($id);
+
         $participation->setParticipated(true);
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($participation);
