@@ -2341,19 +2341,25 @@ a.video-play-btn {
 }
 
 .team-bg-1 {
-  background-image: url(../img/team/team-1.jpg);
+  background-image: url(../img/team/team-1.jpeg);
 }
 
 .team-bg-2 {
-  background-image: url(../img/team/team-2.jpg);
+  background-image: url(../img/team/team-2.jpeg);
 }
 
 .team-bg-3 {
-  background-image: url(../img/team/team-3.jpg);
+  background-image: url(../img/team/team-3.jpeg);
 }
 
 .team-bg-4 {
-  background-image: url(../img/team/team-4.jpg);
+  background-image: url(../img/team/team-4.jpeg);
+}
+.team-bg-5 {
+  background-image: url(../img/team/team-5.jpeg);
+}
+.team-bg-6 {
+  background-image: url(../img/team/team-6.jpeg);
 }
 
 .team-bg {
