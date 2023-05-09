@@ -30,12 +30,14 @@ class ReservationController extends AbstractController
    #[Route('/client/addreservation', name: 'add_reservation')]
     public function addReservation(ManagerRegistry $doctrine,Request $request): Response
     {
-
+       $token = $this->get('security.token_storage')->getToken();
+       $user = $token->getUser();
        $reservation = new Reservation();
       
        $form= $this->createForm(ReservationType::class,$reservation);
        $form->handleRequest($request) ;
        if ($form->isSubmitted() && $form->isValid() ){
+        $reservation->setIdUser($user);
         $reservation= $form->getData();
         $seance= $reservation->getSeance();
         if($seance->getNbrGrp()==0){
