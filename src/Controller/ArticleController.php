@@ -212,7 +212,7 @@ public function Article2(ArticleRepository $articleRepository,ManagerRegistry $d
         array('tabarticle'=>$article,'tabcommentaires'=>$commentaires,'form'=>$form->createView())); 
 }
 
-#[Route('/client/desarchive/{id}', name:'desarchiver')]
+#[Route('/admin/produit/desarchive/{id}', name:'desarchiver')]
 
 public function desarchive($id)
 {
@@ -253,7 +253,7 @@ public function listarticle2(articleRepository $repository,Request $request)
 }
 
 
-#[Route('/client/article/data/download', name: 'users_data_download')]
+#[Route('/admin/produit/article/data/download', name: 'users_data_download')]
 
 public function usersDataDownload(ArticleRepository $article)
 {
