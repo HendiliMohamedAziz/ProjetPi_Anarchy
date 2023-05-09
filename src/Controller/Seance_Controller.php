@@ -7,18 +7,16 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
  use App\Entity\Seance;
- use App\Entity\User;
- use App\Serializer\CircularReferenceHandler;
+
  use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  use Symfony\Component\HttpFoundation\JsonResponse;
  use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
+
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
  use Symfony\Component\Serializer\Serializer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Component\Validator\Constraints\Json;
+
 use App\Repository\SeanceRepository;
-use App\Repository\UserRepository;
 
 class Seance_Controller extends  AbstractController
 {
@@ -95,6 +93,8 @@ class Seance_Controller extends  AbstractController
          $seance->setNbrSeance($request->get('nbr_seance'));
          $seance->setNbrGrp($request->get('nbr_grp'));
          $seance->setDescription($request->get('description'));
+         $seance->setDescription($request->get('color'));
+         $seance->setDescription($request->get('titre'));
         
  
          $em->persist($seance);
@@ -109,9 +109,9 @@ class Seance_Controller extends  AbstractController
       public function allRecAction(SeanceRepository $repository):JsonResponse
       {
           $seances = $repository->findAll();
-          return $this->json([
-                'data'=>$seances
-          ],200,[],[ObjectNormalizer::CIRCULAR_REFERENCE_HANDLER => function()
+          return $this->json(
+                $seances
+          ,200,[],[ObjectNormalizer::CIRCULAR_REFERENCE_HANDLER => function()
           {return 'symfony4';}]
           );
           

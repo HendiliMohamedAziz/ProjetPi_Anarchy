@@ -9,7 +9,7 @@ use JsonSerializable;
 use Symfony\Component\Validator\Constraints as assert;
 
 #[ORM\Entity(repositoryClass: ReclamationRepository::class)]
-class Reclamation
+class Reclamation implements \JsonSerializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -172,6 +172,33 @@ class Reclamation
         return $this;
     }
 
-  
+    public function jsonSerialize(): array
+    {
+        return array(
+            'id' => $this->id,
+            'userId' => $this->user == null ? -1 : $this->user->getId(),
+            'coachId' => $this->coach == null ? -1 : $this->coach->getId(),
+            'clubId' => $this->club == null ? -1 : $this->club->getId(),
+            'articleId' => $this->article == null ? -1 : $this->article->getId(),
+            'date' => $this->datereclamation->format("d-m-Y"),
+            'etat' => $this->etat,
+            'reponse' => $this->reponse,
+            'type' => $this->type,
+            'message' => $this->message
 
+        );
+    }
+
+    public function constructor($userId, $coachId, $clubId, $articleId, $date, $etat, $reponse, $type, $message)
+    {
+        $this->user = $userId;
+        $this->coach = $coachId;
+        $this->club = $clubId;
+        $this->article = $articleId;
+        $this->datereclamation = $date;
+        $this->etat = $etat;
+        $this->reponse = $reponse;
+        $this->type = $type;
+        $this->message = $message;
+    }
 }

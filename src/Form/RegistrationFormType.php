@@ -27,8 +27,8 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Register as coach?',
                 'required' => false,
             ])
-            ->add('Certificates', FileType::class, [
-                'label' => 'Coaching certification',
+            ->add('Image', FileType::class, [
+                'label' => 'Coach Image',
                 'required' => false,
                 'mapped' => false, 
                 'required' => false,

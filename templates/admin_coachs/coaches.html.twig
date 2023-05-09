@@ -31,7 +31,7 @@
                 <th style="width: 5%">ID</th>
                 <th style="width: 15%">Email</th>
                 <th style="width: 10%">Name</th>
-                <th style="width: 15%">Certifications</th>
+                <th style="width: 15%">Coach Image</th>
                 <th style="width: 15%">Specialty</th>
                 <th style="width: 10%">Experience</th>
                 <th style="width: 15%">Description</th>
@@ -44,7 +44,7 @@
                     <td>{{ coach.id }}</td>
                     <td>{{ coach.email }}</td>
                     <td>{{ coach.nom }} {{ coach.prenom }}</td>
-                    <td><div class="d-flex align-items-center"><img class="rounded-circle" src="{{ asset('uploads/articles/' ~ coach.Certificates) }}"width="100"><span class="ml-2"></span></div></td>
+                    <td><div class="d-flex align-items-center"><img class="rounded-circle" src="{{ asset('uploads/articles/' ~ coach.Image) }}"width="100"><span class="ml-2"></span></div></td>
                     <td>{{ coach.specialite }}</td>
                     <td>{{ coach.experiance }}</td>
                     <td>{{ coach.description }}</td>
