@@ -33,18 +33,18 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted()) {
             if ($form->get('isCoach')->getData()) {
                 if ($user->getIsCoach()) {
-                    $CertificateImage = $form->get('Certificates')->getData();
+                    $CoachImage = $form->get('Image')->getData();
                     // this condition is needed because the 'brochure' field is not required
                     // so the PDF file must be processed only when a file is uploaded
-                    if ($CertificateImage) {
-                        $originalFilename = pathinfo($CertificateImage->getClientOriginalName(), PATHINFO_FILENAME);
+                    if ($CoachImage) {
+                        $originalFilename = pathinfo($CoachImage->getClientOriginalName(), PATHINFO_FILENAME);
                         // this is needed to safely include the file name as part of the URL
                         $safeFilename = $slugger->slug($originalFilename);
-                        $newFilename = $safeFilename.'-'.uniqid().'.'.$CertificateImage->guessExtension();
+                        $newFilename = $safeFilename.'-'.uniqid().'.'.$CoachImage->guessExtension();
 
                         // Move the file to the directory where brochures are stored
                         try {
-                            $CertificateImage->move(
+                            $CoachImage->move(
                                 $this->getParameter('brochures_directory'),
                                 $newFilename
                             );
@@ -54,7 +54,7 @@ class RegistrationController extends AbstractController
 
                         // updates the 'brochureFilename' property to store the PDF file name
                         // instead of its contents
-                        $user->setCertificates($newFilename);
+                        $user->setImage($newFilename);
                     }
                 }
                 if ($user->getIsCoach()) {
@@ -68,8 +68,8 @@ class RegistrationController extends AbstractController
                 } 
                 
 
-                if (!$user->getCertificates()) {
-                    $form->get('Certificates')->addError(new FormError('Please provide your coaching certification.'));
+                if (!$user->getImage()) {
+                    $form->get('Image')->addError(new FormError('Please provide your Image.'));
                 }
                 if (!$user->getSpecialite()) {
                     $form->get('specialite')->addError(new FormError('Please provide your coaching specialite.'));
@@ -105,12 +105,13 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
-            $user->setPassword(
+            /*$user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
-            );
+            );*/
+            $user->setPassword($form->get('plainPassword')->getData());
             
             $entityManager->persist($user);
             $entityManager->flush();

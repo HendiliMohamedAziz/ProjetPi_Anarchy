@@ -57,7 +57,7 @@ class SeanceController extends AbstractController
 #[Route('/client/listcoach', name: 'list_coach')]
     public function listCoach(UserRepository $repository,Request $request,TransportInterface $mailer,ManagerRegistry $doctrine)
     {
-        $coach = $repository->findAll();
+        $coach = $repository->findCoaches();
         $user=new User();
         $form = $this->createForm(ReservationContactType::class);
         $contact = $form->handleRequest($request);
