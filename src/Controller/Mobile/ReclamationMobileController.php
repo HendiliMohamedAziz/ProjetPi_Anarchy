@@ -17,14 +17,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/mobile/reclamation")
- */
+
+#[Route('/mobile/reclamation', name: 'Reclamation_mobile')]
 class ReclamationMobileController extends AbstractController
 {
-    /**
-     * @Route("", methods={"GET"})
-     */
+    
+    #[Route('', methods: 'GET')]
     public function index(ReclamationRepository $reclamationRepository): Response
     {
         $reclamations = $reclamationRepository->findAll();
@@ -36,9 +34,8 @@ class ReclamationMobileController extends AbstractController
         }
     }
 
-    /**
-     * @Route("/add", methods={"POST"})
-     */
+    
+    #[Route('/add', methods: 'POST')]
     public function add(Request           $request,
                         UserRepository    $userRepository,
                         ClubRepository    $clubRepository,
@@ -52,9 +49,8 @@ class ReclamationMobileController extends AbstractController
             $articleRepository);
     }
 
-    /**
-     * @Route("/edit", methods={"POST"})
-     */
+    
+    #[Route('/edit', methods: 'POST')]
     public function edit(Request           $request, ReclamationRepository $reclamationRepository,
                          UserRepository    $userRepository,
                          ClubRepository    $clubRepository,
@@ -99,9 +95,8 @@ class ReclamationMobileController extends AbstractController
         return new JsonResponse($reclamation, 200);
     }
 
-    /**
-     * @Route("/delete", methods={"POST"})
-     */
+    
+    #[Route('/delete', methods: 'POST')]
     public function delete(Request $request, EntityManagerInterface $entityManager, ReclamationRepository $reclamationRepository): JsonResponse
     {
         $reclamation = $reclamationRepository->find((int)$request->get("id"));
@@ -116,9 +111,8 @@ class ReclamationMobileController extends AbstractController
         return new JsonResponse([], 200);
     }
 
-    /**
-     * @Route("/deleteAll", methods={"POST"})
-     */
+    
+    #[Route('/deleteAll', methods: 'POST')]
     public function deleteAll(EntityManagerInterface $entityManager, ReclamationRepository $reclamationRepository): Response
     {
         $reclamations = $reclamationRepository->findAll();
