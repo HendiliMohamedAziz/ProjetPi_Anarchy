@@ -45,7 +45,7 @@ class UserApiController extends AbstractController
         $user->setEmail($email);
         $user->setNom($nom);
         $user->setPrenom($prenom);
-        $user->setPassword($password);
+        $user->setPassword($hashedPassword);
         try{
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
@@ -59,24 +59,24 @@ class UserApiController extends AbstractController
 
 
     #[Route('/api/login', name: 'api_login')]
-    public function Login(Request $request){
+    public function Login(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    {
         $email = $request->query->get("email");
         $password = $request->query->get("password");
 
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository(User::class)->findOneBy(['email'=>$email]);
-        if($user){
-            if($password==$user->getPassword()){
+        $user = $em->getRepository(User::class)->findOneBy(['email' => $email]);
+        if ($user) {
+            // Verify the password hash
+            if ($passwordEncoder->isPasswordValid($user, $password)) {
                 $serializer = new Serializer([new ObjectNormalizer()]);
                 $formatted = $serializer->normalize($user);
                 return new JsonResponse($formatted);
+            } else {
+                return new Response("Incorrect password");
             }
-            else{
-                return new Response("password not found");
-            }
-        }
-        else{
-            return new Response("user not found");
+        } else {
+            return new Response("User not found");
         }
     }
 
